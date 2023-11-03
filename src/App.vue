@@ -1,5 +1,17 @@
 <script>
-import axios from "axios";
+
+import ApartmentsPage from "./pages/ApartmentsPage.vue";
+
+export default {
+  components:{
+    ApartmentsPage
+  },
+  data(){
+    return{
+
+    }
+  }
+}
 </script>
 
 <template>
