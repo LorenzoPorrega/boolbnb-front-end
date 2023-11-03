@@ -1,4 +1,5 @@
-<script setup>
+<script>
+import axios from "axios";
 </script>
 
 <template>
