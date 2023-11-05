@@ -1,5 +1,6 @@
 <script>
 import ApartmentsPage from "./pages/ApartmentsPage.vue";
+import { store } from './store.js';
 
 export default {
   components:{
@@ -7,7 +8,7 @@ export default {
   },
   data(){
     return{
-
+      store,
     }
   }
 }
