@@ -3,6 +3,7 @@ import { reactive } from "vue";
 
 export const store = reactive({
   pageLoading: false,
+  apartments: [],
 })
 
 export function onPageLoad(){
