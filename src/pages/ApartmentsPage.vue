@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid text-center">
+  <div class="container-fluid px-0 text-center">
 
     <!-- Jumbo Section -->
     <div class="text-center jumbotron">
