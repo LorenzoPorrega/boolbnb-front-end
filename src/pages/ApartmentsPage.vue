@@ -65,7 +65,7 @@ export default {
 }
 
 .container{
-  height: calc(100vh - calc(300px + 30px));
+  height: calc(100vh - 300px);
 }
 
 button {
