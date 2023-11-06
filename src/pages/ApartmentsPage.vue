@@ -24,11 +24,11 @@ export default {
 </script>
 
 <template>
-  <div class="container text-center border border-danger">
+  <div class="container text-center">
     <h1>Apartments</h1>
 
     <!-- CTA section -->
-    <div class="container-fluid p-3 justify-content-center border border-info">
+    <div class="container-fluid p-3 justify-content-center">
       <div class="row my-3 justify-content-center">
         <div class="col text-center">
           <div class="card border-0">
@@ -60,8 +60,6 @@ export default {
 <style lang="scss" scoped>
 @use "../scss/partials/_variables.scss" as *;
 
-
-
 .color-text{
     color:#757575 !important;
 }
@@ -69,7 +67,5 @@ export default {
 button {
   background-color: #3535ec !important;
 }
-
-
 
 </style>
