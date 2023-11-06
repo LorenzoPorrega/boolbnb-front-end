@@ -57,7 +57,7 @@ li::after{
   position: absolute;
   left: 0;
   bottom: -1rem;
-  height: 5px;
+  height: 3px;
   width: 100%;
   background-color: #3535ec;
   scale: 0 1;
