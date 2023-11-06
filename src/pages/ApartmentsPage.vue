@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid text-center">
+  <div class="container text-center">
     <h1>Apartments</h1>
 
     <!-- CTA section -->
@@ -62,6 +62,10 @@ export default {
 
 .color-text{
     color:#757575 !important;
+}
+
+.container{
+  height: calc(100vh - calc(300px + 30px));
 }
 
 button {
