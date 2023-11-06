@@ -11,8 +11,8 @@ import axios from 'axios';
             fetchData() {
                 axios.get("http://127.0.0.1:8000/api/apartments/")
                 .then((response) => {
-                    const rislut = response
-                    console.log(rislut)
+                    const rislutati = response.data.results
+                    console.log(rislutati)
                 })
             },
         },
