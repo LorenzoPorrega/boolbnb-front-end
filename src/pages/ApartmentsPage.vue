@@ -13,7 +13,7 @@ export default {
       axios.get("http://127.0.0.1:8000/api/apartments/")
         .then((response) => {
           const results = response.data;
-          store.push(results);
+          console.log(results);
         })
     },
   },
@@ -24,7 +24,9 @@ export default {
 </script>
 
 <template>
-  <h1>Appartamenti</h1>
+  <div class="container text-center border border-danger" style="height: 300px;">
+    <h1>Apartments</h1>
+  </div>
 </template>
 
 <style lang="scss" scoped>
