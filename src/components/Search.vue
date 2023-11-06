@@ -9,6 +9,13 @@ export default {
     }
   },
   methods: {
+    filterApartment(){
+      axios.get("http://127.0.0.1:8000/api/apartments/", {params:this.store.apartmentFilter})
+      .then((response) => {
+          this.store.apartments = response.data.apartments 
+
+        })
+    }
   },
 }
 </script>
@@ -26,7 +33,8 @@ export default {
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body border rounded-top rounded-5">
-        <form action="">
+        <!-- form -->
+        <form method="POST" @submit.prevent="filterApartment()">
           <div class="container">
             <div class="row d-flex">
 
@@ -35,7 +43,7 @@ export default {
                 <div id="input">
 
                   <form class="multi-range-field my-5 pb-5">
-                    <input id="multi22" class="multi-range w-100" type="range" multiple="multiple"/>
+                    <input id="multi22" class="multi-range w-100" type="range" multiple="multiple" />
                   </form>
 
                   <!-- Example -->
@@ -54,39 +62,70 @@ export default {
                       <input type="text" id="ex4" class="form-control">
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
-
+              <!-- location -->
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Location</label>
                 <div id="input">
                   <input type="text" class="form-control" value="" name="address" id="address">
                 </div>
               </div>
-
+              <!-- bedroom -->
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Bedrooms</label>
-                <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                <div class="box-bedroom-buttons d-flex justify-content-around">
+                  <div>
+                    <input type="radio" name="bedroom" value="1" v-model="store.bedroom" class="form-check-input mx-1" checked>1
+                  </div>
+                  <div>
+                    <input type="radio" name="bedroom" value="2" v-model="store.bedroom" class="form-check-input mx-1">2
+                  </div>
+                  <div>
+                    <input type="radio" name="bedroom" value="3" v-model="store.bedroom" class="form-check-input mx-1">3+
+                  </div>
                 </div>
               </div>
 
+              <!-- beds number -->
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Beds</label>
-                <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                <div class="box-beds-buttons d-flex justify-content-around">
+                  <div>
+                    <input type="radio" name="beds-number" value="1" v-model="store.beds_number" class="form-check-input mx-1" checked>1
+                  </div>
+                  <div>
+                    <input type="radio" name="beds-number" value="2" v-model="store.beds_number" class="form-check-input mx-1">2
+                  </div>
+                  <div>
+                    <input type="radio" name="beds-number" value="3" v-model="store.beds_number" class="form-check-input mx-1">3
+                  </div>
+                  <div>
+                    <input type="radio" name="beds-number" value="4" v-model="store.beds_number" class="form-check-input mx-1">4+
+                  </div>
                 </div>
               </div>
-
+              <!-- bath number -->
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Bathrooms</label>
-                <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                <div class="box-bathroom-buttons d-flex justify-content-around">
+                  <div>
+                    <input type="radio" name="bathroom" value="1" v-model="store.bath_number" class="form-check-input mx-1" checked>1
+                  </div>
+                  <div>
+                    <input type="radio" name="bathroom" value="2" v-model="store.bath_number" class="form-check-input mx-1">2
+                  </div>
+                  <div>
+                    <input type="radio" name="bathroom" value="3" v-model="store.bath_number" class="form-check-input mx-1">3+
+                  </div>
                 </div>
               </div>
 
             </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-info" type="submit">Filtra</button>
           </div>
         </form>
       </div>
