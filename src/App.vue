@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid p-0 m-0">
+  <div class="container-fluid vh-100 p-0 m-0">
     <TheHeader></TheHeader>
     <router-view></router-view>
     <TheFooter></TheFooter>
@@ -28,5 +28,6 @@ export default {
 
 <style lang="scss" scoped>
 @use "./scss/partials/_variables.scss" as *;
+
 
 </style>

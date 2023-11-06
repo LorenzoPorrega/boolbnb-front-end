@@ -434,6 +434,10 @@ export default {
   color:#757575 !important;
 }
 
+.container{
+  height: calc(100vh - 300px);
+}
+
 button {
   background-color: #3535ec !important;
 }
