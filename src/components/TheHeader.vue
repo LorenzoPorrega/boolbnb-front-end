@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <header class="py-3 border-bottom">
+  <header class="py-3 border-bottom fixed-top">
     <div class="row">
       <div class="col-md-9 d-flex justify-content-center align-items-center justify-content-between mx-auto px-0">
         <a href="/">

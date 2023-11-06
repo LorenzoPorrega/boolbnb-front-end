@@ -24,11 +24,11 @@ export default {
 </script>
 
 <template>
-  <div class="container text-center">
+  <div class="container-fluid text-center">
     <h1>Apartments</h1>
 
     <!-- CTA section -->
-    <div class="container-fluid p-3 justify-content-center">
+    <div class="container-fluid p-3 justify-content-center border-top">
       <div class="row my-3 justify-content-center">
         <div class="col text-center">
           <div class="card border-0">
