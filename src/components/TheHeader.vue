@@ -13,7 +13,7 @@ export default {
     <div class="row">
       <div class="col-md-9 d-flex justify-content-center align-items-center justify-content-between mx-auto px-0">
         <a href="/">
-          <img src="/public/images/boolbnb-logo-2.png" alt="boolbnb-logo-header">
+          <img src="/images/boolbnb-logo-2.png" alt="boolbnb-logo-header">
         </a>
         <form class="w-50 mx-auto" role="search">
           <input type="search" class="form-control" placeholder="Where are you going?" aria-label="Search">

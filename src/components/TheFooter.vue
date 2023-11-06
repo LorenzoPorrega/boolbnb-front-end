@@ -97,7 +97,7 @@ export default {
           </div>
 
           <a href="/" class="col-md-4 d-flex align-items-center justify-content-center">
-            <img src="/public/images/boolbnb-logo-2.png" alt="footer-logo">
+            <img src="/images/boolbnb-logo-2.png" alt="footer-logo">
           </a>
 
           <div class="col-md-4 d-flex flex-nowrap justify-content-center">
