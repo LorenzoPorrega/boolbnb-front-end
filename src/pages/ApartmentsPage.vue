@@ -18,8 +18,7 @@ export default {
     fetchData() {
       axios.get("http://127.0.0.1:8000/api/apartments/")
         .then((response) => {
-          const results = response.data
-          console.log(results)
+          this.store.apartments = response.data.apartments
         })
         .catch((error) => {
           console.error(error);
@@ -195,7 +194,7 @@ export default {
       <h2>Apartments</h2>
 
       <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-5 py-3">
-        <div class="col" v-for="singleApartment in this.apartments" :key="singleApartment.id">
+        <div class="col" v-for="singleApartment in store.apartments" :key="singleApartment.id">
           <Card :singleApartment="singleApartment"></Card>
         </div>
       </div>
