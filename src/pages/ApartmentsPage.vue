@@ -370,7 +370,7 @@ button {
 
 
 .jumbotron {
-  background-image: url('/public/images/jumbo-img.jpeg');
+  background-image: url('/images/jumbo-img.jpeg');
   height: 450px;
   margin-top: 90px; // header height
   background-size: cover;
