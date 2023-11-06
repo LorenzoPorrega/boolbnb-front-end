@@ -29,7 +29,7 @@ export default {
     <h1>APPARTAMENTI</h1>
 
     <div class="container">
-    <div class="row-cols-4">
+    <div class="row-cols-4 d-flex">
         <div class="col-3" v-for="singleApartment in this.apartments" :key="singleApartment.id">
             <Card :singleApartment="singleApartment"></Card>
         </div>
