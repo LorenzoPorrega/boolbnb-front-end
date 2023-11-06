@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <header class="py-3 border-bottom fixed-top" style="z-index: 3; transition: z-index 0.6s ease;">
+  <header class="py-3 border-bottom fixed-top" style="z-index: 3; transition: z-index 1s ease;">
     <div class="row">
       <div class="col-md-9 d-flex justify-content-center align-items-center justify-content-between mx-auto px-0">
         <a href="/">

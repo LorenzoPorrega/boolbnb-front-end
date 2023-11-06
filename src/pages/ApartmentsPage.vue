@@ -42,105 +42,103 @@ export default {
     </div>
 
     <!-- Featured Apartments Section -->
-    <div class="border-top border-bottom">
-      <div class="container-fluid pt-5 px-5">
-        <h2 class="border-bottom">Featured Apartments</h2>
+    <div class="container-fluid py-5 px-5 border-bottom">
+      <h2 class="border-bottom">Featured Apartments</h2>
 
-        <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-3 py-3">
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden rounded-4 shadow" style="background-image: url('unsplash-photo-1.jpg');">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                <h4 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h4>
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                  </li>
-                  <li class="d-flex align-items-center me-3">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                    <small>Earth</small>
-                  </li>
-                  <li class="d-flex align-items-center">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                    <small>3d</small>
-                  </li>
-                </ul>
-              </div>
+      <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-3 py-3">
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden rounded-4 shadow" style="background-image: url('unsplash-photo-1.jpg');">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+              <h4 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h4>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>Earth</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>3d</small>
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden rounded-4 shadow" style="background-image: url('unsplash-photo-1.jpg');">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                <h4 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h4>
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                  </li>
-                  <li class="d-flex align-items-center me-3">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                    <small>Earth</small>
-                  </li>
-                  <li class="d-flex align-items-center">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                    <small>3d</small>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden rounded-4 shadow" style="background-image: url('unsplash-photo-1.jpg');">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                <h4 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h4>
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                  </li>
-                  <li class="d-flex align-items-center me-3">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                    <small>Earth</small>
-                  </li>
-                  <li class="d-flex align-items-center">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                    <small>3d</small>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden rounded-4 shadow" style="background-image: url('unsplash-photo-1.jpg');">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                <h4 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h4>
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                  </li>
-                  <li class="d-flex align-items-center me-3">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                    <small>Earth</small>
-                  </li>
-                  <li class="d-flex align-items-center">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                    <small>3d</small>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
         </div>
-      </div>
-
-      <!-- Regular Apartments Section -->
-      <div class="container-fluid py-5 px-5">
-        <h2 class="border-bottom">Apartments</h2>
-
-        <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-3 py-3">
-          <div class="col-3" v-for="singleApartment in this.apartments" :key="singleApartment.id">
-            <Card :singleApartment="singleApartment"></Card>
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden rounded-4 shadow" style="background-image: url('unsplash-photo-1.jpg');">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+              <h4 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h4>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>Earth</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>3d</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden rounded-4 shadow" style="background-image: url('unsplash-photo-1.jpg');">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+              <h4 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h4>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>Earth</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>3d</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden rounded-4 shadow" style="background-image: url('unsplash-photo-1.jpg');">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+              <h4 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h4>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>Earth</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>3d</small>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Regular Apartments Section -->
+    <div class="container-fluid py-5 px-5 border-bottom">
+      <h2 class="border-bottom">Apartments</h2>
+
+      <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-3 py-3">
+        <div class="col-3" v-for="singleApartment in this.apartments" :key="singleApartment.id">
+          <Card :singleApartment="singleApartment"></Card>
+        </div>
+      </div>
+    </div>
 
     <!-- Trending destinations Section -->
     <div class="container-fluid pt-5 pb-3">
@@ -349,8 +347,8 @@ export default {
         </div>
       </div>
     </div>
+
   </div>
-</div>
 </template>
 
 <style lang="scss" scoped>
