@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <header class="py-3 border-bottom fixed-top">
+  <header class="py-3 border-bottom fixed-top" style="z-index: 3; transition: z-index 0.6s ease;">
     <div class="row">
       <div class="col-md-9 d-flex justify-content-center align-items-center justify-content-between mx-auto px-0">
         <a href="/">
@@ -34,6 +34,10 @@ export default {
 <style lang="scss" scoped>
 
 @use "../scss/partials/variables" as *;
+
+header {
+  height: 90px;
+}
 
 header img {
   width: 150px;
