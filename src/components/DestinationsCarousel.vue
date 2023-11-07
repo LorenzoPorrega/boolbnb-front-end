@@ -276,4 +276,8 @@ export default {
 	background: #0606cb
 }
 
+.img-fluid{
+  object-fit: cover;
+}
+
 </style>
