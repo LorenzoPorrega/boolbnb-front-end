@@ -2,7 +2,7 @@
 import axios from 'axios';
 import Card from "../components/Card.vue";
 import DestinationsCarousel from "../components/DestinationsCarousel.vue";
-import { store } from '../store.js';
+import { store, filterApartment } from '../store.js';
 
 export default {
   data() {
@@ -14,19 +14,8 @@ export default {
     Card,
     DestinationsCarousel,
   },
-  methods: {
-    fetchData() {
-      axios.get("http://127.0.0.1:8000/api/apartments/")
-        .then((response) => {
-          this.store.apartments = response.data.apartments
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
-  },
   mounted() {
-    this.fetchData();
+    filterApartment();
   }
 
 }
