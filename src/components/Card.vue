@@ -35,9 +35,15 @@ export default {
             <p class="text-primary">${{ singleApartment.price }}</p>
           </div>
         </div>
+        <div class="card-footer">
+          <router-link :to="{name: 'apartments.show', params: {slug: singleApartment.slug}}" class="text-decoration-none">
+            Details
+          </router-link>
+        </div>
       </div>
     </div>
   </a>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
