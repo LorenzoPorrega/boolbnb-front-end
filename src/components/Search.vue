@@ -42,7 +42,7 @@ export default {
                   <div class="row">
                     <div class="col-5">
                       <label for="ex3">Minimum</label>
-                      <input type="text" id="ex3" class="form-control">
+                      <input type="text" id="ex3" class="form-control" v-model="store.minprice">
                     </div>
                     <div class="col-2">
                       <div class=w-100>
@@ -51,7 +51,7 @@ export default {
                     </div>
                     <div class="col-5">
                       <label for="ex4">Maximum</label>
-                      <input type="text" id="ex4" class="form-control">
+                      <input type="text" id="ex4" class="form-control" v-model="store.maxprice">
                     </div>
                   </div>
                   
@@ -61,14 +61,14 @@ export default {
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Location</label>
                 <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                  <input type="text" class="form-control" value="" name="address" id="address" >
                 </div>
               </div>
 
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Bedrooms</label>
                 <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                  <input type="text" class="form-control"  name="address" id="address" v-model="store.bedNum">
                 </div>
               </div>
 
