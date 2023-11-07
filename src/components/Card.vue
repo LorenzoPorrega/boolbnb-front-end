@@ -10,7 +10,7 @@ export default {
   <a href="#" class="text-decoration-none">
     <div class="card">
       <div>
-        <img :src="`http://127.0.0.1:8000/storage/${singleApartment.images[0]}`" class="card-img-top" alt="...">
+        <img :src="`http://127.0.0.1:8000/storage/${singleApartment.images[0]}`" class="card-img-top" alt="..." loading="lazy">
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ singleApartment.title }}</h5>

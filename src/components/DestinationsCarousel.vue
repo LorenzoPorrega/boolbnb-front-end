@@ -44,7 +44,7 @@ export default {
                 <div class="col-sm-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
-                      <img src="/images/new-york.jpg" class="img-fluid" alt="">
+                      <img src="/images/new-york.jpg" class="img-fluid" alt="" loading="lazy">
                     </div>
                     <div class="thumb-content">
                       <h4>New York</h4>
@@ -58,7 +58,7 @@ export default {
                 <div class="col-sm-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
-                      <img src="/images/paris.jpg" class="img-fluid" alt="">
+                      <img src="/images/paris.jpg" class="img-fluid" alt="" loading="lazy">
                     </div>
                     <div class="thumb-content">
                       <h4>Paris</h4>
@@ -76,7 +76,7 @@ export default {
                 <div class="col-sm-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
-                      <img src="/images/kuala-lumpur.jpg" class="img-fluid" alt="">
+                      <img src="/images/kuala-lumpur.jpg" class="img-fluid" alt="" loading="lazy">
                     </div>
                     <div class="thumb-content">
                       <h4>Kuala Lumpur</h4>
@@ -92,7 +92,7 @@ export default {
                 <div class="col-sm-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
-                      <img src="/images/agra.jpg" class="img-fluid" alt="">
+                      <img src="/images/agra.jpg" class="img-fluid" alt="" loading="lazy">
                     </div>
                     <div class="thumb-content">
                       <h4>Agra</h4>
@@ -108,7 +108,7 @@ export default {
                 <div class="col-sm-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
-                      <img src="/images/dubai.avif" class="img-fluid" alt="">
+                      <img src="/images/dubai.avif" class="img-fluid" alt="" loading="lazy">
                     </div>
                     <div class="thumb-content">
                       <h4>Dubai</h4>
@@ -128,7 +128,7 @@ export default {
                 <div class="col-sm-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
-                      <img src="/images/rio-de-janeiro.jpg" class="img-fluid" alt="">
+                      <img src="/images/rio-de-janeiro.jpg" class="img-fluid" alt="" loading="lazy">
                     </div>
                     <div class="thumb-content">
                       <h4>Rio De Janeiro</h4>
@@ -144,7 +144,7 @@ export default {
                 <div class="col-sm-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
-                      <img src="/images/giza.jpg" class="img-fluid" alt="">
+                      <img src="/images/giza.jpg" class="img-fluid" alt="" loading="lazy">
                     </div>
                     <div class="thumb-content">
                       <h4>Giza</h4>
@@ -160,7 +160,7 @@ export default {
                 <div class="col-sm-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
-                      <img src="/images/sydney.jpg" class="img-fluid" alt="">
+                      <img src="/images/sydney.jpg" class="img-fluid" alt="" loading="lazy">
                     </div>
                     <div class="thumb-content">
                       <h4>Sydney</h4>
