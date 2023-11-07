@@ -13,7 +13,7 @@ export default {
   <div class="container-fluid pt-5 pb-3">
     <div class="row">
       <h3>Trending destinations</h3>
-      <div class="col-md-10 mx-auto">
+      <div class="col-sm-12 col-lg-10 mx-auto">
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
           <!-- Carousel indicators -->
           <ul class="carousel-indicators list-unstyled">
@@ -22,10 +22,10 @@ export default {
             <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
           </ul>
           <!-- Wrapper for carousel items -->
-          <div class="carousel-inner">
+          <div class="carousel-inner d-flex flex-wrap">
             <div class="carousel-item active">
               <div class="row">
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/london.jpg" class="img-fluid" alt="">
@@ -41,7 +41,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/new-york.jpg" class="img-fluid" alt="" loading="lazy">
@@ -55,7 +55,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/paris.jpg" class="img-fluid" alt="" loading="lazy">
@@ -73,7 +73,7 @@ export default {
             </div>
             <div class="carousel-item">
               <div class="row">
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/kuala-lumpur.jpg" class="img-fluid" alt="" loading="lazy">
@@ -89,7 +89,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/agra.jpg" class="img-fluid" alt="" loading="lazy">
@@ -105,7 +105,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/dubai.avif" class="img-fluid" alt="" loading="lazy">
@@ -125,7 +125,7 @@ export default {
             </div>
             <div class="carousel-item">
               <div class="row">
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/rio-de-janeiro.jpg" class="img-fluid" alt="" loading="lazy">
@@ -141,7 +141,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/giza.jpg" class="img-fluid" alt="" loading="lazy">
@@ -157,7 +157,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/sydney.jpg" class="img-fluid" alt="" loading="lazy">
