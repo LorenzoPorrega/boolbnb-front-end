@@ -7,7 +7,6 @@ export default {
     return {
       store,
       indirizzo: ''
-
     }
   },
   methods: {
@@ -20,7 +19,8 @@ export default {
       else {
         axios.get(`http://127.0.0.1:8000/api/searchApartament/${store.indirizzoFilter}`)
           .then((response) => {
-            console.log(response)
+            store.apartments = response.data;
+            console.log(store.apartments)
           })
       }
     },
@@ -65,6 +65,7 @@ export default {
 
   },
   mounted() {
+    filterApartment()
     this.searchBar()
   }
 }
@@ -85,7 +86,7 @@ export default {
       </div>
       <div class="offcanvas-body border rounded-top rounded-5">
         <!-- form -->
-        <form method="POST" @submit.prevent="filterApartment()">
+        <form method="POST" @submit.prevent="searchApartment()">
           <div class="container">
             <div class="row d-flex">
 
@@ -93,16 +94,16 @@ export default {
               <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">City</label>
                 <div id="input">
-                  <input type="text" class="form-control" name="address" id="address" v-model="store.indirizzoFilter">
+                  <input type="text" class="form-control d-none" name="address" id="address" v-model="store.indirizzoFilter">
                 </div>
               </div>
-              <div class="mb-3 col-12">
+              <!-- <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">Price range</label>
                 <div id="input">
 
                   <form class="multi-range-field my-5 pb-5">
                     <input id="multi22" class="multi-range w-100" type="range" multiple="multiple" />
-                  </form>
+                  </form>-->
 
                   <!-- Example -->
                   <!-- <div class="row">
@@ -121,8 +122,8 @@ export default {
                     </div>
                   </div> -->
 
-                </div>
-              </div>
+                <!-- </div>
+              </div> -->
 
               <!-- rooms_num -->
               <div class="mb-3 col-6">
@@ -185,7 +186,7 @@ export default {
             </div>
           </div>
           <div class="d-flex justify-content-center">
-            <button class="btn btn-info" type="submit" @click="searchApartment()">Filtra</button>
+            <button class="btn btn-info" type="submit" >Filtra</button>
           </div>
         </form>
       </div>
@@ -207,7 +208,7 @@ export default {
   .offcanvas {
     width: 44vw;
     height: 65vh;
-    top: calc(50% - 25vh);
+    top: calc(50% - 32.5vh);
     left: calc(50% - 22vw);
   }
 }

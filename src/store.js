@@ -3,7 +3,7 @@ import { reactive } from "vue";
 
 export const store = reactive({
   pageLoading: false,
-  apartments: [],
+  apartments: {},
   indirizzoFilter:'',
   apartmentFilter: {
     rooms_num:"",
