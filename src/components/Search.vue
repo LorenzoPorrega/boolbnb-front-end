@@ -28,12 +28,12 @@ export default {
       let options = {
         searchOptions: {
           key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
-          language: "en-GB",
+          language: "it-It",
           limit: 5,
         },
         autocompleteOptions: {
           key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
-          language: "en-GB",
+          language: "it-IT",
         },
       }
       let ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
@@ -43,7 +43,8 @@ export default {
       address.append(searchBoxHTML);
       ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
         newIndirizzo = JSON.stringify(data)
-        store.indirizzoFilter = data['data']['text']
+        store.indirizzoFilter = data['data']['result']
+        store.indirizzoFilter = JSON.stringify(store.indirizzoFilter)
         console.log(store.indirizzoFilter)
         //recupero l'input
         //const adderessInput =  document.getElementById("address")
