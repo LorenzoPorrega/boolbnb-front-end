@@ -44,6 +44,9 @@ export default {
                   <p class="text-primary">$185</p>
                 </div>
               </div>
+              <div class="card-footer">
+                <a href="#" class="text-decoration-none">Details</a>
+              </div>
             </div>
           </div>
         </a>
@@ -77,6 +80,9 @@ export default {
                   <p class="text-muted me-2">Price:</p>
                   <p class="text-primary">$111</p>
                 </div>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="text-decoration-none">Details</a>
               </div>
             </div>
           </div>
@@ -112,6 +118,9 @@ export default {
                   <p class="text-primary">$66</p>
                 </div>
               </div>
+              <div class="card-footer">
+                <a href="#" class="text-decoration-none">Details</a>
+              </div>
             </div>
           </div>
         </a>
@@ -145,6 +154,9 @@ export default {
                   <p class="text-muted me-2">Price:</p>
                   <p class="text-primary">$371</p>
                 </div>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="text-decoration-none">Details</a>
               </div>
             </div>
           </div>
