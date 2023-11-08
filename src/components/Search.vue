@@ -20,7 +20,8 @@ export default {
       else {
         axios.get(`http://127.0.0.1:8000/api/searchApartament/${store.indirizzoFilter}`)
           .then((response) => {
-            console.log(response)
+            console.log(response.data.data)
+            store.apartments = response.data.data
           })
       }
     },

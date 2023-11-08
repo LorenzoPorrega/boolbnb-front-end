@@ -34,7 +34,8 @@ export function searchApartment(){
   else{
     axios.post("http://127.0.0.1:8000/api/searchApartament/",{params:store.indirizzoFilter})
     .then((response) =>{
-        console.log(response)
+        const appartamento = response.data
+        console.log(appartamento['data'])
     })
   }
 }

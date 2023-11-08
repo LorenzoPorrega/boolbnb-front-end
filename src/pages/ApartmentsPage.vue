@@ -17,6 +17,19 @@ export default {
     DestinationsCarousel,
     FeaturedApartments
   },
+  methods: {
+    filtersAppartamenti(){
+      if(store.indirizzoFilter !== ""){
+        this.apartments = store.apartments
+        return this.apartments
+    }else{
+      return store.apartments
+    }
+  
+  
+  }
+
+    },
   mounted() {
     filterApartment();
   }
@@ -45,7 +58,7 @@ export default {
       <h2>Apartments</h2>
 
       <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-5 py-3">
-        <div class="col" v-for="singleApartment in store.apartments" :key="singleApartment.id">
+        <div class="col" v-for="singleApartment in filtersAppartamenti() " :key="singleApartment.id">
           <Card :singleApartment="singleApartment"></Card>
         </div>
       </div>
@@ -69,9 +82,9 @@ export default {
                       Find your coziest escape ever & Get instant discounts. 
                       Discover cabins, vacation homes, and more!
                     </p>
-                    <button type="button" class="btn btn-primary border-0 mt-2 mb-3">
+                    <button type="button" class="btn btn-primary border-0 mt-2 mb-3" @click=consol()>
                       Get in Touch
-                    </button><br>
+                    </button ><br>
                     <img src="https://i.imgur.com/pC6AgYC.jpg" class="img-fluid" width="300">
                   </div>
                 </div>
