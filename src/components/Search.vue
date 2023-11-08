@@ -93,7 +93,7 @@ export default {
               <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">City</label>
                 <div id="input">
-                  <input type="text" class="form-control" name="address" id="address" v-model="store.indirizzoFilter">
+                  <input type="text" class="form-control" name="address" id="address" v-model="store.indirizzoFilter" style="display: none;">
                 </div>
               </div>
               <div class="mb-3 col-12">
