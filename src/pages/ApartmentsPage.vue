@@ -17,6 +17,11 @@ export default {
     DestinationsCarousel,
     FeaturedApartments
   },
+  methods:{
+    getImageURL(singleApartment) {
+        return `http://127.0.0.1:8000/storage/${singleApartment.images}`
+      }
+  },  
   mounted() {
     filterApartment();
   }

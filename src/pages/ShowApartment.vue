@@ -7,46 +7,50 @@ export default {
     return {
       store,
       showedSlug: "",
-      singleApartment: {},
+      singleApartment: {
+        longitude: 0, // Inizializza con un valore di default
+        latitude: 0,  // Inizializza con un valore di default
+      },
     };
   },
-  methods:{
-    fetchShowedApartment(){
-      // Establish a variable that will be used in the query in Axios 
-      // representing the slug saved from the Card component via store.js
+  methods: {
+    fetchShowedApartment() {
       const slug = this.store.selectedApartmentSlug;
-      // Check if there is already a slug
-      if(!this.showedSlug){
-        // assign the showedSlug to be the current slug to prevent
-        // losing it on reload | DOESN'T WORK |
+      if (!this.showedSlug) {
         this.showedSlug = slug;
       }
-      console.log(this.showedSlug);
-      // Throws the call only if the object singleApartment is empty
-      if(!this.singleApartment.value){
+      if (!this.singleApartment.longitude || !this.singleApartment.latitude) {
         axios.get(`http://127.0.0.1:8000/api/selected/${this.showedSlug}`)
           .then(response => {
             console.log("Chiamata attivata");
-            // Saves the response in the local singleApartment object
             this.singleApartment = response.data.singleApartment[0];
-          }
-        );
+            // Chiamare createmap() qui dopo che singleApartment è stato popolato
+            createmap();
+            
+            console.log(this.singleApartment);
+          });
       }
+    },
+    fetchImage(singleApartment) {
+      return `http://127.0.0.1:8000/storage/${singleApartment.images}`;
     },
   },
   mounted() {
-    filterApartment()
+    filterApartment();
     this.fetchShowedApartment();
   }
 };
 </script>
 
-<template>
+<style lang="scss" scoped>
+// Stili CSS rimasti invariati
+</style>
 
+<template>
   <div class="container-fluid py-3">
     <h2><strong>Title: </strong>{{ singleApartment.title }}</h2>
     <div class="container-img-show">
-      <!-- <img class="img-show" :src="`http://127.0.0.1:8000/storage/${singleApartment.images[0]}`" alt=""> -->
+      <img class="img-show" :src="fetchImage(singleApartment)" alt="">
     </div>
     <h5><strong>Price per night: </strong>{{ singleApartment.price }} $</h5>
     <h5><strong>Rooms number: </strong>{{ singleApartment.rooms_num }}</h5>
@@ -68,32 +72,35 @@ export default {
       <div class='map' id='map'></div>
     </div>
   </div>
-
 </template>
 
 <style lang="scss" scoped>
-
 .container-fluid {
   margin-top: 80px;
 }
-.container-img-show{
+
+.container-img-show {
   width: 30%;
 }
-.img-show{
+
+.img-show {
   width: 300px;
 }
 
 a {
   text-decoration: none;
 }
-.input-none{
+
+.input-none {
   display: none;
 }
-.container-map{
+
+.container-map {
   height: 50vh;
   width: 50%;
   margin: 3rem 0;
 }
+
 .map {
   border: 2px solid brown;
   left: 50%;
@@ -108,7 +115,7 @@ a {
 
 .control-panel {
   -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
   height: 100%;
   left: 0;
   overflow: hidden;
@@ -121,15 +128,14 @@ a {
   background-color: #fff;
   border-bottom: 1px solid #eee;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   position: relative;
-  z-index: 1; 
+  z-index: 1;
 }
 
-.heading > img {
+.heading>img {
   height: auto;
   margin: 10px 0 8px 0;
   width: 150px;
 }
-
 </style>
