@@ -1,23 +1,42 @@
 <script>
 import axios from 'axios';
-import { store, filterApartment } from '../store.js';
+import { store, saveSelectedApartmentSlug } from '../store.js';
 
 export default {
   data() {
     return {
       store,
+      showedSlug: "",
       singleApartment: {},
     };
   },
+  methods:{
+    fetchShowedApartment(){
+      // Establish a variable that will be used in the query in Axios 
+      // representing the slug saved from the Card component via store.js
+      const slug = this.store.selectedApartmentSlug;
+      // Check if there is already a slug
+      if(!this.showedSlug){
+        // assign the showedSlug to be the current slug to prevent
+        // losing it on reload | DOESN'T WORK |
+        this.showedSlug = slug;
+      }
+      console.log(this.showedSlug);
+      // Throws the call only if the object singleApartment is empty
+      if(!this.singleApartment.value){
+        axios.get(`http://127.0.0.1:8000/api/selected/${this.showedSlug}`)
+          .then(response => {
+            console.log("Chiamata attivata");
+            // Saves the response in the local singleApartment object
+            this.singleApartment = response.data.singleApartment[0];
+          }
+        );
+      }
+    },
+  },
   mounted() {
-    axios.get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
-      .then(response => {
-        this.singleApartment = response.data.apartment;
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    filterApartment();
+    /* filterApartment() */
+    this.fetchShowedApartment();
   }
 };
 </script>
@@ -27,7 +46,7 @@ export default {
   <div class="container-fluid py-3">
     <h2><strong>Title: </strong>{{ singleApartment.title }}</h2>
     <div class="container-img-show">
-      <img class="img-show" :src="`http://127.0.0.1:8000/storage/${singleApartment.images[0]}`" alt="">
+      <!-- <img class="img-show" :src="`http://127.0.0.1:8000/storage/${singleApartment.images[0]}`" alt=""> -->
     </div>
     <h5><strong>Price per night: </strong>{{ singleApartment.price }} $</h5>
     <h5><strong>Rooms number: </strong>{{ singleApartment.rooms_num }}</h5>

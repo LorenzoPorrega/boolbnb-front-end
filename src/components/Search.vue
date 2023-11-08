@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import { store, filterApartment } from '../store.js';
+import { store } from '../store.js';
 
 export default {
   data() {
@@ -86,6 +86,7 @@ export default {
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body border rounded-top rounded-5">
+
         <!-- form -->
         <form method="POST" @submit.prevent="filterApartment()">
           <div class="container">
@@ -95,7 +96,7 @@ export default {
               <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">City</label>
                 <div id="input">
-                  <input type="text" class="form-control" name="address" id="address" v-model="store.indirizzoFilter" style="display: none;">
+                  <input type="text" class="form-control" value="" name="address" id="address">
                 </div>
               </div>
               <div class="mb-3 col-12">
@@ -131,15 +132,15 @@ export default {
                 <label class="form-label fw-bold fs-5">Bedrooms</label>
                 <div class="box-rooms_num-buttons d-flex justify-content-around">
                   <div>
-                    <input type="radio" name="rooms_num" value="1" v-model="store.rooms_num" class="form-check-input mx-1"
+                    <input type="radio" name="rooms_num" value="1" v-model="rooms_num" class="form-check-input mx-1"
                       checked>1
                   </div>
                   <div>
-                    <input type="radio" name="rooms_num" value="2" v-model="store.rooms_num"
+                    <input type="radio" name="rooms_num" value="2" v-model="rooms_num"
                       class="form-check-input mx-1">2
                   </div>
                   <div>
-                    <input type="radio" name="rooms_num" value="3" v-model="store.rooms_num"
+                    <input type="radio" name="rooms_num" value="3" v-model="rooms_num"
                       class="form-check-input mx-1">3+
                   </div>
                 </div>
@@ -150,17 +151,17 @@ export default {
                 <label class="form-label fw-bold fs-5">Beds</label>
                 <div class="box-beds_num-buttons d-flex justify-content-around">
                   <div>
-                    <input type="radio" name="beds_num" value="1" v-model="store.beds_num" class="form-check-input mx-1"
+                    <input type="radio" name="beds_num" value="1" v-model="beds_num" class="form-check-input mx-1"
                       checked>1
                   </div>
                   <div>
-                    <input type="radio" name="beds_num" value="2" v-model="store.beds_num" class="form-check-input mx-1">2
+                    <input type="radio" name="beds_num" value="2" v-model="beds_num" class="form-check-input mx-1">2
                   </div>
                   <div>
-                    <input type="radio" name="beds_num" value="3" v-model="store.beds_num" class="form-check-input mx-1">3
+                    <input type="radio" name="beds_num" value="3" v-model="beds_num" class="form-check-input mx-1">3
                   </div>
                   <div>
-                    <input type="radio" name="beds_num" value="4" v-model="store.beds_num"
+                    <input type="radio" name="beds_num" value="4" v-model="beds_num"
                       class="form-check-input mx-1">4+
                   </div>
                 </div>
@@ -170,15 +171,15 @@ export default {
                 <label class="form-label fw-bold fs-5">Bathrooms</label>
                 <div class="box-bathroom_num-buttons d-flex justify-content-around">
                   <div>
-                    <input type="radio" name="bathroom_num" value="1" v-model="store.bathroom_num"
+                    <input type="radio" name="bathroom_num" value="1" v-model="bathroom_num"
                       class="form-check-input mx-1" checked>1
                   </div>
                   <div>
-                    <input type="radio" name="bathroom_num" value="2" v-model="store.bathroom_num"
+                    <input type="radio" name="bathroom_num" value="2" v-model="bathroom_num"
                       class="form-check-input mx-1">2
                   </div>
                   <div>
-                    <input type="radio" name="bathroom_num" value="3" v-model="store.bathroom_num"
+                    <input type="radio" name="bathroom_num" value="3" v-model="bathroom_num"
                       class="form-check-input mx-1">3+
                   </div>
                 </div>

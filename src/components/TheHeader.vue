@@ -23,10 +23,10 @@ export default {
         <Search></Search>
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a href="#" class="nav-link">Home</a>
+            <router-link :to="{name: 'home'}" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Login</a>
+            <a class="nav-link" href="http://127.0.0.1:8000/login">Login</a>
           </li>
         </ul>
       </div>

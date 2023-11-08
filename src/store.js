@@ -12,13 +12,18 @@ export const store = reactive({
   },
 })
 
-export function onPageLoad() {
+export function onPageLoad(){
   store.pageLoading = true;
 
   setTimeout(() => {
     store.pageLoading = false;
   }, 3500);
 };
+
+export function saveSelectedApartmentSlug(slug){
+  // I save in store the slug passed in the Card component
+  store.selectedApartmentSlug = slug;
+}
 
 export function filterApartment(){
   if(store.indirizzoFilter === "")

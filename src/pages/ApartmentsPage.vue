@@ -3,7 +3,7 @@ import axios from 'axios';
 import Card from "../components/Card.vue";
 import DestinationsCarousel from "../components/DestinationsCarousel.vue";
 import FeaturedApartments from "../components/FeaturedApartments.vue";
-import { store, filterApartment } from '../store.js';
+import { store } from '../store.js';
 
 export default {
   data() {
@@ -31,8 +31,8 @@ export default {
 
   },
   mounted() {
-    filterApartment();
-  }
+/*     filterApartment();
+ */  }
 }
 
 </script>
@@ -51,7 +51,7 @@ export default {
     </div>
 
     <!-- Featured Apartments Section -->
-    <FeaturedApartments></FeaturedApartments>
+    <!-- <FeaturedApartments></FeaturedApartments> -->
 
     <!-- Regular Apartments Section -->
     <div class="container-fluid py-5 px-5 border-bottom">
