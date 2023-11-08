@@ -4,6 +4,7 @@ import { reactive } from "vue";
 export const store = reactive({
   pageLoading: false,
   apartments: [],
+  indirizzoFilter:'',
   apartmentFilter: {
     rooms_num:"",
     beds_num:"",
@@ -26,3 +27,14 @@ export function filterApartment(){
       console.log(store.apartments);
     })}
 
+export function searchApartment(){
+  if (store.indirizzoFilter == ''){
+    alert('Inserire un indirizzo')
+  }
+  else{
+    axios.post("http://127.0.0.1:8000/api/searchApartament/",{params:store.indirizzoFilter})
+    .then((response) =>{
+        console.log(response)
+    })
+  }
+}

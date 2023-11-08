@@ -6,12 +6,69 @@ export default {
   data() {
     return {
       store,
+      indirizzo: ''
+
     }
   },
   methods: {
     filterApartment,
+
+    searchApartment() {
+      if (store.indirizzoFilter == '') {
+        alert('Inserire un indirizzo')
+      }
+      else {
+        axios.post(`http://127.0.0.1:8000/api/searchApartament/${store.indirizzoFilter}`)
+          .then((response) => {
+            console.log(response)
+          })
+      }
+    },
+    searchBar() {
+      let options = {
+        searchOptions: {
+          key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
+          language: "en-GB",
+          limit: 5,
+        },
+        autocompleteOptions: {
+          key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
+          language: "en-GB",
+        },
+      }
+      let ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
+      let searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+      const address = document.getElementById('input')
+      let newIndirizzo = ''
+      address.append(searchBoxHTML);
+      ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
+        newIndirizzo = JSON.stringify(data)
+        store.indirizzoFilter = data['data']['text']
+        console.log(store.indirizzoFilter)
+        //recupero l'input
+        //const adderessInput =  document.getElementById("address")
+        // assegno tutto il valore della via 
+        // posizione paese ecc.....
+        //converto il data in ujna stringa che verra poi ri convertito in php
+        // adderessInput.value = JSON.stringify(data);
+        // console.log(adderessInput.value)
+        // console.log(adderessInput.getAttribute("value"))
+        // console.log(data)
+        // console.log(data["data"]["result"])
+      })
+      console.log('ciao')
+
+      // Search box event listener for tomtom API
+      //document.body.append(searchBoxHTML)
+    },
+
+
   },
+  mounted() {
+    this.searchBar()
+  }
 }
+
 </script>
 
 <template>
@@ -36,7 +93,7 @@ export default {
               <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">City</label>
                 <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                  <input type="text" class="form-control" name="address" id="address" v-model="store.indirizzoFilter">
                 </div>
               </div>
               <div class="mb-3 col-12">
@@ -128,7 +185,7 @@ export default {
             </div>
           </div>
           <div class="d-flex justify-content-center">
-            <button class="btn btn-info" type="submit">Filtra</button>
+            <button class="btn btn-info" type="submit" @click="searchApartment()">Filtra</button>
           </div>
         </form>
       </div>
@@ -153,4 +210,5 @@ export default {
     top: calc(50% - 25vh);
     left: calc(50% - 22vw);
   }
-}</style>
+}
+</style>
