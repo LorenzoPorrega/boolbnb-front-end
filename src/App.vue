@@ -1,5 +1,6 @@
 <script>
 import ApartmentsPage from "./pages/ApartmentsPage.vue";
+import ShowPage from "./pages/ShowPage.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
 import { store } from './store.js';
@@ -7,6 +8,7 @@ import { store } from './store.js';
 export default {
   components:{
     ApartmentsPage,
+    ShowPage,
     TheHeader,
     TheFooter,
   },

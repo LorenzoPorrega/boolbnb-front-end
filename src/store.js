@@ -9,6 +9,7 @@ export const store = reactive({
     beds_num:"",
     bathroom_num:"",
   },
+  currentAppartament:''
 })
 
 export function onPageLoad(){

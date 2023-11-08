@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
-import { store, filterApartment } from '../store.js';
 
+import { store, filterApartment } from '../store.js';
 export default {
   data() {
     return {
@@ -10,6 +10,38 @@ export default {
   },
   methods: {
     filterApartment,
+    addressControl() {
+      let options = {
+        searchOptions: {
+          key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
+          language: "it-IT",
+          limit: 5,
+        },
+        autocompleteOptions: {
+          key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
+          language: "it-IT",
+        },
+      }
+      let ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
+      let searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+      const input = document.getElementById('input')
+      searchBoxHTML.classList.add("form-control");
+
+
+      input.append(searchBoxHTML);
+      ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
+        //recupero l'input
+        const adderessInput = document.getElementById("address")
+        // assegno tutto il valore della via 
+        // posizione paese ecc.....
+        //converto il data in ujna stringa che verra poi ri convertito in php
+        adderessInput.value = JSON.stringify(data);
+        console.log(adderessInput.value)
+        console.log(adderessInput.getAttribute("value"))
+        console.log(data)
+        console.log(data["data"]["result"])
+      })
+    }
   },
 }
 </script>
@@ -41,7 +73,7 @@ export default {
               </div>
               <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">Price range</label>
-                <div id="input">
+                <div>
 
                   <form class="multi-range-field my-5 pb-5">
                     <input id="multi22" class="multi-range w-100" type="range" multiple="multiple" />
@@ -153,4 +185,5 @@ export default {
     top: calc(50% - 25vh);
     left: calc(50% - 22vw);
   }
-}</style>
+}
+</style>
