@@ -36,7 +36,7 @@ export default {
           </div>
         </div>
         <div class="card-footer">
-          <router-link :to="{name: 'apartments.show', params: {slug: singleApartment.slug}}" class="text-decoration-none">
+          <router-link :to="{name: 'show', params: {slug: singleApartment.slug}}" class="text-decoration-none">
             Details
           </router-link>
         </div>

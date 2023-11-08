@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"; 
 
 import ApartmentsPage from "./pages/ApartmentsPage.vue";
-import ApartmentsShowPage from "./pages/apartments/Show.vue";
+import ApartmentsShowPage from "./pages/ShowApartment.vue";
 // import componente jolly per url sbagliati o sconosciuti richiesti dall'utente
 import NotFound from "./pages/NotFound.vue";
 
@@ -14,7 +14,7 @@ const routes = [
     {
         //Show di un singolo apartment
         path: "/apartments/:slug",
-        name: "apartments.show",
+        name: "show",
         component: ApartmentsShowPage,
     },
     {
