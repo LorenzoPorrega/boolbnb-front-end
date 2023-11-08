@@ -18,7 +18,7 @@ export default {
         alert('Inserire un indirizzo')
       }
       else {
-        axios.post(`http://127.0.0.1:8000/api/searchApartament/${store.indirizzoFilter}`)
+        axios.get(`http://127.0.0.1:8000/api/searchApartament/${store.indirizzoFilter}`)
           .then((response) => {
             console.log(response)
           })
