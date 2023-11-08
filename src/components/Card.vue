@@ -1,7 +1,19 @@
 <script>
+import { store, filterApartment, saveSelectedApartmentSlug } from '../store.js';
+
 export default {
+  data() {
+    return {
+      store,
+    }
+  },
   props: {
     singleApartment: Object,
+  },
+  methods:{
+    // Function taken from store that saves the clicked card apartment's
+    // slug on click
+    saveSelectedApartmentSlug,
   }
 };
 </script>
@@ -36,7 +48,8 @@ export default {
           </div>
         </div>
         <div class="card-footer">
-          <router-link :to="{name: 'show', params: {slug: singleApartment.slug}}" class="text-decoration-none">
+          <router-link :to="{name: 'show', params: {slug: singleApartment.slug}}" class="text-decoration-none"
+          @click.native="saveSelectedApartmentSlug(singleApartment.slug)">
             Details
           </router-link>
         </div>
