@@ -21,11 +21,17 @@ export function onPageLoad() {
 };
 
 export function filterApartment(){
+  if(store.indirizzoFilter === "")
   axios.get("http://127.0.0.1:8000/api/apartments/", {params:store.apartmentFilter})
   .then((response) => {
       store.apartments = response.data.apartments 
       console.log(store.apartments);
-    })}
+    })
+    if(store.indirizzoFilter !== ""){
+      store.apartments = store.apartments
+      store.indirizzoFilter = ""
+    }
+  }
 
 export function searchApartment(){
   if (store.indirizzoFilter == ''){
@@ -36,6 +42,7 @@ export function searchApartment(){
     .then((response) =>{
         const appartamento = response.data
         console.log(appartamento['data'])
+        store.apartments = appartamento
     })
   }
 }

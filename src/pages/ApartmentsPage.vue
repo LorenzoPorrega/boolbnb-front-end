@@ -18,18 +18,18 @@ export default {
     FeaturedApartments
   },
   methods: {
-    filtersAppartamenti(){
-      if(store.indirizzoFilter !== ""){
+    filtersAppartamenti() {
+      if (store.indirizzoFilter !== "") {
         this.apartments = store.apartments
         return this.apartments
-    }else{
-      return store.apartments
-    }
-  
-  
-  }
+      } else {
+        return store.apartments
+      }
 
-    },
+
+    }
+
+  },
   mounted() {
     filterApartment();
   }
@@ -58,7 +58,7 @@ export default {
       <h2>Apartments</h2>
 
       <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-5 py-3">
-        <div class="col" v-for="singleApartment in filtersAppartamenti() " :key="singleApartment.id">
+        <div class="col" v-for="singleApartment in store.apartments " :key="singleApartment.id">
           <Card :singleApartment="singleApartment"></Card>
         </div>
       </div>
@@ -73,22 +73,22 @@ export default {
         <div class="col text-center">
           <div class="card border-0">
             <div class="card-body">
-                <div class="card-title">
-                  <h3 class="mb-3">News & Discounts</h3>
-                </div> 
-                <div class="row justify-content-center">
-                  <div class="col-md-4">
-                    <p class="small color-text">
-                      Find your coziest escape ever & Get instant discounts. 
-                      Discover cabins, vacation homes, and more!
-                    </p>
-                    <button type="button" class="btn btn-primary border-0 mt-2 mb-3" @click=consol()>
-                      Get in Touch
-                    </button ><br>
-                    <img src="https://i.imgur.com/pC6AgYC.jpg" class="img-fluid" width="300">
-                  </div>
+              <div class="card-title">
+                <h3 class="mb-3">News & Discounts</h3>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-4">
+                  <p class="small color-text">
+                    Find your coziest escape ever & Get instant discounts.
+                    Discover cabins, vacation homes, and more!
+                  </p>
+                  <button type="button" class="btn btn-primary border-0 mt-2 mb-3" @click=consol()>
+                    Get in Touch
+                  </button><br>
+                  <img src="https://i.imgur.com/pC6AgYC.jpg" class="img-fluid" width="300">
                 </div>
-            </div>                       
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -100,11 +100,11 @@ export default {
 <style lang="scss" scoped>
 @use "../scss/partials/_variables.scss" as *;
 
-.color-text{
-  color:#757575 !important;
+.color-text {
+  color: #757575 !important;
 }
 
-.container{
+.container {
   height: calc(100vh - 300px);
 }
 
@@ -119,5 +119,4 @@ button {
   background-size: cover;
   background-position: center;
 }
-
 </style>
