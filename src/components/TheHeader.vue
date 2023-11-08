@@ -14,11 +14,11 @@ export default {
 </script>
 
 <template>
-  <header class="py-3 border-bottom fixed-top">
+  <header class="py-3 border-bottom fixed-top" style="z-index: 3; transition: z-index 1s ease;">
     <div class="row">
       <div class="col-md-9 d-flex justify-content-center align-items-center justify-content-between mx-auto px-0">
         <a href="/">
-          <img src="/public/images/boolbnb-logo-2.png" alt="boolbnb-logo-header">
+          <img src="/images/boolbnb-logo-2.png" alt="boolbnb-logo-header">
         </a>
         <Search></Search>
         <ul class="nav nav-pills">
@@ -38,6 +38,7 @@ export default {
 
 @use "../scss/partials/variables" as *;
 
+
 header img {
   width: 150px;
 }
@@ -56,7 +57,7 @@ li::after{
   position: absolute;
   left: 0;
   bottom: -1rem;
-  height: 5px;
+  height: 3px;
   width: 100%;
   background-color: #3535ec;
   scale: 0 1;

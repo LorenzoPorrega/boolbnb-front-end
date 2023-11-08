@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import { store } from '../store.js';
+import { store, filterApartment } from '../store.js';
 
 export default {
   data() {
@@ -9,6 +9,7 @@ export default {
     }
   },
   methods: {
+    filterApartment,
   },
 }
 </script>
@@ -26,20 +27,28 @@ export default {
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body border rounded-top rounded-5">
-        <form action="">
+        <!-- form -->
+        <form method="POST" @submit.prevent="filterApartment()">
           <div class="container">
             <div class="row d-flex">
 
+              <!-- city -->
+              <div class="mb-3 col-12">
+                <label class="form-label fw-bold fs-5">City</label>
+                <div id="input">
+                  <input type="text" class="form-control" value="" name="address" id="address">
+                </div>
+              </div>
               <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">Price range</label>
                 <div id="input">
 
                   <form class="multi-range-field my-5 pb-5">
-                    <input id="multi22" class="multi-range w-100" type="range" multiple="multiple"/>
+                    <input id="multi22" class="multi-range w-100" type="range" multiple="multiple" />
                   </form>
 
                   <!-- Example -->
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-5">
                       <label for="ex3">Minimum</label>
                       <input type="text" id="ex3" class="form-control" v-model="store.minprice">
@@ -53,40 +62,73 @@ export default {
                       <label for="ex4">Maximum</label>
                       <input type="text" id="ex4" class="form-control" v-model="store.maxprice">
                     </div>
-                  </div>
-                  
+                  </div> -->
+
                 </div>
               </div>
 
-              <div class="mb-3 col-6">
-                <label class="form-label fw-bold fs-5">Location</label>
-                <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address" >
-                </div>
-              </div>
-
+              <!-- rooms_num -->
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Bedrooms</label>
-                <div id="input">
-                  <input type="text" class="form-control"  name="address" id="address" v-model="store.bedNum">
+                <div class="box-rooms_num-buttons d-flex justify-content-around">
+                  <div>
+                    <input type="radio" name="rooms_num" value="1" v-model="store.rooms_num" class="form-check-input mx-1"
+                      checked>1
+                  </div>
+                  <div>
+                    <input type="radio" name="rooms_num" value="2" v-model="store.rooms_num"
+                      class="form-check-input mx-1">2
+                  </div>
+                  <div>
+                    <input type="radio" name="rooms_num" value="3" v-model="store.rooms_num"
+                      class="form-check-input mx-1">3+
+                  </div>
                 </div>
               </div>
 
+              <!-- beds_num number -->
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Beds</label>
-                <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                <div class="box-beds_num-buttons d-flex justify-content-around">
+                  <div>
+                    <input type="radio" name="beds_num" value="1" v-model="store.beds_num" class="form-check-input mx-1"
+                      checked>1
+                  </div>
+                  <div>
+                    <input type="radio" name="beds_num" value="2" v-model="store.beds_num" class="form-check-input mx-1">2
+                  </div>
+                  <div>
+                    <input type="radio" name="beds_num" value="3" v-model="store.beds_num" class="form-check-input mx-1">3
+                  </div>
+                  <div>
+                    <input type="radio" name="beds_num" value="4" v-model="store.beds_num"
+                      class="form-check-input mx-1">4+
+                  </div>
                 </div>
               </div>
-
+              <!-- bath number -->
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Bathrooms</label>
-                <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                <div class="box-bathroom_num-buttons d-flex justify-content-around">
+                  <div>
+                    <input type="radio" name="bathroom_num" value="1" v-model="store.bathroom_num"
+                      class="form-check-input mx-1" checked>1
+                  </div>
+                  <div>
+                    <input type="radio" name="bathroom_num" value="2" v-model="store.bathroom_num"
+                      class="form-check-input mx-1">2
+                  </div>
+                  <div>
+                    <input type="radio" name="bathroom_num" value="3" v-model="store.bathroom_num"
+                      class="form-check-input mx-1">3+
+                  </div>
                 </div>
               </div>
 
             </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-info" type="submit">Filtra</button>
           </div>
         </form>
       </div>
@@ -107,9 +149,8 @@ export default {
 
   .offcanvas {
     width: 44vw;
-    height: 50vh;
+    height: 65vh;
     top: calc(50% - 25vh);
     left: calc(50% - 22vw);
   }
-}
-</style>
+}</style>

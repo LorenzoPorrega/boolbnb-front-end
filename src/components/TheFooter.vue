@@ -21,7 +21,7 @@ export default {
                 <a href="#">Help Center</a>
               </li>
               <li>
-                <a href="#">AirCover</a>
+                <a href="#">BoolCover</a>
               </li>
               <li>
                 <a href="#">Anti-discrimination</a>
@@ -41,10 +41,10 @@ export default {
             <h5 class="footer-heading">Hosting</h5>
             <ul class="list-unstyled d-flex flex-column justify-content-center align-items-center">
               <li>
-                <a href="#">Airbnb Your Home</a>
+                <a href="#">Boolbnb Your Home</a>
               </li>
               <li>
-                <a href="#">AirCover for Hosts</a>
+                <a href="#">BoolCover for Hosts</a>
               </li>
               <li>
                 <a href="#">Hosting Resources</a>
@@ -97,7 +97,7 @@ export default {
           </div>
 
           <a href="/" class="col-md-4 d-flex align-items-center justify-content-center">
-            <img src="/public/images/boolbnb-logo-2.png" alt="footer-logo">
+            <img src="/images/boolbnb-logo-2.png" alt="footer-logo">
           </a>
 
           <div class="col-md-4 d-flex flex-nowrap justify-content-center">
