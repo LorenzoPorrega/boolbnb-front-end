@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import { store, filterApartment, saveSelectedApartmentSlug } from '../store.js';
+import { store, saveSelectedApartmentSlug } from '../store.js';
 
 export default {
   data() {
@@ -35,7 +35,7 @@ export default {
     },
   },
   mounted() {
-    filterApartment()
+    /* filterApartment() */
     this.fetchShowedApartment();
   }
 };
