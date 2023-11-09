@@ -13,35 +13,24 @@ export default {
     createmap() {
       let long = parseFloat(this.singleApartment['longitude'])
       let lat = parseFloat(this.singleApartment['latitude'])
+      let address = this.singleApartment['address']
       console.log(long)
       console.log(this.singleApartment)
       let stores = {
         "type": "FeatureCollection",
         "features": [
-          //{
-          //   "type": "Feature",
-          //   //"properties": {
-          //     //"name": this.singleApartment.title,
-          //     //"iconSize": [50, 75], // size of the icon
-          //     //"iconAnchor": [29, 68] // point of the icon which will grab cursor coordinates
-          //   //},
-          //   "geometry": {
-          //     "type": "Point",
-          //     "coordinates": [this.singleApartment.longitude, this.singleApartment.latitude]// lat and long for each
-          //   }
-          // }
           {
             "type": "Feature",
             "geometry": {
               "type": "Point",
               "coordinates": [
-                long,
-                lat
+              long,
+              lat
               ]
             },
             "properties": {
-              "address": this.singleApartment.address,
-              "city": "Rotterdam",
+              "address": address,
+              "city": address,
               "iconSize": [50, 75], // size of the icon
             }
           },
@@ -49,7 +38,7 @@ export default {
       }
       const apiKey = '9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I';
       const map = tt.map({
-        key: '9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I',
+        key: apiKey,
         container: 'map',
         center: [long, lat],
         zoom: 10
