@@ -1,56 +1,56 @@
 <script>
 import axios from 'axios';
-import { store, saveSelectedApartmentSlug } from '../store.js';
+import { store, saveSelectedApartmentSlug, filterApartment } from '../store.js';
 
 export default {
   data() {
     return {
       store,
       showedSlug: "",
-      singleApartment: {
-        longitude: 0, // Inizializza con un valore di default
-        latitude: 0,  // Inizializza con un valore di default
-      },
+      singleApartment: {},
     };
   },
   methods: {
-    fetchShowedApartment() {
+    fetchShowedApartment(){
+      // Establish a variable that will be used in the query in Axios 
+      // representing the slug saved from the Card component via store.js
       const slug = this.store.selectedApartmentSlug;
-      if (!this.showedSlug) {
+      // Check if there is already a slug
+      if(!this.showedSlug){
+        // assign the showedSlug to be the current slug to prevent
+        // losing it on reload | DOESN'T WORK |
         this.showedSlug = slug;
       }
-      if (!this.singleApartment.longitude || !this.singleApartment.latitude) {
+      console.log(this.showedSlug);
+      // Throws the call only if the object singleApartment is empty
+      if(!this.singleApartment.value){
         axios.get(`http://127.0.0.1:8000/api/selected/${this.showedSlug}`)
           .then(response => {
             console.log("Chiamata attivata");
+            // Saves the response in the local singleApartment object
             this.singleApartment = response.data.singleApartment[0];
-            // Chiamare createmap() qui dopo che singleApartment è stato popolato
-            createmap();
-            
-            console.log(this.singleApartment);
-          });
+          }
+        );
       }
     },
-    fetchImage(singleApartment) {
-      return `http://127.0.0.1:8000/storage/${singleApartment.images}`;
-    },
+    scrollToTop(){
+      window.scrollTo(0, 0);
+    }
   },
   mounted() {
     filterApartment();
     this.fetchShowedApartment();
+    this.scrollToTop();
   }
 };
 </script>
 
-<style lang="scss" scoped>
-// Stili CSS rimasti invariati
-</style>
-
 <template>
   <div class="container-fluid py-3">
     <h2><strong>Title: </strong>{{ singleApartment.title }}</h2>
-    <div class="container-img-show">
-      <img class="img-show" :src="fetchImage(singleApartment)" alt="">
+    <div class="container-img-show"
+    v-for="singleApartmentImage in singleApartment.images">
+      <img class="img-show" :src="`http://127.0.0.1:8000/storage/${singleApartmentImage}`" alt="">
     </div>
     <h5><strong>Price per night: </strong>{{ singleApartment.price }} $</h5>
     <h5><strong>Rooms number: </strong>{{ singleApartment.rooms_num }}</h5>
@@ -69,43 +69,6 @@ export default {
       </div>
       <div class='map' id='map'></div>
     </div>
-  </div>
-
-  <!-- Host Section with contact redirect -->
-  <div class="container py-5">
-      <div class="row">
-          <div class="col-3 d-flex justify-content-center align-items-start">
-            <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
-          </div>
-          <div class="col-9 host-info d-flex">
-            <div class="col-7">
-              <h3>Hosted by Lorenzo</h3>
-              <ul>
-                <li>Joined in May 2023</li>
-                <li><span class="icon"><i class="fa-solid fa-star"></i></span>164 Reviews</li>
-                <li><span class="icon"><i class="fa-solid fa-user-check"></i></span>Identity verified</li>
-                <li><span class="icon"><i class="fa-solid fa-medal"></i></span> Superhost</li>
-              </ul>
-              <p>Hello everyone! I’m Lorenzo. <br>I really enjoy travelling and I work in real estate!</p>
-              <p class="superhost-badge">Lorenzo is a Superhost</p>
-              <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
-            </div>
-            <div class="col-5">
-              <ul>
-                <li>Language: Italiano</li>
-                <li>Response rate: 100%</li>
-                <li>Response time: within an hour</li>
-              </ul>
-              <router-link :to="{name: 'contacts'}" class="btn btn-primary contact-host-btn text-decoration-none">
-                Contact Host
-              </router-link>
-              <div class="payment-warning d-flex mt-4">
-                <div class="icon">⚠️</div>
-                <p>To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</p>
-              </div>
-            </div>
-          </div>
-      </div>
   </div>
 
   <!-- Host Section with contact redirect -->
