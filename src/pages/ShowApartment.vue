@@ -6,29 +6,19 @@ export default {
   data() {
     return {
       store,
-      showedSlug: "",
       singleApartment: {},
     };
   },
   methods: {
     fetchShowedApartment(){
-      // Establish a variable that will be used in the query in Axios 
-      // representing the slug saved from the Card component via store.js
-      const slug = this.store.selectedApartmentSlug;
-      // Check if there is already a slug
-      if(!this.showedSlug){
-        // assign the showedSlug to be the current slug to prevent
-        // losing it on reload | DOESN'T WORK |
-        this.showedSlug = slug;
-      }
-      console.log(this.showedSlug);
       // Throws the call only if the object singleApartment is empty
       if(!this.singleApartment.value){
-        axios.get(`http://127.0.0.1:8000/api/selected/${this.showedSlug}`)
+        axios.get("http://127.0.0.1:8000/api/selected/" + this.$route.params.slug)
           .then(response => {
-            console.log("Chiamata attivata");
             // Saves the response in the local singleApartment object
             this.singleApartment = response.data.singleApartment[0];
+            console.log("Dati appartamento in show salvati");
+
           }
         );
       }
@@ -38,7 +28,7 @@ export default {
     }
   },
   mounted() {
-    filterApartment();
+    /* filterApartment(); */
     this.fetchShowedApartment();
     this.scrollToTop();
   }
