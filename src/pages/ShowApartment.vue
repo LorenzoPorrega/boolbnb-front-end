@@ -204,9 +204,6 @@ export default {
     <div class="container-map position-relative">
       <div class="container">
         <div class='control-panel'>
-          <div class='heading'>
-            <img src='/images/boolbnb-logo.png'>
-          </div>
           <div id='store-list'></div>
         </div>
         <div class='map' id='map'></div>
