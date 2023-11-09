@@ -1,76 +1,21 @@
 <script>
 import axios from 'axios';
-import { store } from '../store.js';
+import { store, filterApartment, searchBar } from '../store.js';
 
 export default {
   data() {
     return {
       store,
       indirizzo: ''
-
     }
   },
   methods: {
     filterApartment,
-
-    searchApartment() {
-      if (store.indirizzoFilter == '') {
-        alert('Inserire un indirizzo')
-      }
-      else {
-        axios.get(`http://127.0.0.1:8000/api/searchApartament/${store.indirizzoFilter}`)
-          .then((response) => {
-            console.log(response.data.data)
-            store.apartments = response.data.data
-          })
-      }
-    },
-    searchBar() {
-      let options = {
-        searchOptions: {
-          key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
-          language: "it-It",
-          limit: 5,
-        },
-        autocompleteOptions: {
-          key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
-          language: "it-IT",
-        },
-      }
-      let ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
-      let searchBoxHTML = ttSearchBox.getSearchBoxHTML()
-      const address = document.getElementById('input')
-      let newIndirizzo = ''
-      address.append(searchBoxHTML);
-      ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
-        newIndirizzo = JSON.stringify(data)
-        store.indirizzoFilter = data['data']['result']
-        store.indirizzoFilter = JSON.stringify(store.indirizzoFilter)
-        console.log(store.indirizzoFilter)
-        //recupero l'input
-        //const adderessInput =  document.getElementById("address")
-        // assegno tutto il valore della via 
-        // posizione paese ecc.....
-        //converto il data in ujna stringa che verra poi ri convertito in php
-        // adderessInput.value = JSON.stringify(data);
-        // console.log(adderessInput.value)
-        // console.log(adderessInput.getAttribute("value"))
-        // console.log(data)
-        // console.log(data["data"]["result"])
-      })
-      console.log('ciao')
-
-      // Search box event listener for tomtom API
-      //document.body.append(searchBoxHTML)
-    },
-
-
   },
   mounted() {
-    this.searchBar()
+    searchBar()
   }
 }
-
 </script>
 
 <template>
@@ -96,16 +41,17 @@ export default {
               <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">City</label>
                 <div id="input">
-                  <input type="text" class="form-control" value="" name="address" id="address">
+                  <input type="text" class="form-control d-none" value="" name="address" id="address">
                 </div>
               </div>
-              <div class="mb-3 col-12">
+
+              <!-- <div class="mb-3 col-12">
                 <label class="form-label fw-bold fs-5">Price range</label>
                 <div id="input">
 
                   <form class="multi-range-field my-5 pb-5">
                     <input id="multi22" class="multi-range w-100" type="range" multiple="multiple" />
-                  </form>
+                  </form> -->
 
                   <!-- Example -->
                   <!-- <div class="row">
@@ -124,23 +70,23 @@ export default {
                     </div>
                   </div> -->
 
-                </div>
-              </div>
+                <!-- </div>
+              </div> -->
 
               <!-- rooms_num -->
               <div class="mb-3 col-6">
                 <label class="form-label fw-bold fs-5">Bedrooms</label>
                 <div class="box-rooms_num-buttons d-flex justify-content-around">
                   <div>
-                    <input type="radio" name="rooms_num" value="1" v-model="rooms_num" class="form-check-input mx-1"
+                    <input type="radio" name="rooms_num" value="1" v-model="store.apartmentFilter.rooms_num" class="form-check-input mx-1"
                       checked>1
                   </div>
                   <div>
-                    <input type="radio" name="rooms_num" value="2" v-model="rooms_num"
+                    <input type="radio" name="rooms_num" value="2" v-model="store.apartmentFilter.rooms_num"
                       class="form-check-input mx-1">2
                   </div>
                   <div>
-                    <input type="radio" name="rooms_num" value="3" v-model="rooms_num"
+                    <input type="radio" name="rooms_num" value="3" v-model="store.apartmentFilter.rooms_num"
                       class="form-check-input mx-1">3+
                   </div>
                 </div>
@@ -151,17 +97,17 @@ export default {
                 <label class="form-label fw-bold fs-5">Beds</label>
                 <div class="box-beds_num-buttons d-flex justify-content-around">
                   <div>
-                    <input type="radio" name="beds_num" value="1" v-model="beds_num" class="form-check-input mx-1"
+                    <input type="radio" name="beds_num" value="1" v-model="store.apartmentFilter.beds_num" class="form-check-input mx-1"
                       checked>1
                   </div>
                   <div>
-                    <input type="radio" name="beds_num" value="2" v-model="beds_num" class="form-check-input mx-1">2
+                    <input type="radio" name="beds_num" value="2" v-model="store.apartmentFilter.beds_num" class="form-check-input mx-1">2
                   </div>
                   <div>
-                    <input type="radio" name="beds_num" value="3" v-model="beds_num" class="form-check-input mx-1">3
+                    <input type="radio" name="beds_num" value="3" v-model="store.apartmentFilter.beds_num" class="form-check-input mx-1">3
                   </div>
                   <div>
-                    <input type="radio" name="beds_num" value="4" v-model="beds_num"
+                    <input type="radio" name="beds_num" value="4" v-model="store.apartmentFilter.beds_num"
                       class="form-check-input mx-1">4+
                   </div>
                 </div>
@@ -171,15 +117,15 @@ export default {
                 <label class="form-label fw-bold fs-5">Bathrooms</label>
                 <div class="box-bathroom_num-buttons d-flex justify-content-around">
                   <div>
-                    <input type="radio" name="bathroom_num" value="1" v-model="bathroom_num"
+                    <input type="radio" name="bathroom_num" value="1" v-model="store.apartmentFilter.bathroom_num"
                       class="form-check-input mx-1" checked>1
                   </div>
                   <div>
-                    <input type="radio" name="bathroom_num" value="2" v-model="bathroom_num"
+                    <input type="radio" name="bathroom_num" value="2" v-model="store.apartmentFilter.bathroom_num"
                       class="form-check-input mx-1">2
                   </div>
                   <div>
-                    <input type="radio" name="bathroom_num" value="3" v-model="bathroom_num"
+                    <input type="radio" name="bathroom_num" value="3" v-model="store.apartmentFilter.bathroom_num"
                       class="form-check-input mx-1">3+
                   </div>
                 </div>
@@ -188,7 +134,7 @@ export default {
             </div>
           </div>
           <div class="d-flex justify-content-center">
-            <button class="btn btn-info" type="submit" @click="searchApartment()">Filtra</button>
+            <button class="btn btn-info" type="submit">Filtra</button>
           </div>
         </form>
       </div>

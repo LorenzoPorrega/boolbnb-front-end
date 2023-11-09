@@ -3,7 +3,7 @@ import axios from 'axios';
 import Card from "../components/Card.vue";
 import DestinationsCarousel from "../components/DestinationsCarousel.vue";
 import FeaturedApartments from "../components/FeaturedApartments.vue";
-import { store } from '../store.js';
+import { store, filterApartment } from '../store.js';
 
 export default {
   data() {
@@ -18,21 +18,18 @@ export default {
     FeaturedApartments
   },
   methods: {
-    filtersAppartamenti() {
+    /* filtersAppartamenti() {
       if (store.indirizzoFilter !== "") {
         this.apartments = store.apartments
         return this.apartments
       } else {
         return store.apartments
       }
-
-
-    }
-
+    }, */
   },
   mounted() {
-/*     filterApartment();
- */  }
+    filterApartment()
+  }
 }
 
 </script>
