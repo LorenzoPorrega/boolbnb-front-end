@@ -10,6 +10,7 @@ export const store = reactive({
     bathroom_num:"",
     geopoints: "",
     freeformAddress: "",
+    distance:20,
   },
 })
 
@@ -83,3 +84,13 @@ export function searchBar() {
     // console.log(store.apartmentFilter.address)
   })
 }
+
+export function rangeSlider() {
+      const rangeSlider = document.getElementById("multi22");
+      const sliderValue = document.getElementById("sliderValue");
+
+      rangeSlider.addEventListener("input", () => {
+        sliderValue.textContent = rangeSlider.value;
+      });
+
+    }
