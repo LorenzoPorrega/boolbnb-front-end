@@ -32,15 +32,15 @@ export function filterApartment(){
   const params = store.apartmentFilter;
   const url = new URL(baseURL);
   url.search = new URLSearchParams(params).toString();
-  console.log("URL generato per la chiamata:", url.toString());
+  // console.log("URL generato per la chiamata:", url.toString());
 
   axios.get("http://127.0.0.1:8000/api/apartments/", {params:store.apartmentFilter})
   .then((response) => {
       store.apartments = response.data.apartments 
       /* console.log(store.apartments); */
-      console.log("Ricerca con filtri input avviata")
-      console.log(store.apartmentFilter)
-      console.log(store.apartments)
+      // console.log("Ricerca con filtri input avviata")
+      // console.log(store.apartmentFilter)
+      // console.log(store.apartments)
     }
   )
 }
@@ -73,13 +73,13 @@ export function searchBar() {
   let newIndirizzo = ''
   address.append(searchBoxHTML);
   ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
-    console.log('Funzione per prendere la città triggerata')
+    // console.log('Funzione per prendere la città triggerata')
 
     newIndirizzo = JSON.stringify(data)
     let objectGeopoints = data['data']['result']['position']
     store.apartmentFilter.geopoints = JSON.stringify(objectGeopoints)
     store.apartmentFilter.freeformAddress = data['data']['result']['address']['freeformAddress']
-    console.log(store.apartmentFilter.position)
-    console.log(store.apartmentFilter.address)
+    // console.log(store.apartmentFilter.position)
+    // console.log(store.apartmentFilter.address)
   })
 }
