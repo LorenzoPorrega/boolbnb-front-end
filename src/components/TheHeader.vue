@@ -38,6 +38,9 @@ export default {
 
 @use "../scss/partials/variables" as *;
 
+header{
+  background-color: white;
+}
 
 header img {
   width: 150px;

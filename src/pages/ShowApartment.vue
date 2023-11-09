@@ -275,9 +275,6 @@ a {
   height: 50vh;
   width: 50%;
   margin: 3rem 0;
-  svg{
-    background-color: #f8fafa00;
-  }
 }
 
 .map {
