@@ -50,12 +50,6 @@ export default {
               <p class="text-primary">${{ singleApartment.price }}</p>
             </div>
           </div>
-          <div class="card-footer">
-            <router-link :to="{ name: 'show', params: { slug: singleApartment.slug } }" class="text-decoration-none"
-              @click.native="saveSelectedApartmentSlug(singleApartment.slug)">
-             Details
-            </router-link>
-          </div>
         </div>
       </div>
     </router-link>
