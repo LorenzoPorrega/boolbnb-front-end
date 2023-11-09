@@ -9,7 +9,7 @@ export const store = reactive({
     beds_num:"",
     bathroom_num:"",
     geopoints: "",
-    freeformAddress: "",
+    //freeformAddress: "",
   },
 })
 
@@ -37,6 +37,7 @@ export function filterApartment(){
   axios.get("http://127.0.0.1:8000/api/apartments/", {params:store.apartmentFilter})
   .then((response) => {
       store.apartments = response.data.apartments 
+      console.log(response)
       /* console.log(store.apartments); */
       // console.log("Ricerca con filtri input avviata")
       // console.log(store.apartmentFilter)
@@ -78,7 +79,8 @@ export function searchBar() {
     newIndirizzo = JSON.stringify(data)
     let objectGeopoints = data['data']['result']['position']
     store.apartmentFilter.geopoints = JSON.stringify(objectGeopoints)
-    store.apartmentFilter.freeformAddress = data['data']['result']['address']['freeformAddress']
+    //store.apartmentFilter.freeformAddress = data['data']['result']['address']['freeformAddress']
+    console.log(store.apartmentFilter.geopoints)
     // console.log(store.apartmentFilter.position)
     // console.log(store.apartmentFilter.address)
   })
