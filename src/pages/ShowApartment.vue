@@ -17,8 +17,7 @@ export default {
           .then(response => {
             // Saves the response in the local singleApartment object
             this.singleApartment = response.data.singleApartment[0];
-            console.log("Dati appartamento in show salvati");
-
+            // console.log("Dati appartamento in show salvati");
           }
         );
       }
@@ -36,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid py-3">
+  <div class="container-fluid py-3" style="margin-top: 81px;">
     <h2><strong>Title: </strong>{{ singleApartment.title }}</h2>
     <div class="container-img-show"
     v-for="singleApartmentImage in singleApartment.images">
