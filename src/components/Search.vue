@@ -1,16 +1,17 @@
 <script>
 import axios from 'axios';
-import { store, filterApartment, searchBar } from '../store.js';
+import { store, filterApartment, searchBar, rangeSlider } from '../store.js';
 
 export default {
   data() {
     return {
       store,
-      indirizzo: ''
-    }
+      indirizzo: '',
+  }
   },
   methods: {
     filterApartment,
+    rangeSlider
   },
   mounted() {
     searchBar()
@@ -26,7 +27,7 @@ export default {
       aria-labelledby="offcanvasTopLabel">
       <div class="offcanvas-header border rounded-bottom rounded-5">
         <div class="w-100 d-flex justify-content-center">
-          <h5 class="offcanvas-title" id="offcanvasTopLabel">Filter</h5>
+          <h5 class="offcanvas-title" id="offcanvasTopLabel">Filtri avanzati</h5>
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
@@ -45,95 +46,94 @@ export default {
                 </div>
               </div>
 
-              <!-- <div class="mb-3 col-12">
-                <label class="form-label fw-bold fs-5">Price range</label>
+              <div class="mb-3 col-12 my-3">
+                <label class="form-label fw-bold fs-5">Distance Range</label>
                 <div id="input">
+                  <form class="multi-range-field">
+                    <input id="multi22" class="multi-range w-100" type="range" multiple="multiple" min="1" max="20"
+                      v-model="store.apartmentFilter.distance" />
+                  </form>
+                  <div id="sliderValue">{{ store.apartmentFilter.distance }} km</div>
+                </div>
+              </div>
 
-                  <form class="multi-range-field my-5 pb-5">
-                    <input id="multi22" class="multi-range w-100" type="range" multiple="multiple" />
-                  </form> -->
 
-                  <!-- Example -->
-                  <!-- <div class="row">
-                    <div class="col-5">
-                      <label for="ex3">Minimum</label>
-                      <input type="text" id="ex3" class="form-control" v-model="store.minprice">
-                    </div>
-                    <div class="col-2">
-                      <div class=w-100>
-
+              <div class="accordion pt-3" id="accordionFilter">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Apply more filters
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionFilter">
+                    <div class="accordion-body">
+                      <!-- rooms_num -->
+                      <div class="mb-3 col-6">
+                        <label class="form-label fw-bold fs-5">Bedrooms</label>
+                        <div class="box-rooms_num-buttons d-flex gap-5">
+                          <div>
+                            <input type="radio" name="rooms_num" value="1" v-model="store.apartmentFilter.rooms_num"
+                              class="form-check-input mx-1">1
+                          </div>
+                          <div>
+                            <input type="radio" name="rooms_num" value="2" v-model="store.apartmentFilter.rooms_num"
+                              class="form-check-input mx-1">2
+                          </div>
+                          <div>
+                            <input type="radio" name="rooms_num" value="3" v-model="store.apartmentFilter.rooms_num"
+                              class="form-check-input mx-1">3+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- beds_num number -->
+                      <div class="mb-3 col-6">
+                        <label class="form-label fw-bold fs-5">Beds</label>
+                        <div class="box-beds_num-buttons d-flex gap-5">
+                          <div>
+                            <input type="radio" name="beds_num" value="1" v-model="store.apartmentFilter.beds_num"
+                              class="form-check-input mx-1">1
+                          </div>
+                          <div>
+                            <input type="radio" name="beds_num" value="2" v-model="store.apartmentFilter.beds_num"
+                              class="form-check-input mx-1">2
+                          </div>
+                          <div>
+                            <input type="radio" name="beds_num" value="3" v-model="store.apartmentFilter.beds_num"
+                              class="form-check-input mx-1">3
+                          </div>
+                          <div>
+                            <input type="radio" name="beds_num" value="4" v-model="store.apartmentFilter.beds_num"
+                              class="form-check-input mx-1">4+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- bath number -->
+                      <div class="mb-3 col-6">
+                        <label class="form-label fw-bold fs-5">Bathrooms</label>
+                        <div class="box-bathroom_num-buttons d-flex gap-5">
+                          <div>
+                            <input type="radio" name="bathroom_num" value="1" v-model="store.apartmentFilter.bathroom_num"
+                              class="form-check-input mx-1">1
+                          </div>
+                          <div>
+                            <input type="radio" name="bathroom_num" value="2" v-model="store.apartmentFilter.bathroom_num"
+                              class="form-check-input mx-1">2
+                          </div>
+                          <div>
+                            <input type="radio" name="bathroom_num" value="3" v-model="store.apartmentFilter.bathroom_num"
+                              class="form-check-input mx-1">3+
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-5">
-                      <label for="ex4">Maximum</label>
-                      <input type="text" id="ex4" class="form-control" v-model="store.maxprice">
-                    </div>
-                  </div> -->
-
-                <!-- </div>
-              </div> -->
-
-              <!-- rooms_num -->
-              <div class="mb-3 col-6">
-                <label class="form-label fw-bold fs-5">Bedrooms</label>
-                <div class="box-rooms_num-buttons d-flex justify-content-around">
-                  <div>
-                    <input type="radio" name="rooms_num" value="1" v-model="store.apartmentFilter.rooms_num" class="form-check-input mx-1"
-                      checked>1
-                  </div>
-                  <div>
-                    <input type="radio" name="rooms_num" value="2" v-model="store.apartmentFilter.rooms_num"
-                      class="form-check-input mx-1">2
-                  </div>
-                  <div>
-                    <input type="radio" name="rooms_num" value="3" v-model="store.apartmentFilter.rooms_num"
-                      class="form-check-input mx-1">3+
                   </div>
                 </div>
               </div>
-
-              <!-- beds_num number -->
-              <div class="mb-3 col-6">
-                <label class="form-label fw-bold fs-5">Beds</label>
-                <div class="box-beds_num-buttons d-flex justify-content-around">
-                  <div>
-                    <input type="radio" name="beds_num" value="1" v-model="store.apartmentFilter.beds_num" class="form-check-input mx-1"
-                      checked>1
-                  </div>
-                  <div>
-                    <input type="radio" name="beds_num" value="2" v-model="store.apartmentFilter.beds_num" class="form-check-input mx-1">2
-                  </div>
-                  <div>
-                    <input type="radio" name="beds_num" value="3" v-model="store.apartmentFilter.beds_num" class="form-check-input mx-1">3
-                  </div>
-                  <div>
-                    <input type="radio" name="beds_num" value="4" v-model="store.apartmentFilter.beds_num"
-                      class="form-check-input mx-1">4+
-                  </div>
-                </div>
-              </div>
-              <!-- bath number -->
-              <div class="mb-3 col-6">
-                <label class="form-label fw-bold fs-5">Bathrooms</label>
-                <div class="box-bathroom_num-buttons d-flex justify-content-around">
-                  <div>
-                    <input type="radio" name="bathroom_num" value="1" v-model="store.apartmentFilter.bathroom_num"
-                      class="form-check-input mx-1" checked>1
-                  </div>
-                  <div>
-                    <input type="radio" name="bathroom_num" value="2" v-model="store.apartmentFilter.bathroom_num"
-                      class="form-check-input mx-1">2
-                  </div>
-                  <div>
-                    <input type="radio" name="bathroom_num" value="3" v-model="store.apartmentFilter.bathroom_num"
-                      class="form-check-input mx-1">3+
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center py-5">
             <button class="btn btn-info" type="submit">Filtra</button>
           </div>
         </form>
@@ -159,5 +159,12 @@ export default {
     top: calc(50% - 25vh);
     left: calc(50% - 22vw);
   }
+
+  #sliderValue {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
 }
 </style>
