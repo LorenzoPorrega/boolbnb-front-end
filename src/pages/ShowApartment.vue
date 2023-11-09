@@ -10,25 +10,178 @@ export default {
     };
   },
   methods: {
-    fetchShowedApartment(){
+    createmap() {
+      let long = parseFloat(this.singleApartment['longitude'])
+      let lat = parseFloat(this.singleApartment['latitude'])
+      console.log(long)
+      console.log(this.singleApartment)
+      let stores = {
+        "type": "FeatureCollection",
+        "features": [
+          //{
+          //   "type": "Feature",
+          //   //"properties": {
+          //     //"name": this.singleApartment.title,
+          //     //"iconSize": [50, 75], // size of the icon
+          //     //"iconAnchor": [29, 68] // point of the icon which will grab cursor coordinates
+          //   //},
+          //   "geometry": {
+          //     "type": "Point",
+          //     "coordinates": [this.singleApartment.longitude, this.singleApartment.latitude]// lat and long for each
+          //   }
+          // }
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                long,
+                lat
+              ]
+            },
+            "properties": {
+              "address": this.singleApartment.address,
+              "city": "Rotterdam",
+              "iconSize": [50, 75], // size of the icon
+            }
+          },
+        ]
+      }
+      const apiKey = '9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I';
+      const map = tt.map({
+        key: '9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I',
+        container: 'map',
+        center: [long, lat],
+        zoom: 10
+      });
+
+      const markersCity = [];
+      const list = document.getElementById('store-list');
+
+      stores.features.forEach(function (stores, index) {
+        const city = stores.properties.city;
+        const address = stores.properties.address;
+        const location = stores.geometry.coordinates;
+        const marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
+          offset: 35
+        }).setHTML(address)).addTo(map);
+        markersCity[index] = {
+          marker,
+          city
+        };
+
+        let cityStoresList = document.getElementById(city);
+        if (cityStoresList === null) {
+          const cityStoresListHeading = list.appendChild(document.createElement('h3'));
+          cityStoresListHeading.innerHTML = city;
+          cityStoresList = list.appendChild(document.createElement('div'));
+          cityStoresList.id = city;
+          cityStoresList.className = 'list-entries-container';
+          cityStoresListHeading.addEventListener('click', function (e) {
+            map.fitBounds(getMarkersBoundsForCity(e.target.innerText), {
+              padding: 50
+            });
+          });
+        }
+
+        const details = buildLocation(cityStoresList, address);
+
+        marker.getElement().addEventListener('click', function () {
+          const activeItem = document.getElementsByClassName('selected');
+          if (activeItem[0]) {
+            activeItem[0].classList.remove('selected');
+          }
+          details.classList.add('selected');
+          openCityTab(city);
+        });
+
+        details.addEventListener('click', function () {
+          const activeItem = document.getElementsByClassName('selected');
+          if (activeItem[0]) {
+            activeItem[0].classList.remove('selected');
+          }
+          details.classList.add('selected');
+          map.easeTo({
+            center: marker.getLngLat(),
+            zoom: 18
+          });
+          closeAllPopups();
+          marker.togglePopup();
+
+        });
+
+        function buildLocation(htmlParent, text) {
+          const details = htmlParent.appendChild(document.createElement('a'));
+          details.href = '#';
+          details.className = 'list-entry';
+          details.innerHTML = text;
+          return details;
+        }
+
+        function closeAllPopups() {
+          markersCity.forEach(markerCity => {
+            if (markerCity.marker.getPopup().isOpen()) {
+              markerCity.marker.togglePopup();
+            }
+          });
+        }
+
+        function getMarkersBoundsForCity(city) {
+          const bounds = new tt.LngLatBounds();
+          markersCity.forEach(markerCity => {
+            if (markerCity.city === city) {
+              bounds.extend(markerCity.marker.getLngLat());
+            }
+          });
+          return bounds;
+        }
+
+        function openCityTab(selected_id) {
+          const storeListElement = $('#store-list');
+          const citiesListDiv = storeListElement.find('div.list-entries-container');
+          for (let activeCityIndex = 0; activeCityIndex < citiesListDiv.length; activeCityIndex++) {
+            if (citiesListDiv[activeCityIndex].id === selected_id) {
+              storeListElement.accordion('option', {
+                'active': activeCityIndex
+              });
+            }
+          }
+        }
+      });
+
+      $('#store-list').accordion({
+        'icons': {
+          'header': 'ui-icon-plus',
+          'activeHeader': 'ui-icon-minus'
+        },
+        'heightStyle': 'content',
+        'collapsible': true,
+        'active': false
+      });
+    },
+
+    fetchShowedApartment() {
       // Throws the call only if the object singleApartment is empty
-      if(!this.singleApartment.value){
+      if (!this.singleApartment.value) {
         axios.get("http://127.0.0.1:8000/api/selected/" + this.$route.params.slug)
           .then(response => {
             // Saves the response in the local singleApartment object
             this.singleApartment = response.data.singleApartment[0];
+            this.createmap()
             // console.log("Dati appartamento in show salvati");
           }
-        );
+          );
       }
     },
-    scrollToTop(){
+    scrollToTop() {
       window.scrollTo(0, 0);
     }
+
   },
   mounted() {
     /* filterApartment(); */
     this.fetchShowedApartment();
+    //this.createmap()
     this.scrollToTop();
   }
 };
@@ -37,8 +190,7 @@ export default {
 <template>
   <div class="container-fluid py-3" style="margin-top: 81px;">
     <h2><strong>Title: </strong>{{ singleApartment.title }}</h2>
-    <div class="container-img-show"
-    v-for="singleApartmentImage in singleApartment.images">
+    <div class="container-img-show" v-for="singleApartmentImage in singleApartment.images">
       <img class="img-show" :src="`http://127.0.0.1:8000/storage/${singleApartmentImage}`" alt="">
     </div>
     <h5><strong>Price per night: </strong>{{ singleApartment.price }} $</h5>
@@ -50,58 +202,60 @@ export default {
     <h5><strong>Address: </strong>{{ singleApartment.address }}</h5>
 
     <div class="container-map position-relative">
-      <div class='control-panel' style="display: none">
-        <div class='heading'>
-          <img src='/images/boolbnb-logo.png'>
+      <div class="container">
+        <div class='control-panel'>
+          <div class='heading'>
+            <img src='/images/boolbnb-logo.png'>
+          </div>
+          <div id='store-list'></div>
         </div>
-        <div id='store-list'></div>
+        <div class='map' id='map'></div>
       </div>
-      <div class='map' id='map'></div>
     </div>
   </div>
 
   <!-- Host Section with contact redirect -->
   <div class="container py-5">
-      <div class="row">
-          <div class="col-3 d-flex justify-content-center align-items-start">
-            <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
-          </div>
-          <div class="col-9 host-info d-flex">
-            <div class="col-7">
-              <h3>Hosted by Lorenzo</h3>
-              <ul>
-                <li>Joined in May 2023</li>
-                <li><span class="icon"><i class="fa-solid fa-star"></i></span>164 Reviews</li>
-                <li><span class="icon"><i class="fa-solid fa-user-check"></i></span>Identity verified</li>
-                <li><span class="icon"><i class="fa-solid fa-medal"></i></span> Superhost</li>
-              </ul>
-              <p>Hello everyone! I’m Lorenzo. <br>I really enjoy travelling and I work in real estate!</p>
-              <p class="superhost-badge">Lorenzo is a Superhost</p>
-              <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
-            </div>
-            <div class="col-5">
-              <ul>
-                <li>Language: Italiano</li>
-                <li>Response rate: 100%</li>
-                <li>Response time: within an hour</li>
-              </ul>
-              <router-link :to="{name: 'contacts'}" class="btn btn-primary contact-host-btn text-decoration-none">
-                Contact Host
-              </router-link>
-              <div class="payment-warning d-flex mt-4">
-                <div class="icon">⚠️</div>
-                <p>To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</p>
-              </div>
-            </div>
-          </div>
+    <div class="row">
+      <div class="col-3 d-flex justify-content-center align-items-start">
+        <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
       </div>
+      <div class="col-9 host-info d-flex">
+        <div class="col-7">
+          <h3>Hosted by Lorenzo</h3>
+          <ul>
+            <li>Joined in May 2023</li>
+            <li><span class="icon"><i class="fa-solid fa-star"></i></span>164 Reviews</li>
+            <li><span class="icon"><i class="fa-solid fa-user-check"></i></span>Identity verified</li>
+            <li><span class="icon"><i class="fa-solid fa-medal"></i></span> Superhost</li>
+          </ul>
+          <p>Hello everyone! I’m Lorenzo. <br>I really enjoy travelling and I work in real estate!</p>
+          <p class="superhost-badge">Lorenzo is a Superhost</p>
+          <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
+        </div>
+        <div class="col-5">
+          <ul>
+            <li>Language: Italiano</li>
+            <li>Response rate: 100%</li>
+            <li>Response time: within an hour</li>
+          </ul>
+          <router-link :to="{ name: 'contacts' }" class="btn btn-primary contact-host-btn text-decoration-none">
+            Contact Host
+          </router-link>
+          <div class="payment-warning d-flex mt-4">
+            <div class="icon">⚠️</div>
+            <p>To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @use "../scss/partials/_variables.scss" as *;
 
-.container-img-show{
+.container-img-show {
   width: 30%;
 }
 
@@ -121,6 +275,9 @@ a {
   height: 50vh;
   width: 50%;
   margin: 3rem 0;
+  svg{
+    background-color: #f8fafa00;
+  }
 }
 
 .map {
@@ -222,6 +379,7 @@ a {
   font-size: 15px;
   color: rgb(178, 61, 18);
 }
+
 .payment-warning p {
   font-size: 0.8rem;
 }
