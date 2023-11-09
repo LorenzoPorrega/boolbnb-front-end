@@ -1,5 +1,5 @@
 <script>
-import { store, filterApartment, saveSelectedApartmentSlug } from '../store.js';
+import { store, saveSelectedApartmentSlug } from '../store.js';
 
 export default {
   data() {
