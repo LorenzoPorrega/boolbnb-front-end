@@ -7,6 +7,7 @@ export default {
     return {
       store,
       singleApartment: {},
+      user:{}
     };
   },
   methods: {
@@ -155,7 +156,10 @@ export default {
         axios.get("http://127.0.0.1:8000/api/selected/" + this.$route.params.slug)
           .then(response => {
             // Saves the response in the local singleApartment object
+            console.log(response)
             this.singleApartment = response.data.singleApartment[0];
+            this.user = response.data.utente
+
             this.createmap()
             // console.log("Dati appartamento in show salvati");
           }
@@ -208,7 +212,7 @@ export default {
       </div>
       <div class="col-9 host-info d-flex">
         <div class="col-7">
-          <h3>Hosted by Lorenzo</h3>
+          <h3>Hosted by {{ this.user.name }}</h3>
           <ul>
             <li>Joined in May 2023</li>
             <li><span class="icon"><i class="fa-solid fa-star"></i></span>164 Reviews</li>
