@@ -38,7 +38,7 @@ export function filterApartment(){
   axios.get("http://127.0.0.1:8000/api/apartments/", {params:store.apartmentFilter})
   .then((response) => {
       store.apartments = response.data.apartments 
-      console.log(response)
+      // console.log(response)
       /* console.log(store.apartments); */
       // console.log("Ricerca con filtri input avviata")
       // console.log(store.apartmentFilter)

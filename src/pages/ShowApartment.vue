@@ -201,7 +201,7 @@ export default {
   </div>
 
   <!-- Host Section with contact redirect -->
-  <div class="container py-5">
+  <div class="container py-5 border-bottom" style="margin-top: 81px;">
     <div class="row">
       <div class="col-3 d-flex justify-content-center align-items-start">
         <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
