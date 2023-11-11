@@ -1,9 +1,10 @@
 <script>
 import axios from 'axios';
 import Card from "../components/Card.vue";
+import SponsoredApartments from "../components/SponsoredApartments.vue";
 import DestinationsCarousel from "../components/DestinationsCarousel.vue";
 import FeaturedApartments from "../components/FeaturedApartments.vue";
-import { store, filterApartment } from '../store.js';
+import { store, filterApartment, fetchSponsoredApartments } from '../store.js';
 
 export default {
   data() {
@@ -15,7 +16,8 @@ export default {
   components: {
     Card,
     DestinationsCarousel,
-    FeaturedApartments
+    FeaturedApartments,
+    SponsoredApartments
   },
   methods:{
     getImageURL(singleApartment) {
@@ -23,7 +25,8 @@ export default {
       }
   },  
   mounted() {
-    filterApartment()
+    filterApartment(),
+    fetchSponsoredApartments()
   }
 }
 
@@ -44,6 +47,7 @@ export default {
 
     <!-- Featured Apartments Section -->
     <!-- <FeaturedApartments></FeaturedApartments> -->
+    <SponsoredApartments></SponsoredApartments>
 
     <!-- Regular Apartments Section -->
     <div class="container-fluid py-5 px-5 border-bottom">

@@ -4,17 +4,18 @@ import { reactive } from "vue";
 export const store = reactive({
   pageLoading: false,
   apartments: [],
+  sponsoredApartmentsId: [],
   apartmentFilter: {
-    rooms_num:"",
-    beds_num:"",
-    bathroom_num:"",
+    rooms_num: "",
+    beds_num: "",
+    bathroom_num: "",
     geopoints: "",
     freeformAddress: "",
-    distance:20,
+    distance: 20,
   },
 })
 
-export function onPageLoad(){
+export function onPageLoad() {
   store.pageLoading = true;
 
   setTimeout(() => {
@@ -22,12 +23,12 @@ export function onPageLoad(){
   }, 3500);
 };
 
-export function saveSelectedApartmentSlug(slug){
+export function saveSelectedApartmentSlug(slug) {
   // I save in store the slug passed in the Card component
   store.selectedApartmentSlug = slug;
 }
 
-export function filterApartment(){
+export function filterApartment() {
 
   const baseURL = "http://127.0.0.1:8000/api/apartments/";
   const params = store.apartmentFilter;
@@ -35,16 +36,16 @@ export function filterApartment(){
   url.search = new URLSearchParams(params).toString();
   // console.log("URL generato per la chiamata:", url.toString());
 
-  axios.get("http://127.0.0.1:8000/api/apartments/", {params:store.apartmentFilter})
-  .then((response) => {
-      store.apartments = response.data.apartments 
+  axios.get("http://127.0.0.1:8000/api/apartments/", { params: store.apartmentFilter })
+    .then((response) => {
+      store.apartments = response.data.apartments
       // console.log(response)
       /* console.log(store.apartments); */
       // console.log("Ricerca con filtri input avviata")
       // console.log(store.apartmentFilter)
       // console.log(store.apartments)
     }
-  )
+    )
 }
 
 /* export function searchApartment(){
@@ -88,11 +89,22 @@ export function searchBar() {
 }
 
 export function rangeSlider() {
-      const rangeSlider = document.getElementById("multi22");
-      const sliderValue = document.getElementById("sliderValue");
+  const rangeSlider = document.getElementById("multi22");
+  const sliderValue = document.getElementById("sliderValue");
 
-      rangeSlider.addEventListener("input", () => {
-        sliderValue.textContent = rangeSlider.value;
-      });
+  rangeSlider.addEventListener("input", () => {
+    sliderValue.textContent = rangeSlider.value;
+  });
 
-    }
+}
+
+
+export function fetchSponsoredApartments() {
+  axios.get("http://127.0.0.1:8000/api/sponsoredApartments/")
+    .then((response) => {
+      store.sponsoredApartmentsId = response.data.sponsoredApartments;
+      console.log(store.sponsoredApartmentsId)
+    })
+}
+
+
