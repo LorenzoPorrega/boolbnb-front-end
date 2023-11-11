@@ -11,7 +11,9 @@ export const store = reactive({
     bathroom_num: "",
     geopoints: "",
     freeformAddress: "",
-    distance: 20,
+    distance: 20,    
+    latitude:'',
+    longitude:'',
   },
 })
 
@@ -35,17 +37,25 @@ export function filterApartment() {
   const url = new URL(baseURL);
   url.search = new URLSearchParams(params).toString();
   // console.log("URL generato per la chiamata:", url.toString());
-
-  axios.get("http://127.0.0.1:8000/api/apartments/", { params: store.apartmentFilter })
-    .then((response) => {
-      store.apartments = response.data.apartments
-      // console.log(response)
+  
+  axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
+  .then((response) => {
+      store.apartments= response.data.apartments
+      if(response.data.funzione.length !== 0){
+        store.apartments = response.data.funzione
+        store.apartmentFilter.latitude =''
+        store.apartmentFilter.longitude=''
+        // console.log('ciuao')
+      }
+      console.log(response)
+    }
+      
+     
       /* console.log(store.apartments); */
       // console.log("Ricerca con filtri input avviata")
       // console.log(store.apartmentFilter)
       // console.log(store.apartments)
-    }
-    )
+  )
 }
 
 /* export function searchApartment(){
@@ -80,11 +90,11 @@ export function searchBar() {
 
     newIndirizzo = JSON.stringify(data)
     let objectGeopoints = data['data']['result']['position']
-    store.apartmentFilter.geopoints = JSON.stringify(objectGeopoints)
-    //store.apartmentFilter.freeformAddress = data['data']['result']['address']['freeformAddress']
-    console.log(store.apartmentFilter.geopoints)
-    // console.log(store.apartmentFilter.position)
-    // console.log(store.apartmentFilter.address)
+    store.apartmentFilter.latitude = objectGeopoints['lat']
+    store.apartmentFilter.longitude = objectGeopoints['lng']
+    console.log(store.apartmentFilter.latitude)
+    console.log(store.apartmentFilter.longitude)
+
   })
 }
 
