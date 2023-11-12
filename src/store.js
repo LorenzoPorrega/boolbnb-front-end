@@ -2,7 +2,6 @@ import axios from "axios";
 import { reactive } from "vue";
 
 export const store = reactive({
-  user: "",
   pageLoading: false,
   apartments: [],
   sponsoredApartmentsId: [],
@@ -18,13 +17,7 @@ export const store = reactive({
   },
 })
 
-export function fetchUser(){
-  axios.get("http://127.0.0.1:8000/api/apartments")
-  .then((response) => { 
-  store.user = response.data.user
-      console.log(store.user);
-  })
-}
+
 
 export function onPageLoad() {
   store.pageLoading = true;
