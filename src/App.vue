@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid vh-100 p-0 m-0">
+  <div class="container">
     <TheHeader></TheHeader>
     <router-view></router-view>
     <TheFooter></TheFooter>

@@ -1,15 +1,19 @@
 <script>
 import Search from "../components/Search.vue";
+import { store, fetchUser } from "../store"
 
 export default {
   data() {
     return {
-
+      store,
     };
   },
   components: {
     Search,
   },
+  mounted:{
+    fetchUser
+  }
 };
 </script>
 
@@ -26,7 +30,7 @@ export default {
             <router-link :to="{name: 'home'}" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/login">Login</a>
+            <a class="nav-link" href="http://127.0.0.1:8000/">Login</a>
           </li>
         </ul>
       </div>

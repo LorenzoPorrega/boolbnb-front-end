@@ -32,7 +32,7 @@ export default {
 
 <template>
 
-  <div class="container py-5 text-center" style="margin-top: 81px;">
+  <div class="py-5 text-center" style="margin-top: 81px;">
     <div class="row">
       <div class="col-7 mx-auto">
         <div class="my-3">

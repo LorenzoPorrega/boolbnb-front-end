@@ -4,21 +4,21 @@ import { store, fetchSponsoredApartments } from '../store.js';
 export default {
     data() {
         return {
-            store,            
+            store,
         };
-    },    
+    },
     mounted() {
-            fetchSponsoredApartments();
-            console.log(fetchSponsoredApartments);
-        },
+        fetchSponsoredApartments();
+        console.log(fetchSponsoredApartments);
+    },
 };
 </script>
 <template>
-    <div class="container-fluid py-5 px-5 border-bottom">
+    <div class="py-5 px-5 border-bottom">
         <h2>Sponsored Apartments</h2>
 
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 align-items-stretch g-5 py-3">
-            <div class="col">
+            <div class="col px-2">
                 <a href="#" class="text-decoration-none">
                     <div class="card">
                         <div>

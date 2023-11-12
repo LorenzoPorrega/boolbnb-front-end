@@ -19,21 +19,21 @@ export default {
     FeaturedApartments,
     SponsoredApartments
   },
-  methods:{
+  methods: {
     getImageURL(singleApartment) {
-        return `http://127.0.0.1:8000/storage/${singleApartment.images}`
-      }
-  },  
+      return `http://127.0.0.1:8000/storage/${singleApartment.images}`
+    }
+  },
   mounted() {
     filterApartment(),
-    fetchSponsoredApartments()
+      fetchSponsoredApartments()
   }
 }
 
 </script>
 
 <template>
-  <div class="container-fluid px-0 text-center">
+  <div class="px-0 text-center">
 
     <!-- Jumbo Section -->
     <div class="text-center jumbotron">
@@ -50,11 +50,11 @@ export default {
     <SponsoredApartments></SponsoredApartments>
 
     <!-- Regular Apartments Section -->
-    <div class="container-fluid py-5 px-5 border-bottom">
+    <div class="py-5 px-5 border-bottom">
       <h2>Apartments</h2>
 
-      <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-5 py-3">
-        <div class="col" v-for="singleApartment in store.apartments " :key="singleApartment.id">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 align-items-stretch g-5 py-3">
+        <div class="col px-2" v-for="singleApartment in store.apartments " :key="singleApartment.id">
           <Card :singleApartment="singleApartment"></Card>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default {
     <DestinationsCarousel></DestinationsCarousel>
 
     <!-- CTA Section -->
-    <div class="container-fluid p-3 justify-content-center border-top">
+    <div class="p-3 justify-content-center border-top">
       <div class="row my-3 justify-content-center">
         <div class="col text-center">
           <div class="card border-0">
@@ -98,10 +98,6 @@ export default {
 
 .color-text {
   color: #757575 !important;
-}
-
-.container {
-  height: calc(100vh - 300px);
 }
 
 button {
