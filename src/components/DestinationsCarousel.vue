@@ -10,10 +10,10 @@ export default {
 
 <template>
 
-  <div class="container-fluid pt-5 pb-3">
+  <div class="pt-5 pb-3">
     <div class="row">
       <h3>Trending destinations</h3>
-      <div class="col-sm-12 col-lg-10 mx-auto">
+      <div class="col-12 mx-auto">
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
           <!-- Carousel indicators -->
           <ul class="carousel-indicators list-unstyled">
@@ -41,6 +41,7 @@ export default {
                     </div>
                   </div>
                 </div>
+
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">
@@ -55,6 +56,7 @@ export default {
                     </div>
                   </div>
                 </div>
+                
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="thumb-wrapper">
                     <div class="img-box">

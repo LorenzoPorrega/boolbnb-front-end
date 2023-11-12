@@ -1,15 +1,16 @@
 <script>
 import Search from "../components/Search.vue";
+import { store } from "../store"
 
 export default {
   data() {
     return {
-
+      store,
     };
   },
   components: {
     Search,
-  },
+  }
 };
 </script>
 
@@ -23,10 +24,17 @@ export default {
         <Search></Search>
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <router-link :to="{name: 'home'}" class="nav-link">Home</router-link>
+            <router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/login">Login</a>
+          <li class="nav-item text-center">
+            <!-- visualizzare solo se non loggati -->
+            <a class="nav-link" href="http://127.0.0.1:8000/">Log in</a>
+            <!--  -->
+            
+            <!-- visualizzare solo se loggati -->
+            <a class="nav-link" href="http://127.0.0.1:8000/">Dashboard</a>
+            <p class="user-p">nome utente</p>
+            <!--  -->
           </li>
         </ul>
       </div>
@@ -35,10 +43,14 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 @use "../scss/partials/variables" as *;
 
-header{
+.user-p{
+  font-size: .7rem;
+  margin-top: -.5rem;
+}
+
+header {
   background-color: white;
 }
 
@@ -55,7 +67,7 @@ li {
 
 }
 
-li::after{
+li::after {
   content: "";
   position: absolute;
   left: 0;
@@ -67,7 +79,7 @@ li::after{
   transition: scale 250ms;
 }
 
-li:hover::after{
+li:hover::after {
   scale: 1 1;
 }
 
@@ -89,5 +101,4 @@ input {
 :-moz-placeholder {
   text-align: center;
 }
-
 </style>

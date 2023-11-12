@@ -7,7 +7,7 @@ export default {
     return {
       store,
       singleApartment: {},
-      user:{}
+      user: {}
     };
   },
   methods: {
@@ -25,8 +25,8 @@ export default {
             "geometry": {
               "type": "Point",
               "coordinates": [
-              long,
-              lat
+                long,
+                lat
               ]
             },
             "properties": {
@@ -181,9 +181,9 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid py-3" style="margin-top: 81px;">
+  <div class=" py-3" style="margin-top: 81px;">
     <h2><strong>Title: </strong>{{ singleApartment.title }}</h2>
-    <div class="container-img-show" v-for="singleApartmentImage in singleApartment.images">
+    <div class="w-30" v-for="singleApartmentImage in singleApartment.images">
       <img class="img-show" :src="`http://127.0.0.1:8000/storage/${singleApartmentImage}`" alt="">
     </div>
     <h5><strong>Price per night: </strong>{{ singleApartment.price }} $</h5>
@@ -205,7 +205,7 @@ export default {
   </div>
 
   <!-- Host Section with contact redirect -->
-  <div class="container py-5 border-bottom" style="margin-top: 81px;">
+  <div class=" py-5 border-bottom" style="margin-top: 81px;">
     <div class="row">
       <div class="col-3 d-flex justify-content-center align-items-start">
         <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
@@ -220,7 +220,7 @@ export default {
             <li><span class="icon"><i class="fa-solid fa-medal"></i></span> Superhost</li>
           </ul>
           <p>Hello everyone! I’m Lorenzo. <br>I really enjoy travelling and I work in real estate!</p>
-          <p class="superhost-badge">Lorenzo is a Superhost</p>
+          <p class="superhost-badge"><strong>{{ this.user.name }}</strong> is a Superhost</p>
           <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
         </div>
         <div class="col-5">
@@ -245,20 +245,10 @@ export default {
 <style lang="scss" scoped>
 @use "../scss/partials/_variables.scss" as *;
 
-.container-img-show {
-  width: 30%;
-}
+
 
 .img-show {
   width: 300px;
-}
-
-a {
-  text-decoration: none;
-}
-
-.input-none {
-  display: none;
 }
 
 .container-map {
@@ -315,27 +305,27 @@ a {
 
 .host-info {
   padding-left: 20px;
-}
 
-.host-info h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
-.host-info p {
-  font-size: 16px;
-  margin-bottom: 15px;
-}
+  p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
 
-.host-info ul {
-  list-style: none;
-  padding: 0;
-}
+  ul {
+    list-style: none;
+    padding: 0;
 
-.host-info ul li {
-  font-size: 1rem;
-  margin-bottom: 5px;
+    li {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 .host-description {

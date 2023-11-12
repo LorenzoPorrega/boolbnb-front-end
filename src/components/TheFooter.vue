@@ -10,8 +10,8 @@ export default {
 
 <template>
 
-  <footer class="border-top">
-    <div class="container py-3">
+  <footer class="">
+    <div class="py-3">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-between">
           <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
@@ -87,7 +87,7 @@ export default {
       </div>
     </div>
 
-    <div class="container py-3 border-top">
+    <div class="py-3 border-top">
       <div class="row">
         <div class="col-md-12 d-flex flex-wrap justify-content-between align-items-center">
           <div class="col-md-4 mb-0 d-flex flex-nowrap justify-content-center">
