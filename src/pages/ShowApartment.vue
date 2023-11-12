@@ -21,6 +21,7 @@ export default {
             store.showedApartment = response.data.showedApartment[0];
             this.host = response.data.host
             createmap()
+            getFrontEndCostumerIP(store.showedApartment.slug)
           });
       }
     },
@@ -32,7 +33,6 @@ export default {
   mounted() {
     this.scrollToTop();
     this.fetchShowedApartment();
-    getFrontEndCostumerIP()
     // Funzione per creare la mappa nello show front-office spostata in store.js e richiamata in fetchShowedApartment
   }
 };

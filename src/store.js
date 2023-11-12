@@ -250,19 +250,23 @@ export function createmap() {
   });
 }
 
-export function getFrontEndCostumerIP() {
+export function getFrontEndCostumerIP($slug) {
   // Chiave API del servizio terzi ipdata.co di Lorenzo
   let apiKey = 'dcbaf3e35d5120fc5dacec2ad095b3634d566544e59017c9aac320cf';
   $.getJSON('https://api.ipdata.co?api-key=' + apiKey, function (data) {
     console.log(`Indirizzo IP del visitatore (tu): ${JSON.stringify(data.ip, null, 2)}`);
 
-    let ipAdress = {
-      ipAdress: data.ip,
-    }
+    let ipAdress = data.ip;
 
-    axios.post("http://127.0.0.1:8000/api/saveCostumerIpAdress/", ipAdress)
-      .then((response) => {
-        console.log(response.data);
-      })
+    axios.post("http://127.0.0.1:8000/api/saveCostumerIpAdress/", {
+      ipAdress: ipAdress,
+      showedApartmentSlug: $slug,
+    })
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      /* console.log(error); */
+    });
   });
 }
