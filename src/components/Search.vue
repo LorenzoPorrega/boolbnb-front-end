@@ -20,9 +20,9 @@ export default {
 </script>
 
 <template>
-  <div class="search-box border rounded-5 border-danger p-2 d-flex justify-content-center">
+  <div class="search-box rounded-5 p-2 d-flex justify-content-center">
     <button class="btn btn-offcanva p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-      aria-controls="offcanvasTop">Ricerca..</button>
+      aria-controls="offcanvasTop">Search your next destination</button>
     <div class="offcanvas offcanvas-top border rounded-5" tabindex="-1" id="offcanvasTop"
       aria-labelledby="offcanvasTopLabel">
       <div class="offcanvas-header border rounded-bottom rounded-5">
@@ -148,6 +148,7 @@ export default {
 .search-box {
   width: 50%;
   height: 40px;
+  border: 1px solid $palette-primary;
 
   .btn-offcanva {
     height: 100%;
@@ -165,6 +166,5 @@ export default {
     font-size: 18px;
     margin-top: 10px;
   }
-
 }
 </style>
