@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import ApartmentsPage from "./pages/ApartmentsPage.vue";
 import ApartmentsShowPage from "./pages/ShowApartment.vue";
-import ContactsPage from "./pages/Contacts.vue";
+import MessagesPage from "./pages/Messages.vue";
 // import componente jolly per url sbagliati o sconosciuti richiesti dall'utente
 import NotFound from "./pages/NotFound.vue";
 
@@ -19,9 +19,9 @@ const routes = [
         component: ApartmentsShowPage,
     },
     {
-        path: "/contacts",
-        name: "contacts",
-        component: ContactsPage,
+        path: "/apartments/:slug/messages",
+        name: "messages",
+        component: MessagesPage,
     },
     {
         path: "/:pathMatch(.*)*",

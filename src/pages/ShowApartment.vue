@@ -229,7 +229,7 @@ export default {
             <li>Response rate: 100%</li>
             <li>Response time: within an hour</li>
           </ul>
-          <router-link :to="{ name: 'contacts' }" class="btn btn-primary contact-host-btn text-decoration-none">
+          <router-link :to="{ name: 'messages' }" class="btn btn-primary contact-host-btn text-decoration-none">
             Contact Host
           </router-link>
           <div class="payment-warning d-flex mt-4">
