@@ -2,6 +2,7 @@ import axios from "axios";
 import { reactive } from "vue";
 
 export const store = reactive({
+  user: "",
   pageLoading: false,
   apartments: [],
   sponsoredApartmentsId: [],
@@ -16,6 +17,14 @@ export const store = reactive({
     longitude:'',
   },
 })
+
+export function fetchUser(){
+  axios.get("http://127.0.0.1:8000/api/apartments")
+  .then((response) => { 
+  store.user = response.data.user
+      console.log(store.user);
+  })
+}
 
 export function onPageLoad() {
   store.pageLoading = true;
@@ -39,13 +48,12 @@ export function filterApartment() {
   // console.log("URL generato per la chiamata:", url.toString());
   
   axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
-  .then((response) => {
+  .then((response) => {      
       store.apartments= response.data.apartments
       if(response.data.funzione.length !== 0){
         store.apartments = response.data.funzione
         store.apartmentFilter.latitude =''
         store.apartmentFilter.longitude=''
-        // console.log('ciuao')
       }
       console.log(response)
     }
