@@ -1,5 +1,5 @@
 <script>
-import { store, fetchSponsoredApartments } from '../store.js';
+import { store } from '../store.js';
 
 export default {
     data() {
@@ -8,8 +8,8 @@ export default {
         };
     },    
     mounted() {
-            fetchSponsoredApartments();
-            console.log(fetchSponsoredApartments);
+            /* fetchSponsoredApartments();
+            console.log(fetchSponsoredApartments); */
         },
 };
 </script>

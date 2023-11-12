@@ -4,7 +4,7 @@ import Card from "../components/Card.vue";
 import SponsoredApartments from "../components/SponsoredApartments.vue";
 import DestinationsCarousel from "../components/DestinationsCarousel.vue";
 import FeaturedApartments from "../components/FeaturedApartments.vue";
-import { store, filterApartment, fetchSponsoredApartments } from '../store.js';
+import { store, filterApartment } from '../store.js';
 
 export default {
   data() {
@@ -18,15 +18,10 @@ export default {
     DestinationsCarousel,
     FeaturedApartments,
     SponsoredApartments
-  },
-  methods:{
-    getImageURL(singleApartment) {
-        return `http://127.0.0.1:8000/storage/${singleApartment.images}`
-      }
   },  
   mounted() {
-    filterApartment(),
-    fetchSponsoredApartments()
+    filterApartment()
+
   }
 }
 
