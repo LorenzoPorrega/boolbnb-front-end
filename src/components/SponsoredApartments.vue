@@ -1,15 +1,19 @@
 <script>
 import { store, fetchSponsoredApartments } from '../store.js';
+import Card from './Card.vue';
 
 export default {
+    components: {
+        Card
+    },
     data() {
         return {
             store,            
         };
     },    
     mounted() {
-            fetchSponsoredApartments();
-            console.log(fetchSponsoredApartments);
+            //fetchSponsoredApartments();
+            //console.log(fetchSponsoredApartments);
         },
 };
 </script>
@@ -55,6 +59,10 @@ export default {
                     </div>
                 </a>
             </div>
+            <div class="col" v-for="appartamento in store.sponsoredList"  >
+                <Card :singleApartment="appartamento" ></Card>
+            </div>
+                
         </div>
     </div>
 </template>

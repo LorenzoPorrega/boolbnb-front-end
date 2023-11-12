@@ -5,15 +5,16 @@ export const store = reactive({
   pageLoading: false,
   apartments: [],
   sponsoredApartmentsId: [],
+  sponsoredList: [],
   apartmentFilter: {
     rooms_num: "",
     beds_num: "",
     bathroom_num: "",
     geopoints: "",
     freeformAddress: "",
-    distance: 20,    
-    latitude:'',
-    longitude:'',
+    distance: 20,
+    latitude: '',
+    longitude: '',
   },
 })
 
@@ -37,25 +38,27 @@ export function filterApartment() {
   const url = new URL(baseURL);
   url.search = new URLSearchParams(params).toString();
   // console.log("URL generato per la chiamata:", url.toString());
-  
-  axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
-  .then((response) => {
-      store.apartments= response.data.apartments
-      if(response.data.funzione.length !== 0){
+
+  axios.get("http://127.0.0.1:8000/api/apartments/", { params: store.apartmentFilter })
+    .then((response) => {
+      store.apartments = response.data.apartments
+      if (response.data.funzione.length !== 0) {
         store.apartments = response.data.funzione
-        store.apartmentFilter.latitude =''
-        store.apartmentFilter.longitude=''
+        store.sponsoredList = response.data.sponsorizzati
+
+        store.apartmentFilter.latitude = ''
+        store.apartmentFilter.longitude = ''
         // console.log('ciuao')
       }
       console.log(response)
     }
-      
-     
+
+
       /* console.log(store.apartments); */
       // console.log("Ricerca con filtri input avviata")
       // console.log(store.apartmentFilter)
       // console.log(store.apartments)
-  )
+    )
 }
 
 /* export function searchApartment(){
@@ -113,7 +116,7 @@ export function fetchSponsoredApartments() {
   axios.get("http://127.0.0.1:8000/api/sponsoredApartments/")
     .then((response) => {
       store.sponsoredApartmentsId = response.data.sponsoredApartments;
-      console.log(store.sponsoredApartmentsId)
+      // console.log(store.sponsoredApartmentsId)
     })
 }
 
