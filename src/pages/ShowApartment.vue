@@ -1,169 +1,28 @@
 <script>
 import axios from 'axios';
-import { store, saveSelectedApartmentSlug, filterApartment } from '../store.js';
+import { store, createmap, getFrontEndCostumerIP } from '../store.js';
 
 export default {
   data() {
     return {
       store,
-      singleApartment: {},
-      user: {}
+      host: {}
     };
   },
   methods: {
-    createmap() {
-      let long = parseFloat(this.singleApartment['longitude'])
-      let lat = parseFloat(this.singleApartment['latitude'])
-      let address = this.singleApartment['address']
-      console.log(long)
-      console.log(this.singleApartment)
-      let stores = {
-        "type": "FeatureCollection",
-        "features": [
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                long,
-                lat
-              ]
-            },
-            "properties": {
-              "address": address,
-              "city": address,
-              "iconSize": [50, 75], // size of the icon
-            }
-          },
-        ]
-      }
-      const apiKey = '9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I';
-      const map = tt.map({
-        key: apiKey,
-        container: 'map',
-        center: [long, lat],
-        zoom: 10
-      });
-
-      const markersCity = [];
-      const list = document.getElementById('store-list');
-
-      stores.features.forEach(function (stores, index) {
-        const city = stores.properties.city;
-        const address = stores.properties.address;
-        const location = stores.geometry.coordinates;
-        const marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
-          offset: 35
-        }).setHTML(address)).addTo(map);
-        markersCity[index] = {
-          marker,
-          city
-        };
-
-        let cityStoresList = document.getElementById(city);
-        if (cityStoresList === null) {
-          const cityStoresListHeading = list.appendChild(document.createElement('h3'));
-          cityStoresListHeading.innerHTML = city;
-          cityStoresList = list.appendChild(document.createElement('div'));
-          cityStoresList.id = city;
-          cityStoresList.className = 'list-entries-container';
-          cityStoresListHeading.addEventListener('click', function (e) {
-            map.fitBounds(getMarkersBoundsForCity(e.target.innerText), {
-              padding: 50
-            });
-          });
-        }
-
-        const details = buildLocation(cityStoresList, address);
-
-        marker.getElement().addEventListener('click', function () {
-          const activeItem = document.getElementsByClassName('selected');
-          if (activeItem[0]) {
-            activeItem[0].classList.remove('selected');
-          }
-          details.classList.add('selected');
-          openCityTab(city);
-        });
-
-        details.addEventListener('click', function () {
-          const activeItem = document.getElementsByClassName('selected');
-          if (activeItem[0]) {
-            activeItem[0].classList.remove('selected');
-          }
-          details.classList.add('selected');
-          map.easeTo({
-            center: marker.getLngLat(),
-            zoom: 18
-          });
-          closeAllPopups();
-          marker.togglePopup();
-
-        });
-
-        function buildLocation(htmlParent, text) {
-          const details = htmlParent.appendChild(document.createElement('a'));
-          details.href = '#';
-          details.className = 'list-entry';
-          details.innerHTML = text;
-          return details;
-        }
-
-        function closeAllPopups() {
-          markersCity.forEach(markerCity => {
-            if (markerCity.marker.getPopup().isOpen()) {
-              markerCity.marker.togglePopup();
-            }
-          });
-        }
-
-        function getMarkersBoundsForCity(city) {
-          const bounds = new tt.LngLatBounds();
-          markersCity.forEach(markerCity => {
-            if (markerCity.city === city) {
-              bounds.extend(markerCity.marker.getLngLat());
-            }
-          });
-          return bounds;
-        }
-
-        function openCityTab(selected_id) {
-          const storeListElement = $('#store-list');
-          const citiesListDiv = storeListElement.find('div.list-entries-container');
-          for (let activeCityIndex = 0; activeCityIndex < citiesListDiv.length; activeCityIndex++) {
-            if (citiesListDiv[activeCityIndex].id === selected_id) {
-              storeListElement.accordion('option', {
-                'active': activeCityIndex
-              });
-            }
-          }
-        }
-      });
-
-      $('#store-list').accordion({
-        'icons': {
-          'header': 'ui-icon-plus',
-          'activeHeader': 'ui-icon-minus'
-        },
-        'heightStyle': 'content',
-        'collapsible': true,
-        'active': false
-      });
-    },
-
     fetchShowedApartment() {
-      // Throws the call only if the object singleApartment is empty
-      if (!this.singleApartment.value) {
+      // Throws the call only if the object showedApartment is empty
+      if (!store.showedApartment.value) {
         axios.get("http://127.0.0.1:8000/api/selected/" + this.$route.params.slug)
           .then(response => {
-            // Saves the response in the local singleApartment object
-            console.log(response)
-            this.singleApartment = response.data.singleApartment[0];
-            this.user = response.data.utente
-
-            this.createmap()
-            // console.log("Dati appartamento in show salvati");
-          }
-          );
+            // Saves the response in the local showedApartment object
+            console.log("Funzione per prendere dati appartamento visionato in show startata, oggetto singleApartmanet:");
+            console.log(response);
+            store.showedApartment = response.data.showedApartment[0];
+            this.host = response.data.host
+            createmap()
+            getFrontEndCostumerIP(store.showedApartment.slug)
+          });
       }
     },
     scrollToTop() {
@@ -172,27 +31,26 @@ export default {
 
   },
   mounted() {
-    /* filterApartment(); */
-    this.fetchShowedApartment();
-    //this.createmap()
     this.scrollToTop();
+    this.fetchShowedApartment();
+    // Funzione per creare la mappa nello show front-office spostata in store.js e richiamata in fetchShowedApartment
   }
 };
 </script>
 
 <template>
-  <div class=" py-3" style="margin-top: 81px;">
-    <h2><strong>Title: </strong>{{ singleApartment.title }}</h2>
-    <div class="w-30" v-for="singleApartmentImage in singleApartment.images">
-      <img class="img-show" :src="`http://127.0.0.1:8000/storage/${singleApartmentImage}`" alt="">
+  <div class="container-fluid py-3" style="margin-top: 81px;">
+    <h2><strong>Title: </strong>{{ store.showedApartment.title }}</h2>
+    <div class="container-img-show" v-for="showedApartmentImage in store.showedApartment.images">
+      <img class="img-show" :src="`http://127.0.0.1:8000/storage/${showedApartmentImage}`" alt="">
     </div>
-    <h5><strong>Price per night: </strong>{{ singleApartment.price }} $</h5>
-    <h5><strong>Rooms number: </strong>{{ singleApartment.rooms_num }}</h5>
-    <h5><strong>Beds number: </strong>{{ singleApartment.beds_num }}</h5>
-    <h5><strong>Bathrooms number: </strong>{{ singleApartment.bathroom_num }}</h5>
-    <h5><strong>Square meters: </strong>{{ singleApartment.square_meters }} m<sup>2</sup></h5>
-    <h5><strong>Created at: </strong>{{ singleApartment.created_at }}</h5>
-    <h5><strong>Address: </strong>{{ singleApartment.address }}</h5>
+    <h5><strong>Price per night: </strong>{{ store.showedApartment.price }} $</h5>
+    <h5><strong>Rooms number: </strong>{{ store.showedApartment.rooms_num }}</h5>
+    <h5><strong>Beds number: </strong>{{ store.showedApartment.beds_num }}</h5>
+    <h5><strong>Bathrooms number: </strong>{{ store.showedApartment.bathroom_num }}</h5>
+    <h5><strong>Square meters: </strong>{{ store.showedApartment.square_meters }} m<sup>2</sup></h5>
+    <h5><strong>Created at: </strong>{{ store.showedApartment.created_at }}</h5>
+    <h5><strong>Address: </strong>{{ store.showedApartment.address }}</h5>
 
     <div class="container-map position-relative">
       <div class="container">
@@ -212,7 +70,7 @@ export default {
       </div>
       <div class="col-9 host-info d-flex">
         <div class="col-7">
-          <h3>Hosted by {{ this.user.name }}</h3>
+          <h3>Hosted by {{ this.host.name }}</h3>
           <ul>
             <li>Joined in May 2023</li>
             <li><span class="icon"><i class="fa-solid fa-star"></i></span>164 Reviews</li>
