@@ -127,6 +127,23 @@ export default {
                           </div>
                         </div>
                       </div>
+
+                      <div class="mb-3 col-6">
+                        <label class="form-label fw-bold fs-5">Amenities</label>
+                        <!-- <div class="box-bathroom_num-buttons d-flex gap-5">
+                          <div>
+                            <input type="checkbox" name="bathroom_num">1
+                          </div>
+                        </div> -->
+
+                        <div>
+                          <input class="form-check-input" type="checkbox"
+                          value="{{ $singleAmenity->id }}"
+                          id="flexCheckDefault" name="amenity[]">
+                          <span class="form-check-label" for="flexCheckDefault">
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
