@@ -1,5 +1,5 @@
 <script>
-import { store, fetchSponsoredApartments } from '../store.js';
+import { store  } from '../store.js';
 import Card from './Card.vue';
 
 export default {

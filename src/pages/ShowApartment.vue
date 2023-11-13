@@ -78,7 +78,7 @@ export default {
             <li><span class="icon"><i class="fa-solid fa-medal"></i></span> Superhost</li>
           </ul>
           <p>Hello everyone! I’m Lorenzo. <br>I really enjoy travelling and I work in real estate!</p>
-          <p class="superhost-badge"><strong>{{ this.user.name }}</strong> is a Superhost</p>
+          <p class="superhost-badge"><strong>{{ this.host.name }}</strong> is a Superhost</p>
           <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
         </div>
         <div class="col-5">
