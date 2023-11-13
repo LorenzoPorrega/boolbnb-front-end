@@ -149,8 +149,6 @@ export function createmap() {
     const marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
       offset: 35
     }).setHTML(address)).addTo(map);
-    markersCity[index] = {
-    };
   });
 }
 
