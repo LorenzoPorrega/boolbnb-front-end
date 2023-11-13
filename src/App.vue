@@ -2,7 +2,7 @@
 import ApartmentsPage from "./pages/ApartmentsPage.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
-import { store } from './store.js';
+import { store, fetchLoggedUser } from './store.js';
 
 export default {
   components:{
@@ -14,9 +14,13 @@ export default {
     return{
       store,
     }
+  },
+  mounted(){
+    fetchLoggedUser()
   }
 }
 </script>
+
 
 <template>
   <div class="container">
