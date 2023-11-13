@@ -10,21 +10,22 @@ export default {
       message: "",
     },
     errors: null,
-    success: false
+    success: null
     // loading: false,
     };
   },
   methods: {
   onFormSubmit() {
+    // console.log(this.formData); 
     const url = `http://localhost:8000/api/apartments/${this.$route.params.slug}/messages`;
     axios
       .post(url, this.formData)
-      .then(resp => {
-        this.success = true;
+      .then((resp) => {
+        this.success = resp.data.message;
         this.errors = null;
       })
-      .catch(e => {
-        this.errors = e.message;
+      .catch((e) => {
+        this.errors = e.response?.data?.message ?? e.message;
       });
     }
   }
