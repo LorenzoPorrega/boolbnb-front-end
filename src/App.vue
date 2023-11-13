@@ -2,7 +2,7 @@
 import ApartmentsPage from "./pages/ApartmentsPage.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
-import { store, fetchLoggedUser } from './store.js';
+import { store, fetchAllAmenities } from './store.js';
 
 export default {
   components:{
@@ -16,7 +16,8 @@ export default {
     }
   },
   mounted(){
-    fetchLoggedUser()
+    /* fetchLoggedUser() */
+    fetchAllAmenities()
   }
 }
 </script>

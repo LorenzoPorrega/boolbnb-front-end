@@ -5,8 +5,9 @@ export const store = reactive({
   pageLoading: false,
   loggedUser: "",
   apartments: [],
-  sponsoredApartmentsId: [],
+  allAmenities: [],
   showedApartment: {},
+  sponsoredList: [],
   apartmentFilter: {
     rooms_num: "",
     beds_num: "",
@@ -27,13 +28,20 @@ export function onPageLoad() {
   }, 3500);
 };
 
+export function fetchSponsoredApartments() {
+  axios.get("http://127.0.0.1:8000/api/sponsoredApartments/")
+    .then((response) => {
+      store.sponsoredApartmentsId = response.data.sponsoredApartments;
+      console.log(store.sponsoredApartmentsId)
+    })
+}
+
 export function saveSelectedApartmentSlug(slug) {
   // I save in store the slug passed in the Card component
   store.selectedApartmentSlug = slug;
 }
 
 export function filterApartment() {
-
   const baseURL = "http://127.0.0.1:8000/api/apartments/";
   const params = store.apartmentFilter;
   const url = new URL(baseURL);
@@ -41,34 +49,18 @@ export function filterApartment() {
   
   axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
   .then((response) => {
-      store.apartments= response.data.apartments
-      if(response.data.funzione.length !== 0){
-        store.apartments = response.data.funzione
-        store.apartmentFilter.latitude =''
-        store.apartmentFilter.longitude=''
-      }
-      console.log(response)
+    console.log("Elenco di tutti gli appartamenti presi dal filtro (in start o dopo il filtraggio):");
+    store.apartments = response.data.apartments
+    if(response.data.funzione.length !== 0){
+      store.apartments = response.data.funzione
+      store.sponsoredList = response.data.sponsorizzati
+      store.apartmentFilter.latitude =''
+      store.apartmentFilter.longitude=''
     }
-      /* console.log(store.apartments); */
-      // console.log("Ricerca con filtri input avviata")
-      // console.log(store.apartmentFilter)
-      // console.log(store.apartments)
+    console.log(response)
+    }
   )
 }
-
-/* export function searchApartment(){
-  if (store.indirizzoFilter == ''){
-    alert('Inserire un indirizzo')
-  }
-  else{
-    axios.post("http://127.0.0.1:8000/api/searchApartament/",{params:store.indirizzoFilter})
-    .then((response) =>{
-        const appartamento = response.data
-        console.log(appartamento['data'])
-        store.apartments = appartamento
-    })
-  }
-} */
 
 export function searchBar() {
   let options = {
@@ -101,16 +93,6 @@ export function rangeSlider() {
     sliderValue.textContent = rangeSlider.value;
   });
 }
-
-/* Questa funzione non la usiamo, usiamo il megafilter
-di Islam */
-/* export function fetchSponsoredApartments() {
-  axios.get("http://127.0.0.1:8000/api/sponsoredApartments/")
-    .then((response) => {
-      store.sponsoredApartmentsId = response.data.sponsoredApartments;
-      console.log(store.sponsoredApartmentsId)
-    })
-} */
 
 export function createmap() {
   let long = parseFloat(store.showedApartment['longitude'])
@@ -173,11 +155,19 @@ export function getFrontEndCostumerIP($slug) {
   });
 }
 
-export function fetchLoggedUser(){
-  
+/* export function fetchLoggedUser(){
   axios.get("http://127.0.0.1:8000/api/fetchLoggedUser/")
   .then(response => {
     console.log(response.data);
     store.loggedUser = response.data;
+  })
+} */
+
+export function fetchAllAmenities(){
+  axios.get("http://127.0.0.1:8000/api/fetchAllAmenities")
+  .then(response => {
+    store.allAmenities =  response.data.allAmenities;
+    console.log("Elenco di tutte le amenities prese dal back-end dal DB:");
+    console.log(store.allAmenities);
   })
 }
