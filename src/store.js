@@ -58,6 +58,7 @@ export function filterApartment() {
       store.apartmentFilter.longitude=''
     }
     console.log(response)
+    console.log(store.apartments)
     }
   )
 }
