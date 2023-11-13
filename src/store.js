@@ -4,6 +4,7 @@ import { reactive } from "vue";
 export const store = reactive({
   pageLoading: false,
   apartments: [],
+  amenities: [],
   sponsoredApartmentsId: [],
   showedApartment: {},
   sponsoredList: [],
@@ -51,9 +52,9 @@ export function filterApartment() {
 
         store.apartmentFilter.latitude = ''
         store.apartmentFilter.longitude = ''
-        // console.log('ciuao')
+        // console.log('ciao')
       }
-      console.log(response)
+      // console.log(response)
     }
 
 
@@ -96,8 +97,8 @@ export function searchBar() {
     let objectGeopoints = data['data']['result']['position']
     store.apartmentFilter.latitude = objectGeopoints['lat']
     store.apartmentFilter.longitude = objectGeopoints['lng']
-    console.log(store.apartmentFilter.latitude)
-    console.log(store.apartmentFilter.longitude)
+    // console.log(store.apartmentFilter.latitude)
+    // console.log(store.apartmentFilter.longitude)
 
   })
 }
@@ -263,7 +264,7 @@ export function getFrontEndCostumerIP($slug) {
   // Chiave API del servizio terzi ipdata.co di Lorenzo
   let apiKey = 'dcbaf3e35d5120fc5dacec2ad095b3634d566544e59017c9aac320cf';
   $.getJSON('https://api.ipdata.co?api-key=' + apiKey, function (data) {
-    console.log(`Indirizzo IP del visitatore (tu): ${JSON.stringify(data.ip, null, 2)}`);
+    // console.log(`Indirizzo IP del visitatore (tu): ${JSON.stringify(data.ip, null, 2)}`);
 
     let ipAdress = data.ip;
 
@@ -272,7 +273,7 @@ export function getFrontEndCostumerIP($slug) {
       showedApartmentSlug: $slug,
     })
     .then(response => {
-      console.log(response.data);
+      // console.log(response.data);
     })
     .catch(error => {
       /* console.log(error); */

@@ -1,14 +1,19 @@
 <script>
 import axios from 'axios';
+import AmenityCard from "../components/AmenityCard.vue";
 import { store, createmap, getFrontEndCostumerIP } from '../store.js';
 
 export default {
   data() {
     return {
       store,
-      host: {}
+      host: {},
+      amenities: []
     };
   },
+  components: {
+    AmenityCard,
+  },  
   methods: {
     fetchShowedApartment() {
       // Throws the call only if the object showedApartment is empty
@@ -16,8 +21,8 @@ export default {
         axios.get("http://127.0.0.1:8000/api/selected/" + this.$route.params.slug)
           .then(response => {
             // Saves the response in the local showedApartment object
-            console.log("Funzione per prendere dati appartamento visionato in show startata, oggetto singleApartmanet:");
-            console.log(response);
+            // console.log("Funzione per prendere dati appartamento visionato in show startata, oggetto singleApartmanet:");
+            // console.log(response);
             store.showedApartment = response.data.showedApartment[0];
             this.host = response.data.host
             createmap()
@@ -39,8 +44,12 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid py-3" style="margin-top: 81px;">
-    <h2><strong>Title: </strong>{{ store.showedApartment.title }}</h2>
+  <div class="container-fluid py-3 border-bottom" style="margin-top: 150px;">
+    <h2 class="pt-2"><strong>{{ store.showedApartment.title }}</strong></h2>
+    <div class="d-flex">
+      <i class="fa-solid fa-location-dot me-2" style="color: #3737ec;"></i>
+      <h6>{{ store.showedApartment.address }}</h6>
+    </div>
     <div class="w-30" v-for="showedApartmentImage in store.showedApartment.images">
       <img class="img-show" :src="`http://127.0.0.1:8000/storage/${showedApartmentImage}`" alt="">
     </div>
@@ -50,9 +59,24 @@ export default {
     <h5><strong>Bathrooms number: </strong>{{ store.showedApartment.bathroom_num }}</h5>
     <h5><strong>Square meters: </strong>{{ store.showedApartment.square_meters }} m<sup>2</sup></h5>
     <h5><strong>Created at: </strong>{{ store.showedApartment.created_at }}</h5>
-    <h5><strong>Address: </strong>{{ store.showedApartment.address }}</h5>
 
-    <div class="container-map position-relative">
+    <!-- Amenities Section -->
+    <div class="container py-5 border-bottom">
+      <div class="my-4">
+        <h3 class="fw-bold fs-4">What this place offers</h3>
+      </div>
+      <div class="row row-cols-3 row-cols-md-6 g-3">
+        <div class="col" v-for="singleAmenity in store.showedApartment.amenities " :key="singleAmenity.id">
+          <AmenityCard :singleAmenity="singleAmenity"></AmenityCard>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 mb-4">
+      <h3 class="fw-bold fs-4">Where you'll be</h3>
+      <h5>{{ store.showedApartment.address }}</h5>
+    </div>
+    <div class="container-map position-relative mt-3 mb-5">
       <div class="container">
         <div class='control-panel'>
           <div id='store-list'></div>
@@ -63,8 +87,8 @@ export default {
   </div>
 
   <!-- Host Section with contact redirect -->
-  <div class=" py-5 border-bottom" style="margin-top: 81px;">
-    <div class="row">
+  <div class="py-5 border-bottom">
+    <div class="row py-3">
       <div class="col-3 d-flex justify-content-center align-items-start">
         <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
       </div>
@@ -110,9 +134,8 @@ export default {
 }
 
 .container-map {
-  height: 50vh;
-  width: 50%;
-  margin: 3rem 0;
+  height: 75vh;
+  width: 100%;
 }
 
 .map {
@@ -154,7 +177,7 @@ export default {
 }
 
 
-/* Stili personalizzati per la sezione dell'host */
+/* Stili per la sezione dell'host */
 
 .host-avatar {
   max-width: 180px;
