@@ -41,7 +41,7 @@ export default {
 <template>
   <div class="container-fluid py-3" style="margin-top: 81px;">
     <h2><strong>Title: </strong>{{ store.showedApartment.title }}</h2>
-    <div class="container-img-show" v-for="showedApartmentImage in store.showedApartment.images">
+    <div class="w-30" v-for="showedApartmentImage in store.showedApartment.images">
       <img class="img-show" :src="`http://127.0.0.1:8000/storage/${showedApartmentImage}`" alt="">
     </div>
     <h5><strong>Price per night: </strong>{{ store.showedApartment.price }} $</h5>
