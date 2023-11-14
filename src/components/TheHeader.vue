@@ -29,12 +29,6 @@ export default {
           <li class="nav-item text-center">
             <!-- visualizzare solo se non loggati -->
             <a class="nav-link" href="http://127.0.0.1:8000/">Log in</a>
-            <!--  -->
-            
-            <!-- visualizzare solo se loggati -->
-            <a class="nav-link" href="http://127.0.0.1:8000/">Dashboard</a>
-            <p class="user-p">nome utente</p>
-            <!--  -->
           </li>
         </ul>
       </div>
