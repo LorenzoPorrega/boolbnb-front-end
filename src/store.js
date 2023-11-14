@@ -5,7 +5,7 @@ export const store = reactive({
   pageLoading: false,
   loggedUser: "",
   apartments: [],
-  amenities: [],
+  // amenities: [],
   allAmenities: [],
   showedApartment: {},
   sponsoredList: [],
