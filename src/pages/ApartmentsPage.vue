@@ -72,14 +72,12 @@ export default {
               </div>
               <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <p class="small color-text">
+                  <p class="color-text">
                     Find your coziest escape ever & Get instant discounts.
                     Discover cabins, vacation homes, and more!
                   </p>
-                  <button type="button" class="btn btn-primary border-0 mt-2 mb-3">
-                    Get in Touch
-                  </button><br>
-                  <img src="https://i.imgur.com/pC6AgYC.jpg" class="img-fluid" width="300">
+                  <a href="#" class="btn btn-lg btn-primary border-0 mt-2 mb-4">Get in Touch</a><br>
+                  <img src="https://i.imgur.com/pC6AgYC.jpg" class="img-fluid" width="450">
                 </div>
               </div>
             </div>
@@ -109,4 +107,5 @@ button {
   background-size: cover;
   background-position: center;
 }
+
 </style>
