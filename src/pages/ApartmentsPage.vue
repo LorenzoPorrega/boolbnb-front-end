@@ -76,7 +76,7 @@ export default {
                     Find your coziest escape ever & Get instant discounts.
                     Discover cabins, vacation homes, and more!
                   </p>
-                  <button type="button" class="btn btn-primary border-0 mt-2 mb-3" @click=consol()>
+                  <button type="button" class="btn btn-primary border-0 mt-2 mb-3">
                     Get in Touch
                   </button><br>
                   <img src="https://i.imgur.com/pC6AgYC.jpg" class="img-fluid" width="300">
