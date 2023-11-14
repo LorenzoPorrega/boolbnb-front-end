@@ -16,7 +16,6 @@ export default {
   },
   methods: {
   onFormSubmit() {
-    
     this.loading = true;
 
     const url = `http://localhost:8000/api/apartments/${this.$route.params.slug}/messages`;
@@ -49,7 +48,7 @@ export default {
         </div>
 
         <!-- Loader -->
-        <section  class="loader">
+        <section v-if="errors && !loading" class="loader">
           <div>
             <div>
               <span class="one h6"></span>
@@ -170,35 +169,39 @@ export default {
 }
 
 .h1 {
+  top: 0;
   left: 0;
   animation: load1 3.2s ease infinite;
 }
 
 .h2 {
+  top: 0;
   right: 0;
   animation: load2 3.2s ease 0.4s infinite;
 }
 
 .h3 {
+  top: 0;
   right: 0;
   animation: load3 3.2s ease 0.8s infinite;
 }
 
 .h4 {
   top: 15px;
-  left: 15px;
-  animation: load4 3.2s ease 1s infinite;
+  left: 57px;
+  animation: load4 3.2s ease 1.2s infinite;
   transform: rotate(90deg);
 }
 
 .h5 {
   bottom: 0;
-  animation: load5 3.2s ease 1.2s infinite;
+  animation: load5 3.2s ease 1.4s infinite;
 }
 
 .h6 {
+  top: 0;
   left: 0;
-  animation: load6 3.2s ease 1.3s infinite;
+  animation: load6 3.2s ease 1.5s infinite;
 }
 
 @keyframes load1 {
@@ -225,22 +228,22 @@ export default {
 
 @keyframes load2 {
   0% {
-    top: 0;
+    bottom: 0;
     height: 0;
   }
 
   6.944444444% {
-    top: 0;
+    bottom: 0;
     height: 100%;
   }
 
   50% {
-    bottom: 0;
+    top: 0;
     height: 100%;
   }
 
   59.944444433% {
-    bottom: 0;
+    top: 0;
     height: 0;
   }
 }
@@ -269,19 +272,20 @@ export default {
 
 @keyframes load4 {
   0% {
-    top: 37px;
-    left: 86px;
-    height: 134%;
+    top: 45px;
+    left: 57px;
+    height: 161%;
   }
 
   6.944444444% {
-    top: 10px;
-    height: 134%;
+    top: 18px;
+    left: 57px;
+    height: 161%;
   }
 
   50% {
-    bottom: 10px;
-    height: 134%;
+    bottom: 0px;
+    height: 161%;
   }
 
   59.94444443% {
