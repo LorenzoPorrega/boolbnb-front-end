@@ -10,6 +10,8 @@ export default {
   data() {
     return {
       store,
+      apartments: [],
+      amenities: []
     }
   },
   components: {
