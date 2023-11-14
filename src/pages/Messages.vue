@@ -48,7 +48,8 @@ export default {
         </div>
 
         <!-- Loader -->
-        <section v-if="errors && !loading" class="loader">
+        <section class="loader" v-show="loading">
+          <!-- v-if="errors && !loading" -->
           <div>
             <div>
               <span class="one h6"></span>
