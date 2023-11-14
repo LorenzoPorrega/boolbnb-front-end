@@ -7,7 +7,7 @@ export default {
 
 <template>
 
-<div class="page-not-found pt-5">
+<div class="container-fluid page-not-found pt-5">
   <div class="bg-light shadow">
     <h2>4<i class="fa-solid fa-bug"></i>4</h2>
     <h3 class="mt-4">Page Not Found</h3>
