@@ -15,13 +15,44 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" aria-label="Fourth navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Expand at md</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
-        aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand d-md-none d-block" href="#">
+        <img src="../assets/boolbnb-logo-favicon.png" alt="" class="favicon">
+      </a>
+      <a class="navbar-brand d-none d-md-block" href="#">
+        <img src="../assets/boolbnb-logo-2.png" alt="" class="icon">
+      </a>
+      <Search></Search>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav me-auto mb-md-0">
+          <li class="nav-item text-center mb-2">
+            <router-link :to="{ name: 'home' }" class="nav-link py-0">Home</router-link>
+          </li>
+          <li class="nav-item text-center mb-2">
+            <a class="nav-link py-0" href="http://127.0.0.1:8000/">Log in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+  <!-- <nav class="navbar navbar-expand-md bg-light fixed-top" aria-label="Fourth navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Bootstrap
+      </a>
+
 
       <div class="collapse navbar-collapse" id="navbarsExample04">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -48,9 +79,9 @@ export default {
         </form>
       </div>
     </div>
-  </nav>
+  </nav> -->
 
-  <header class="py-3 border-bottom fixed-top" style="z-index: 3; transition: z-index 1s ease;">
+  <!-- <header class="py-3 border-bottom fixed-top" style="z-index: 3; transition: z-index 1s ease;">
     <div class="row">
       <div class="col-md-9 d-flex justify-content-center align-items-center justify-content-between mx-auto px-0">
         <a href="/">
@@ -62,13 +93,12 @@ export default {
             <router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item text-center">
-            <!-- visualizzare solo se non loggati -->
             <a class="nav-link" href="http://127.0.0.1:8000/">Log in</a>
           </li>
         </ul>
       </div>
     </div>
-  </header>
+  </header> -->
 </template>
 
 <style lang="scss" scoped>
@@ -99,10 +129,10 @@ li {
 li::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -1rem;
+  left: 25%;
+  bottom: -0.25rem;
   height: 3px;
-  width: 100%;
+  width: 50%;
   background-color: #3535ec;
   scale: 0 1;
   transition: scale 250ms;
@@ -129,5 +159,13 @@ input {
 // for Firefox 18-
 :-moz-placeholder {
   text-align: center;
+}
+
+.favicon{
+  width: 45px;
+}
+
+.icon{
+  width: 150px;
 }
 </style>
