@@ -9,7 +9,7 @@ export default {
     return {
       store,
       host: {},
-      amenities: [],
+      amenities: []
     };
   },
   components: {
@@ -83,101 +83,43 @@ export default {
         <div class='control-panel'>
           <div id='store-list'></div>
         </div>
+        <div class='map' id='map'></div>
       </div>
     </div>
+  </div>
 
-    <div class="mt-5 mb-4">
-      <h3 class="fw-bold fs-4">Where you'll be</h3>
-      <h5>{{ store.showedApartment.address }}</h5>
-    </div>
-    <div class="container-map position-relative mt-3 mb-5">
-
-      <!-- Amenities Section -->
-      <div class="container py-5 border-bottom">
-        <div class="my-4">
-          <h3 class="fw-bold fs-4">What this place offers</h3>
-        </div>
-        <div class="row row-cols-3 row-cols-md-6 g-3">
-          <div class="col" v-for="singleAmenity in store.showedApartment.amenities " :key="singleAmenity.id">
-            <AmenityCard :singleAmenity="singleAmenity"></AmenityCard>
+  <!-- Host Section with contact redirect -->
+  <div class="py-5 border-bottom">
+    <div class="row py-3">
+      <div class="col-3 d-flex justify-content-center align-items-start">
+        <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
+      </div>
+      <div class="col-9 host-info d-flex">
+        <div class="row">
+          <div class="col-7">
+            <h3>Hosted by {{ this.host.name }}</h3>
+            <ul>
+              <li>Joined in May 2023</li>
+              <li><span class="icon"><i class="fa-solid fa-star"></i></span>164 Reviews</li>
+              <li><span class="icon"><i class="fa-solid fa-user-check"></i></span>Identity verified</li>
+              <li><span class="icon"><i class="fa-solid fa-medal"></i></span> Superhost</li>
+            </ul>
+            <p>Hello everyone! I’m Lorenzo. <br>I really enjoy travelling and I work in real estate!</p>
+            <p class="superhost-badge"><strong>{{ this.host.name }}</strong> is a Superhost</p>
+            <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
           </div>
-        </div>
-        <!-- Host Section with contact redirect -->
-        <div class="py-5 border-bottom">
-          <div class="row py-3">
-            <div class="col-3 d-flex justify-content-center align-items-start">
-              <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
-            </div>
-            <div class="col-9 host-info d-flex">
-              <div class="row">
-                <div class="col-7">
-                  <h3>Hosted by {{ this.host.name }}</h3>
-                  <ul>
-                    <li>Joined in May 2023</li>
-                    <li><span class="icon"><i class="fa-solid fa-star"></i></span>164 Reviews</li>
-                    <li><span class="icon"><i class="fa-solid fa-user-check"></i></span>Identity verified</li>
-                    <li><span class="icon"><i class="fa-solid fa-medal"></i></span> Superhost</li>
-                  </ul>
-                  <p>Hello everyone! I’m Lorenzo. <br>I really enjoy travelling and I work in real estate!</p>
-                  <p class="superhost-badge"><strong>{{ this.host.name }}</strong> is a Superhost</p>
-                  <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-5 mb-4">
-              <h3 class="fw-bold fs-4">Where you'll be</h3>
-              <h5>{{ store.showedApartment.address }}</h5>
-            </div>
-            <div class="container-map position-relative mt-3 mb-5">
-              <div class="container">
-                <div class='control-panel'>
-                  <div id='store-list'></div>
-                </div>
-                <div class='map' id='map'></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Host Section with contact redirect -->
-          <div class="py-5 border-bottom">
-            <div class="row py-3">
-              <div class="col-3 d-flex justify-content-center align-items-start">
-                <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
-              </div>
-              <div class="col-9 host-info d-flex">
-                <div class="row">
-                  <div class="col-7">
-                    <h3>Hosted by {{ this.host.name }}</h3>
-                    <ul>
-                      <li>Joined in May 2023</li>
-                      <li><span class="icon"><i class="fa-solid fa-star"></i></span>164 Reviews</li>
-                      <li><span class="icon"><i class="fa-solid fa-user-check"></i></span>Identity verified</li>
-                      <li><span class="icon"><i class="fa-solid fa-medal"></i></span> Superhost</li>
-                    </ul>
-                    <p>Hello everyone! I’m Lorenzo. <br>I really enjoy travelling and I work in real estate!</p>
-                    <p class="superhost-badge"><strong>{{ this.host.name }}</strong> is a Superhost</p>
-                    <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for
-                      guests.</p>
-                  </div>
-                  <div class="col-5">
-                    <ul>
-                      <li>Language: Italiano</li>
-                      <li>Response rate: 100%</li>
-                      <li>Response time: within an hour</li>
-                    </ul>
-                    <router-link :to="{ name: 'messages' }" class="btn btn-primary contact-host-btn text-decoration-none">
-                      Contact Host
-                    </router-link>
-                    <div class="payment-warning d-flex mt-4">
-                      <div class="icon">⚠️</div>
-                      <p>To protect your payment, never transfer money or communicate outside of the Airbnb website or
-                        app.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="col-5">
+            <ul>
+              <li>Language: Italiano</li>
+              <li>Response rate: 100%</li>
+              <li>Response time: within an hour</li>
+            </ul>
+            <router-link :to="{ name: 'messages' }" class="btn btn-primary contact-host-btn text-decoration-none">
+              Contact Host
+            </router-link>
+            <div class="payment-warning d-flex mt-4">
+              <div class="icon">⚠️</div>
+              <p>To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</p>
             </div>
           </div>
         </div>
@@ -239,8 +181,8 @@ export default {
 }
 
 
-
 /* Stili per la sezione dell'host */
+
 .host-avatar {
   max-width: 180px;
   border-radius: 50%;
