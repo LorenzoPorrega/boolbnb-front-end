@@ -60,7 +60,7 @@ export default {
     <DestinationsCarousel></DestinationsCarousel>
 
     <!-- CTA Section -->
-    <div class="p-3 justify-content-center border-top">
+    <div class="p-3 justify-content-center border-bottom">
       <div class="row my-3 justify-content-center">
         <div class="col text-center">
           <div class="card border-0">
