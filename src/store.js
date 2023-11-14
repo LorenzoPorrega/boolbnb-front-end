@@ -17,6 +17,7 @@ export const store = reactive({
     distance: 20,    
     latitude:'',
     longitude:'',
+    filteredAmenitiesId: [],
   },
 })
 
@@ -46,7 +47,8 @@ export function filterApartment() {
   const params = store.apartmentFilter;
   const url = new URL(baseURL);
   url.search = new URLSearchParams(params).toString();
-  
+  console.log(url.search);
+
   axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
   .then((response) => {
     console.log("Elenco di tutti gli appartamenti presi dal filtro (in start o dopo il filtraggio):");

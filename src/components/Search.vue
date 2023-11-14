@@ -136,11 +136,13 @@ export default {
                           </div>
                         </div> -->
 
-                        <div>
-                          <input class="form-check-input" type="checkbox"
-                          value="{{ $singleAmenity->id }}"
-                          id="flexCheckDefault" name="amenity[]">
-                          <span class="form-check-label" for="flexCheckDefault">
+                        <div v-for="singleAmenity in store.allAmenities">
+                          <input class="form-check-input" type="checkbox" id="flexCheckDefault"
+                          :value="singleAmenity.id"
+                          v-model="store.apartmentFilter.filteredAmenitiesId">
+                          
+                          <span class="form-check-label ps-2" for="flexCheckDefault">
+                            {{ singleAmenity.name }}
                           </span>
                         </div>
                       </div>
