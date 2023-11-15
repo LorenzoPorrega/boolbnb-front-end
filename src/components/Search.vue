@@ -183,7 +183,7 @@ export default {
   @media only screen and (max-width: 750px) {
     .offcanvas {
       width: 90vw;
-      height: 80vh;
+      height: object-fit;
       top: calc(50% - 40vh);
       left: calc(50% - 45vw);
     }
