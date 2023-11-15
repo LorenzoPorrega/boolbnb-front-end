@@ -51,22 +51,17 @@ export default {
     </div>
 </template>
 <style  lang="scss" scoped>
+@use "../scss/partials/_variables.scss" as *;
 .carousel {
-    width: 700px;
-    height: 500px;
-    border: 3px solid yellow;
-    border-radius: 2rem;
-    overflow: hidden;
-
-    .carousel-inner {
-        height: 494px;
-    }
+    width: 100%;
+    height: 660px;
+    border: 1px solid $palette-primary-dark;
+    border-radius: 1rem;
 
     img {
-        height: 500px;
-        width: 700px;
+        height: 660px;
+        width: 100%;
         object-fit: cover;
-        margin: 0 auto;
-        border-radius: 2rem;
+        border-radius: 1rem;
     }
 }</style>

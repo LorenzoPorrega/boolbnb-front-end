@@ -45,20 +45,75 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid border-bottom" style="margin-top: 150px;">
-    <div class="py-3" style="margin-top: 81px;">
-      <h2><strong>Title: </strong>{{ store.showedApartment.title }}</h2>
-      <ShowCarousel :showedApartment="store.showedApartment"></ShowCarousel>
+  <div class="container-fluid border-bottom" style="margin-top: 81px;">
+    <div class="py-3">
+      <h2 class="fw-semibold">{{ store.showedApartment.title }}</h2>
+      <h5 class="text-decoration-underline">{{ store.showedApartment.address }}</h5>
+      <h6 class="fst-italic">Registered on BoolBnB since {{ store.showedApartment.created_at }}</h6>
 
-      <h5><strong>Price per night: </strong>{{ store.showedApartment.price }} $</h5>
-      <h5><strong>Rooms number: </strong>{{ store.showedApartment.rooms_num }}</h5>
-      <h5><strong>Beds number: </strong>{{ store.showedApartment.beds_num }}</h5>
-      <h5><strong>Bathrooms number: </strong>{{ store.showedApartment.bathroom_num }}</h5>
-      <h5><strong>Square meters: </strong>{{ store.showedApartment.square_meters }} m<sup>2</sup></h5>
-      <h5><strong>Created at: </strong>{{ store.showedApartment.created_at }}</h5>
+      <!-- Carousel & Description Section -->
+      <div class="row py-2">
+        <div class="col-md-6 col-12">
+          <ShowCarousel :showedApartment="store.showedApartment"></ShowCarousel>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="d-flex flex-column justify-content-center ms-5">
+            <div class="col-8">
+            <h4 class="my-3 fw-semibold">Apartment Pricing & Details</h4>
+            <!-- Booking Sidebar -->
+            <div class="card p-3">
+              <div class="card-body">
+                <!-- Pricing -->
+                <div class="d-flex justify-content-between mb-2">
+                  <h5>Price per night</h5>
+                  <div class="fw-bold">{{ store.showedApartment.price }} $</div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <h5>Rooms number</h5>
+                  <div class="fw-bold">{{ store.showedApartment.rooms_num }}</div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <h5>Bathrooms number</h5>
+                  <div class="fw-bold">{{ store.showedApartment.bathroom_num }}</div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <h5>Beds number</h5>
+                  <div class="fw-bold">{{ store.showedApartment.beds_num }}</div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <h5>Square Meters</h5>
+                  <div class="fw-bold">{{ store.showedApartment.square_meters }} m<sup>2</sup></div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <h5>Cleaning Fee</h5>
+                  <div class="fw-bold">12 $ / hour</div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <h5>Boolbnb service fee</h5>
+                  <div class="fw-bold">{{ store.showedApartment.price }} $ +10%</div>
+                </div>
+                <div class="border-top pt-3">
+                  <div class="d-flex justify-content-between">
+                    <!-- Booking Button -->
+                    <router-link :to="{ name: 'messages' }" class="btn btn-primary contact-host-btn text-decoration-none">
+                      Reserve
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 my-3">
+            <h4 class="fw-semibold">Description</h4>
+            <p class="small">{{ store.showedApartment.description }}</p>
+          </div>
+          </div>
+
+        </div>
+      </div>
 
       <!-- Amenities Section -->
-      <div class="container py-5 border-bottom">
+      <div class="pt-3 pb-5 border-bottom">
         <div class="my-4">
           <h3 class="fw-bold fs-4">What this place offers</h3>
         </div>
@@ -69,6 +124,7 @@ export default {
         </div>
       </div>
 
+      <!-- Map Section -->
       <div class="container-map position-relative mt-3 mb-5">
         <div class="mt-5 mb-4">
           <h3 class="fw-bold fs-4">Where you'll be</h3>
@@ -85,6 +141,7 @@ export default {
       </div>
     </div>
   </div>
+
   <!-- Host Section with contact redirect -->
   <div class="py-5 border-bottom">
     <div class="row py-3">
@@ -130,12 +187,7 @@ export default {
 <style lang="scss" scoped>
 @use "../scss/partials/_variables.scss" as *;
 
-
-
-.img-show {
-  width: 300px;
-}
-
+/* Stili per la sezione mappa */
 .container-map {
   height: 75vh;
   width: 100%;
@@ -163,23 +215,6 @@ export default {
   top: 0;
   width: 25%;
 }
-
-.heading {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  position: relative;
-  z-index: 1;
-}
-
-.heading>img {
-  height: auto;
-  margin: 10px 0 8px 0;
-  width: 150px;
-}
-
-
 
 /* Stili per la sezione dell'host */
 .host-avatar {
