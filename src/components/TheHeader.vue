@@ -17,24 +17,26 @@ export default {
 <template>
   <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" aria-label="Fourth navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand d-md-none d-block" href="#">
+      <router-link class="navbar-brand d-md-none d-block" :to="{ name : 'home' }">
         <img src="../assets/boolbnb-logo-favicon.png" alt="" class="favicon">
-      </a>
-      <a class="navbar-brand d-none d-md-block" href="#">
+      </router-link>
+
+      <router-link class="navbar-brand d-none d-md-block" :to="{ name : 'home' }">
         <img src="../assets/boolbnb-logo-2.png" alt="" class="icon">
-      </a>
+      </router-link>
       <Search></Search>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+        aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <div class="collapse navbar-collapse" id="navbarsExample04">
         <ul class="navbar-nav me-auto mb-md-0">
           <li class="nav-item text-center mb-2">
             <router-link :to="{ name: 'home' }" class="nav-link py-0">Home</router-link>
           </li>
           <li class="nav-item text-center mb-2">
-            <a class="nav-link py-0" href="http://127.0.0.1:8000/">List your property</a>
+            <a class="nav-link py-0" href="http://127.0.0.1:8000/">Your property list</a>
           </li>
         </ul>
       </div>
@@ -161,11 +163,11 @@ input {
   text-align: center;
 }
 
-.favicon{
+.favicon {
   width: 45px;
 }
 
-.icon{
+.icon {
   width: 150px;
 }
 </style>
