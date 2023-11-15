@@ -49,7 +49,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid border-bottom" style="margin-top: 81px;">
+  <div class="container border-bottom" style="margin-top: 81px;">
     <div class="py-3">
       <h2 class="fw-semibold">{{ store.showedApartment.title }}</h2>
       <h5 class="text-decoration-underline">{{ store.showedApartment.address }}</h5>

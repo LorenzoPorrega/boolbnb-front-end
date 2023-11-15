@@ -57,11 +57,11 @@ export default {
     height: 660px;
     border: 1px solid $palette-primary-dark;
     border-radius: 1rem;
+    overflow: hidden;
 
     img {
         height: 660px;
         width: 100%;
         object-fit: cover;
-        border-radius: 1rem;
     }
 }</style>

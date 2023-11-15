@@ -34,7 +34,7 @@ export default {
                     <div class="thumb-content">
                       <h5>London</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Experience regal charm in the heart of London. Immerse yourself in history at iconic landmarks and savor the cosmopolitan vibe of this global metropolis.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -51,7 +51,7 @@ export default {
                     <div class="thumb-content">
                       <h5>New York</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Indulge in the energy of the city that never sleeps. From Broadway lights to Central Park tranquility, discover the dynamic pulse of New York City.
                       </p>
                       <a href="#" class="btn btn-primary">More <i class="bi bi-arrow-right"></i></a>
                     </div>
@@ -66,7 +66,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Paris</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Surrender to the allure of Parisian elegance. Romance awaits in the City of Love, where the Eiffel Tower sparkles and artistry flourishes on every cobbled street.
                       </p>
                       <a href="#" class="btn btn-primary">More <i class="bi bi-arrow-right"></i></a>
                     </div>
@@ -84,7 +84,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Kuala Lumpur</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Discover the fusion of tradition and modernity in Kuala Lumpur. Dazzling skyscrapers, cultural enclaves, and vibrant markets await your exploration.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -100,7 +100,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Agra</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Step into the enchanting history of Agra. Home to the Taj Mahal, this city whispers tales of love, architectural brilliance, and Mughal grandeur.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -116,7 +116,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Dubai</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Immerse yourself in opulence in the heart of the desert. Dubai's futuristic skyline, luxury shopping, and desert adventures redefine extravagance.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -136,7 +136,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Rio De Janeiro</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Embark on a journey of rhythm and color in Rio De Janeiro. From the iconic Christ the Redeemer to lively samba beats, experience the vibrant soul of Brazil.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -152,7 +152,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Giza</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Witness the wonders of antiquity in Giza. The pyramids stand as eternal sentinels, inviting you to explore the mysteries of ancient Egypt.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -168,7 +168,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Sydney</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Bask in the sun-soaked allure of Sydney. From the iconic Opera House to Bondi Beach, this sea city seamlessly blends urban sophistication with natural beauty.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
