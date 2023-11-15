@@ -12,7 +12,7 @@ export default {
 
   <footer class="">
     <div class="py-3">
-      <div class="row justify-content-between">
+      <div class="row w-100 justify-content-between">
         <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
           <h5 class="footer-heading fw-bold">Support</h5>
           <ul class="list-unstyled d-flex flex-column justify-content-center align-items-center">
@@ -86,7 +86,7 @@ export default {
     </div>
 
     <div class="py-3 border-top">
-      <div class="row flex-wrap justify-content-between align-items-center g-3">
+      <div class="row w-100 flex-wrap justify-content-between align-items-center g-3">
         <div class="col-12 col-md-4 mb-0 d-flex flex-nowrap justify-content-center">
           <span class="me-2">© 2023 Boolbnb, Inc.</span>
           <a href="#" class="me-2">· Terms</a>

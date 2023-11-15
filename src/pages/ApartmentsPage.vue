@@ -62,13 +62,13 @@ export default {
     <DestinationsCarousel></DestinationsCarousel>
 
     <!-- CTA Section -->
-    <div class="p-3 justify-content-center border-bottom">
-      <div class="row my-3 justify-content-center">
-        <div class="col text-center">
-          <div class="card border-0">
-            <div class="card-body">
-              <div class="card-title">
-                <h3 class="mb-3">News & Discounts</h3>
+    <div class="py-3 justify-content-center border-bottom">
+      <div class="row w-100 my-3 justify-content-center">
+        <div class="col text-center pe-0 me-0">
+          <div class="card border-0 pe-0 me-0">
+            <div class="card-body pe-0 me-0">
+              <div class="card-title pe-0 me-0">
+                <h3 class="mb-3 pe-0 me-0">News & Discounts</h3>
               </div>
               <div class="row justify-content-center">
                 <div class="col-md-4">

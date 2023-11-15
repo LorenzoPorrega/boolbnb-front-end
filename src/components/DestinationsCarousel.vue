@@ -12,9 +12,9 @@ export default {
 
   <!-- Carousel Desktop -->
   <div class="pt-5 pb-3 d-none d-md-block border-bottom">
-    <div class="row">
+    <div class="row w-100">
       <h3>Trending destinations</h3>
-      <div class="col-12">
+      <div class="col-12 pe-0">
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
           <!-- Carousel indicators -->
           <ul class="carousel-indicators list-unstyled">
