@@ -24,7 +24,7 @@ export default {
 
 
 <template>
-  <div class="container">
+  <div>
     <TheHeader></TheHeader>
     <router-view></router-view>
     <TheFooter></TheFooter>
