@@ -43,9 +43,9 @@ export default {
 
     <!-- Featured Apartments Section -->
     <!-- <FeaturedApartments></FeaturedApartments> -->
-    <SponsoredApartments
+    <!-- <SponsoredApartments
     v-if="store.sponsoredList.length > 0">
-    </SponsoredApartments>
+    </SponsoredApartments> -->
 
     <!-- Regular Apartments Section -->
     <div class="py-5 px-5 border-bottom">

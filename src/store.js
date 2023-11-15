@@ -20,6 +20,7 @@ export const store = reactive({
     longitude:'',
     filteredAmenitiesId: [],
   },
+  currentHost:''
 })
 
 export function onPageLoad() {
@@ -53,13 +54,15 @@ export function filterApartment() {
   axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
   .then((response) => {
     console.log("Elenco di tutti gli appartamenti presi dal filtro (in start o dopo il filtraggio):");
-    store.apartments = response.data.apartments
-    if(response.data.funzione.length !== 0){
-      store.apartments = response.data.funzione
-      store.sponsoredList = response.data.sponsorizzati
-      store.apartmentFilter.latitude =''
-      store.apartmentFilter.longitude=''
-    }
+
+      store.apartments = [...response.data.apartmentsSponsorizzati,...response.data.NotSponsorizzati]
+
+    
+      //store.apartments = response.data.funzione
+      
+
+      // store.apartmentFilter.latitude =''
+      // store.apartmentFilter.longitude=''
     console.log(response)
     console.log(store.apartments)
     }
@@ -172,6 +175,7 @@ export function fetchAllAmenities(){
   .then(response => {
     store.allAmenities =  response.data.allAmenities;
     console.log("Elenco di tutte le amenities prese dal back-end dal DB:");
-    console.log(store.allAmenities);
+    //console.log(store.allAmenities);
+    console.log(response.data.host)
   })
 }
