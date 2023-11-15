@@ -174,10 +174,19 @@ export default {
   }
 
   .offcanvas {
-    width: 44vw;
+    width: 50vw;
     height: 65vh;
-    top: calc(50% - 25vh);
-    left: calc(50% - 22vw);
+    top: calc(50% - 32.5vh);
+    left: calc(50% - 25vw);
+  }
+
+  @media only screen and (max-width: 750px) {
+    .offcanvas {
+      width: 90vw;
+      height: 80vh;
+      top: calc(50% - 40vh);
+      left: calc(50% - 45vw);
+    }
   }
 
   #sliderValue {
