@@ -47,7 +47,7 @@ export default {
               <p class="text-primary">{{ singleApartment.bathroom_num }}</p>
             </div>
             <div class="d-flex fw-bold">
-              <p class="text-muted me-2">Price:</p>
+              <p class="text-muted me-2">Average daily rice:</p>
               <p class="text-primary">${{ singleApartment.price }}</p>
             </div>
           </div>

@@ -31,7 +31,7 @@ export default {
           </li>
           <li class="nav-item text-center">
             <!-- visualizzare solo se non loggati -->
-            <a class="nav-link" href="http://127.0.0.1:8000/">Log in</a>
+            <a class="nav-link" href="http://127.0.0.1:8000/">Private area</a>
             <!--  -->
           </li>
         </ul>

@@ -33,8 +33,12 @@ export default {
     },
     scrollToTop() {
       window.scrollTo(0, 0);
-    }
-
+    },
+    formatMonthYear(dateString) {
+      const date = new Date(dateString);
+      const options = { month: 'long', year: 'numeric' };
+      return date.toLocaleString('en-US', options);
+    },
   },
   mounted() {
     this.scrollToTop();
@@ -55,7 +59,7 @@ export default {
       <h5><strong>Beds number: </strong>{{ store.showedApartment.beds_num }}</h5>
       <h5><strong>Bathrooms number: </strong>{{ store.showedApartment.bathroom_num }}</h5>
       <h5><strong>Square meters: </strong>{{ store.showedApartment.square_meters }} m<sup>2</sup></h5>
-      <h5><strong>Created at: </strong>{{ store.showedApartment.created_at }}</h5>
+      <h5><strong>Apartment registered on: </strong>{{ formatMonthYear(store.showedApartment.created_at) }}</h5>
 
       <!-- Amenities Section -->
       <div class="container py-5 border-bottom">
@@ -108,7 +112,7 @@ export default {
           </div>
           <div class="col-5">
             <ul>
-              <li>Language: Italiano</li>
+              <li>Host's language: Italiano</li>
               <li>Response rate: 100%</li>
               <li>Response time: within an hour</li>
             </ul>
