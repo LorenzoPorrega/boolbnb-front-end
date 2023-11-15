@@ -14,7 +14,7 @@ export default {
     <div class="py-3">
       <div class="row justify-content-between">
         <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
-          <h5 class="footer-heading">Support</h5>
+          <h5 class="footer-heading fw-bold">Support</h5>
           <ul class="list-unstyled d-flex flex-column justify-content-center align-items-center">
             <li>
               <a href="#">Help Center</a>
@@ -37,7 +37,7 @@ export default {
           </ul>
         </div>
         <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
-          <h5 class="footer-heading">Hosting</h5>
+          <h5 class="footer-heading fw-bold">Hosting</h5>
           <ul class="list-unstyled d-flex flex-column justify-content-center align-items-center">
             <li>
               <a href="#">Boolbnb Your Home</a>
@@ -60,7 +60,7 @@ export default {
           </ul>
         </div>
         <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
-          <h5 class="footer-heading">Boolbnb</h5>
+          <h5 class="footer-heading fw-bold">Boolbnb</h5>
           <ul class="list-unstyled d-flex flex-column justify-content-center align-items-center">
             <li>
               <a href="#">Newsroom</a>
@@ -137,6 +137,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../scss/partials/variables" as *;
 
 footer img {
   width: 120px;
@@ -151,6 +152,10 @@ footer a {
 footer a:hover,
 footer a.active {
   color: #858585;
+}
+
+.footer-heading {
+  color: $palette-primary-dark;
 }
 
 </style>
