@@ -61,7 +61,7 @@ export default {
 <style lang="scss" scoped>
 
 .image-cover{
-  height: 100%;
+  height: 250px;
   .card-img-top{
     height: 100%;
     object-fit: cover;
