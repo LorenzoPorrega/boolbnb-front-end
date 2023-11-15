@@ -14,15 +14,16 @@ export default {
     // Function taken from store that saves the clicked card apartment's
     // slug on click
     saveSelectedApartmentSlug,
-  }
+  },
 };
 </script>
 
 <template>
+  
   <a href="#" class="text-decoration-none">
     <router-link :to="{ name: 'show', params: { slug: singleApartment.slug } }" class="text-decoration-none"
       @click.native="saveSelectedApartmentSlug(singleApartment.slug)">
-      <div class="card h-100">
+      <div class="card h-100 shadow-sm">
         <div class="image-cover">
           <img :src="`http://127.0.0.1:8000/storage/${singleApartment.images[0]}`" class="card-img-top" alt="..."
             loading="lazy">
@@ -54,6 +55,7 @@ export default {
       </div>
     </router-link>
   </a>
+
 </template>
 
 <style lang="scss" scoped>
@@ -65,11 +67,19 @@ export default {
     object-fit: cover;
   }
 }
-
 .card-footer{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+// 
+.card{
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+}
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06)
+}
 </style>

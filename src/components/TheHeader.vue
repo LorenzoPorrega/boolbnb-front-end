@@ -34,7 +34,7 @@ export default {
             <router-link :to="{ name: 'home' }" class="nav-link py-0">Home</router-link>
           </li>
           <li class="nav-item text-center mb-2">
-            <a class="nav-link py-0" href="http://127.0.0.1:8000/">Log in</a>
+            <a class="nav-link py-0" href="http://127.0.0.1:8000/">List your property</a>
           </li>
         </ul>
       </div>
