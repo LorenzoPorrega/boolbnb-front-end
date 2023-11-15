@@ -26,6 +26,8 @@ export default {
             // console.log(response);
             store.showedApartment = response.data.showedApartment[0];
             this.host = response.data.host
+            console.log(this.host)
+            store.currentHost = response.data.host["email"]
             createmap()
             getFrontEndCostumerIP(store.showedApartment.slug)
           });
