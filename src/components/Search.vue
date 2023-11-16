@@ -41,9 +41,10 @@ export default {
 
 
       })
-      store.apartmentFilter.beds_num=""
-      store.apartmentFilter.bathroom_num=""
-      store.apartmentFilter.rooms_num =""
+      store.apartmentFilter.beds_num = ""
+      store.apartmentFilter.bathroom_num = ""
+      store.apartmentFilter.rooms_num = ""
+      
     }
   },
   mounted() {

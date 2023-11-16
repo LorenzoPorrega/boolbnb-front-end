@@ -62,6 +62,11 @@ export function filterApartment() {
         console.log(response)
         console.log(store.apartments)
         store.searchLoading = false;
+        if (store.apartmentFilter.latitude != "") {
+          let bottone = document.querySelector('.btn-close');
+          bottone.click();
+        }
+
       }
       )
   }, 1500);
@@ -87,7 +92,7 @@ export function searchBar() {
     store.apartmentFilter.longitude = objectGeopoints['lng']
     // console.log(store.apartmentFilter.latitude)
     // console.log(store.apartmentFilter.longitude)
-    
+
 
   })
 }
