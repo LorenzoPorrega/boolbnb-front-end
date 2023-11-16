@@ -128,22 +128,23 @@ export default {
                         </div>
                       </div>
 
-                      <div class="mb-3 col-6">
+                      <div class="mb-3 col-12">
                         <label class="form-label fw-bold fs-5">Amenities</label>
                         <!-- <div class="box-bathroom_num-buttons d-flex gap-5">
                           <div>
                             <input type="checkbox" name="bathroom_num">1
                           </div>
                         </div> -->
-
-                        <div v-for="singleAmenity in store.allAmenities">
-                          <input class="form-check-input" type="checkbox" id="flexCheckDefault"
-                          :value="singleAmenity.id"
-                          v-model="store.apartmentFilter.filteredAmenitiesId">
-                          
-                          <span class="form-check-label ps-2" for="flexCheckDefault">
-                            {{ singleAmenity.name }}
-                          </span>
+                        <div class="row">
+                          <div class="col-12 col-sm-6 col-md-4" v-for="singleAmenity in store.allAmenities">
+                            <input class="form-check-input" type="checkbox" id="flexCheckDefault"
+                            :value="singleAmenity.id"
+                            v-model="store.apartmentFilter.filteredAmenitiesId">
+                            
+                            <span class="form-check-label ps-2" for="flexCheckDefault">
+                              {{ singleAmenity.name }}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -152,7 +153,7 @@ export default {
               </div>
             </div>
           </div>
-          <div class="d-flex justify-content-center py-5">
+          <div class="d-flex justify-content-center py-3 mt-3">
             <button class="btn btn-info" type="submit">Filtra</button>
           </div>
         </form>
