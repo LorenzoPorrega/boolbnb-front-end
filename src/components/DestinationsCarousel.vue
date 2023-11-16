@@ -201,7 +201,7 @@ export default {
   <div class="pt-5 pb-3 d-md-none border-bottom">
     <div class="row">
       <h3>Trending destinations</h3>
-      <div class="col-12 px-0">
+      <div class="col-12">
         <div id="myCarousel" class="carousel slide mx-0 px-5" data-bs-ride="carousel" data-bs-interval="3000">
           <!-- Carousel indicators -->
           <ul class="carousel-indicators list-unstyled">
@@ -214,7 +214,7 @@ export default {
           <div class="carousel-inner d-flex flex-wrap">
             <div class="carousel-item active">
               <div class="row">
-                <div class="col-6 px-1">
+                <div class="col-6 px-0">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/london.jpg" class="img-fluid" alt="">
@@ -222,7 +222,7 @@ export default {
                     <div class="thumb-content">
                       <h5>London</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -230,7 +230,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-6 px-1">
+                <div class="col-6 px-0">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/paris.jpg" class="img-fluid" alt="" loading="lazy">
@@ -238,7 +238,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Paris</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <a href="#" class="btn btn-primary">More <i class="bi bi-arrow-right"></i></a>
                     </div>
@@ -248,7 +248,7 @@ export default {
             </div>
             <div class="carousel-item">
               <div class="row">
-                <div class="col-6">
+                <div class="col-6 px-0">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/agra.jpg" class="img-fluid" alt="" loading="lazy">
@@ -256,7 +256,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Agra</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -264,7 +264,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 px-0">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/dubai.avif" class="img-fluid" alt="" loading="lazy">
@@ -272,7 +272,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Dubai</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -284,7 +284,7 @@ export default {
             </div>
             <div class="carousel-item">
               <div class="row">
-                <div class="col-6">
+                <div class="col-6 px-0">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/rio-de-janeiro.jpg" class="img-fluid" alt="" loading="lazy">
@@ -292,7 +292,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Rio De Janeiro</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -300,7 +300,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 px-0">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/giza.jpg" class="img-fluid" alt="" loading="lazy">
@@ -308,7 +308,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Giza</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -320,7 +320,7 @@ export default {
             </div>
             <div class="carousel-item">
               <div class="row">
-                <div class="col-6">
+                <div class="col-6 px-0">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/kuala-lumpur.jpg" class="img-fluid" alt="" loading="lazy">
@@ -328,7 +328,7 @@ export default {
                     <div class="thumb-content">
                       <h5>Kuala Lumpur</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <a href="#" class="btn btn-primary">More 
                         <i class="bi bi-arrow-right"></i>
@@ -336,7 +336,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 px-0">
                   <div class="thumb-wrapper">
                     <div class="img-box">
                       <img src="/images/new-york.jpg" class="img-fluid" alt="" loading="lazy">
@@ -344,7 +344,7 @@ export default {
                     <div class="thumb-content">
                       <h5>New York</h5>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor,varius quam.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <a href="#" class="btn btn-primary">More <i class="bi bi-arrow-right"></i></a>
                     </div>
