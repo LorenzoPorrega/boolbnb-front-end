@@ -47,7 +47,7 @@ export default {
             <div class="mb-3">
               <label>Name</label>
               <!-- <input type="text" class="form-control" v-model="formData.name"> -->
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" autofocus>
             </div>
             
             <div class="mb-3">

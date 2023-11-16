@@ -70,70 +70,70 @@ export default {
                     data-bs-parent="#accordionFilter">
                     <div class="accordion-body">
                       <!-- rooms_num -->
-                      <div class="mb-3 col-6">
+                      <div class="mb-3 col-12 col-lg-8">
                         <label class="form-label fw-bold fs-5">Bedrooms</label>
-                        <div class="box-rooms_num-buttons d-flex gap-5">
+                        <div class="box-rooms_num-buttons d-flex">
                           <div>
                             <input type="radio" name="rooms_num" value="" v-model="store.apartmentFilter.rooms_num"
                               class="form-check-input mx-1">Any
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="rooms_num" value="1" v-model="store.apartmentFilter.rooms_num"
                               class="form-check-input mx-1">1
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="rooms_num" value="2" v-model="store.apartmentFilter.rooms_num"
                               class="form-check-input mx-1">2
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="rooms_num" value="3" v-model="store.apartmentFilter.rooms_num"
                               class="form-check-input mx-1">3+
                           </div>
                         </div>
                       </div>
                       <!-- beds_num number -->
-                      <div class="mb-3 col-6">
+                      <div class="mb-3 col-12 col-lg-9">
                         <label class="form-label fw-bold fs-5">Beds</label>
-                        <div class="box-beds_num-buttons d-flex gap-5">
+                        <div class="box-beds_num-buttons d-flex">
                           <div>
                             <input type="radio" name="beds_num" value="" v-model="store.apartmentFilter.beds_num"
                               class="form-check-input mx-1">Any
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="beds_num" value="1" v-model="store.apartmentFilter.beds_num"
                               class="form-check-input mx-1">1
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="beds_num" value="2" v-model="store.apartmentFilter.beds_num"
                               class="form-check-input mx-1">2
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="beds_num" value="3" v-model="store.apartmentFilter.beds_num"
                               class="form-check-input mx-1">3
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="beds_num" value="4" v-model="store.apartmentFilter.beds_num"
                               class="form-check-input mx-1">4+
                           </div>
                         </div>
                       </div>
                       <!-- bath number -->
-                      <div class="mb-3 col-6">
+                      <div class="mb-3 col-12 col-lg-8">
                         <label class="form-label fw-bold fs-5">Bathrooms</label>
-                        <div class="box-bathroom_num-buttons d-flex gap-5">
+                        <div class="box-bathroom_num-buttons d-flex">
                           <div>
                             <input type="radio" name="bathroom_num" value="" v-model="store.apartmentFilter.bathroom_num"
                               class="form-check-input mx-1">Any
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="bathroom_num" value="1" v-model="store.apartmentFilter.bathroom_num"
                               class="form-check-input mx-1">1
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="bathroom_num" value="2" v-model="store.apartmentFilter.bathroom_num"
                               class="form-check-input mx-1">2
                           </div>
-                          <div>
+                          <div class="ms-auto">
                             <input type="radio" name="bathroom_num" value="3" v-model="store.apartmentFilter.bathroom_num"
                               class="form-check-input mx-1">3+
                           </div>
