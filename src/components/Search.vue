@@ -7,11 +7,45 @@ export default {
     return {
       store,
       indirizzo: '',
-  }
+    }
   },
   methods: {
     filterApartment,
-    rangeSlider
+    rangeSlider,
+    reset() {
+      let options = {
+        searchOptions: {
+          key: "9GGMAIWofgnTAUXbZTCGx0V0SDSxAx9I",
+          language: "it-It",
+          limit: 5,
+        },
+      }
+      store.apartmentFilter.latitude = ''
+      store.apartmentFilter.longitude = ''
+      const input = document.querySelector('.tt-search-box-input');
+      input.value = ''
+      input.innerHTML = ''
+      const address = document.getElementById('input')
+      address.innerHTML = ''
+      let ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
+      let searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+      address.append(searchBoxHTML)
+      ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
+        // console.log('Funzione per prendere la città triggerata')
+
+        let objectGeopoints = data['data']['result']['position']
+        store.apartmentFilter.latitude = objectGeopoints['lat']
+        store.apartmentFilter.longitude = objectGeopoints['lng']
+        // console.log(store.apartmentFilter.latitude)
+        // console.log(store.apartmentFilter.longitude)
+
+
+      })
+      store.apartmentFilter.beds_num = ""
+      store.apartmentFilter.bathroom_num = ""
+      store.apartmentFilter.rooms_num = ""
+      
+    }
   },
   mounted() {
     searchBar()
@@ -150,9 +184,8 @@ export default {
                         <div class="row">
                           <div class="col-12 col-md-6 col-xl-4" v-for="singleAmenity in store.allAmenities">
                             <input class="form-check-input" type="checkbox" id="flexCheckDefault"
-                            :value="singleAmenity.id"
-                            v-model="store.apartmentFilter.filteredAmenitiesId">
-                            
+                              :value="singleAmenity.id" v-model="store.apartmentFilter.filteredAmenitiesId">
+
                             <span class="form-check-label ps-2" for="flexCheckDefault">
                               {{ singleAmenity.name }}
                             </span>
@@ -167,6 +200,9 @@ export default {
           </div>
           <div class="d-flex justify-content-center py-3 mt-3">
             <button class="btn btn-info" type="submit">Filtra</button>
+          </div>
+          <div class="d-flex justify-content-center py-3 mt-3">
+            <button class="btn btn-info" @click="reset()">Resetta</button>
           </div>
         </form>
       </div>

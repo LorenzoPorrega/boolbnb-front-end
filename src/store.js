@@ -15,12 +15,12 @@ export const store = reactive({
     bathroom_num: "",
     geopoints: "",
     freeformAddress: "",
-    distance: 20,    
-    latitude:'',
-    longitude:'',
+    distance: 20,
+    latitude: '',
+    longitude: '',
     filteredAmenitiesId: [],
   },
-  currentHost:'',
+  currentHost: '',
   searchLoading: true,
 })
 
@@ -55,15 +55,20 @@ export function filterApartment() {
     url.search = new URLSearchParams(params).toString();
     console.log(url.search);
 
-    axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
-    .then((response) => {
-      console.log("Elenco di tutti gli appartamenti presi dal filtro (in start o dopo il filtraggio):");
-      store.apartments = [...response.data.apartmentsSponsorizzati,...response.data.NotSponsorizzati]
-      console.log(response)
-      console.log(store.apartments)
-      store.searchLoading = false;
+    axios.get("http://127.0.0.1:8000/api/apartments/", { params: store.apartmentFilter })
+      .then((response) => {
+        console.log("Elenco di tutti gli appartamenti presi dal filtro (in start o dopo il filtraggio):");
+        store.apartments = [...response.data.apartmentsSponsorizzati, ...response.data.NotSponsorizzati]
+        console.log(response)
+        console.log(store.apartments)
+        store.searchLoading = false;
+        if (store.apartmentFilter.latitude != "") {
+          let bottone = document.querySelector('.btn-close');
+          bottone.click();
+        }
+
       }
-    )
+      )
   }, 1500);
 }
 
@@ -87,6 +92,7 @@ export function searchBar() {
     store.apartmentFilter.longitude = objectGeopoints['lng']
     // console.log(store.apartmentFilter.latitude)
     // console.log(store.apartmentFilter.longitude)
+
 
   })
 }
@@ -151,12 +157,12 @@ export function getFrontEndCostumerIP($slug) {
       ipAdress: ipAdress,
       showedApartmentSlug: $slug,
     })
-    .then(response => {
-      // console.log(response.data);
-    })
-    .catch(error => {
-      /* console.log(error); */
-    });
+      .then(response => {
+        // console.log(response.data);
+      })
+      .catch(error => {
+        /* console.log(error); */
+      });
   });
 }
 
@@ -168,12 +174,12 @@ export function getFrontEndCostumerIP($slug) {
   })
 } */
 
-export function fetchAllAmenities(){
+export function fetchAllAmenities() {
   axios.get("http://127.0.0.1:8000/api/fetchAllAmenities")
-  .then(response => {
-    store.allAmenities =  response.data.allAmenities;
-    console.log("Elenco di tutte le amenities prese dal back-end dal DB:");
-    //console.log(store.allAmenities);
-    console.log(response.data.host)
-  })
+    .then(response => {
+      store.allAmenities = response.data.allAmenities;
+      console.log("Elenco di tutte le amenities prese dal back-end dal DB:");
+      //console.log(store.allAmenities);
+      console.log(response.data.host)
+    })
 }
