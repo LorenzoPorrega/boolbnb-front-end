@@ -74,6 +74,10 @@ export default {
                         <label class="form-label fw-bold fs-5">Bedrooms</label>
                         <div class="box-rooms_num-buttons d-flex gap-5">
                           <div>
+                            <input type="radio" name="rooms_num" value="" v-model="store.apartmentFilter.rooms_num"
+                              class="form-check-input mx-1">Any
+                          </div>
+                          <div>
                             <input type="radio" name="rooms_num" value="1" v-model="store.apartmentFilter.rooms_num"
                               class="form-check-input mx-1">1
                           </div>
@@ -91,6 +95,10 @@ export default {
                       <div class="mb-3 col-6">
                         <label class="form-label fw-bold fs-5">Beds</label>
                         <div class="box-beds_num-buttons d-flex gap-5">
+                          <div>
+                            <input type="radio" name="beds_num" value="" v-model="store.apartmentFilter.beds_num"
+                              class="form-check-input mx-1">Any
+                          </div>
                           <div>
                             <input type="radio" name="beds_num" value="1" v-model="store.apartmentFilter.beds_num"
                               class="form-check-input mx-1">1
@@ -114,6 +122,10 @@ export default {
                         <label class="form-label fw-bold fs-5">Bathrooms</label>
                         <div class="box-bathroom_num-buttons d-flex gap-5">
                           <div>
+                            <input type="radio" name="bathroom_num" value="" v-model="store.apartmentFilter.bathroom_num"
+                              class="form-check-input mx-1">Any
+                          </div>
+                          <div>
                             <input type="radio" name="bathroom_num" value="1" v-model="store.apartmentFilter.bathroom_num"
                               class="form-check-input mx-1">1
                           </div>
@@ -136,7 +148,7 @@ export default {
                           </div>
                         </div> -->
                         <div class="row">
-                          <div class="col-12 col-sm-6 col-md-4" v-for="singleAmenity in store.allAmenities">
+                          <div class="col-12 col-md-6 col-xl-4" v-for="singleAmenity in store.allAmenities">
                             <input class="form-check-input" type="checkbox" id="flexCheckDefault"
                             :value="singleAmenity.id"
                             v-model="store.apartmentFilter.filteredAmenitiesId">

@@ -33,7 +33,7 @@ export default {
           <p class="card-text">{{ singleApartment.address }}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex">
-              <p class="text-muted me-2">Rooms:</p>
+              <p class="text-muted me-2">Bedrooms:</p>
               <p class="text-primary">{{ singleApartment.rooms_num }}</p>
             </div>
             <div class="d-flex">
