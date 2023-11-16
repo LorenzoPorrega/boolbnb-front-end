@@ -26,7 +26,7 @@ export default {
         </a>
         <Search></Search>
         <ul class="nav nav-pills me-2">
-          <li class="nav-item">
+          <li class="nav-item d-none d-md-block">
             <router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item text-center">

@@ -63,8 +63,8 @@ export default {
           <ShowCarousel :showedApartment="store.showedApartment"></ShowCarousel>
         </div>
         <div class="col-md-6 col-12">
-          <div class="d-flex flex-column justify-content-center ms-5">
-            <div class="col-8">
+          <div class="d-flex flex-column justify-content-center ms-0 ms-md-5">
+            <div class="col-12 col-md-8">
             <h4 class="my-3 fw-semibold">Apartment Pricing & Details</h4>
             <!-- Booking Sidebar -->
             <div class="card p-3">
@@ -123,7 +123,7 @@ export default {
         <div class="my-4">
           <h3 class="fw-bold fs-4">What this place offers</h3>
         </div>
-        <div class="row row-cols-3 row-cols-md-6 g-3">
+        <div class="row  row-cols-2 row-cols-sm-3 row-cols-md-6 g-3">
           <div class="col" v-for="singleAmenity in store.showedApartment.amenities " :key="singleAmenity.id">
             <AmenityCard :singleAmenity="singleAmenity"></AmenityCard>
           </div>
@@ -150,12 +150,12 @@ export default {
 
   <!-- Host Section with contact redirect -->
   <div class="py-5 border-bottom">
-    <div class="row py-3">
-      <div class="col-3 d-flex justify-content-center align-items-start">
+    <div class="row justify-content-center py-3 g-3">
+      <div class="col-12  col-md-3 d-flex justify-content-center align-items-start">
         <img src="/images/lporrega.JPG" alt="Host-Avatar" class="host-avatar">
       </div>
-      <div class="col-9 host-info d-flex">
-        <div class="row">
+      <div class="col-12 col-md-9 host-info d-flex">
+        <div class="row g-2">
           <div class="col-7">
             <h3>Hosted by {{ this.host.name }}</h3>
             <ul>
