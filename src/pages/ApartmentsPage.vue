@@ -5,6 +5,7 @@ import SponsoredApartments from "../components/SponsoredApartments.vue";
 import DestinationsCarousel from "../components/DestinationsCarousel.vue";
 import FeaturedApartments from "../components/FeaturedApartments.vue";
 import { store, filterApartment } from '../store.js';
+import LoaderCard from '../components/LoaderCard.vue';
 
 export default {
   data() {
@@ -18,8 +19,9 @@ export default {
     Card,
     DestinationsCarousel,
     FeaturedApartments,
-    SponsoredApartments
-  },  
+    SponsoredApartments,
+    LoaderCard
+},  
   mounted() {
     filterApartment()
 
@@ -48,13 +50,20 @@ export default {
     </SponsoredApartments> -->
 
     <!-- Regular Apartments Section -->
-    <div class="py-5 px-5 border-bottom">
+    <div class="py-5 px-5 border-bottom" v-if="store.searchLoading === false">
       <h2>Apartments</h2>
 
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 align-items-stretch g-5 py-3">
         <div class="col px-2" v-for="singleApartment in store.apartments " :key="singleApartment.id">
           <Card :singleApartment="singleApartment"></Card>
         </div>
+      </div>
+    </div>
+
+    <div class="py-5 px-5 border-bottom" v-if="store.searchLoading === true">
+      <h2>Apartments</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 align-items-stretch g-5 py-3">
+        <LoaderCard v-for="index in 12" :key="index" class="col px-2"></LoaderCard>
       </div>
     </div>
 

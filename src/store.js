@@ -20,7 +20,8 @@ export const store = reactive({
     longitude:'',
     filteredAmenitiesId: [],
   },
-  currentHost:''
+  currentHost:'',
+  searchLoading: true,
 })
 
 export function onPageLoad() {
@@ -45,28 +46,25 @@ export function saveSelectedApartmentSlug(slug) {
 }
 
 export function filterApartment() {
-  const baseURL = "http://127.0.0.1:8000/api/apartments/";
-  const params = store.apartmentFilter;
-  const url = new URL(baseURL);
-  url.search = new URLSearchParams(params).toString();
-  console.log(url.search);
 
-  axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
-  .then((response) => {
-    console.log("Elenco di tutti gli appartamenti presi dal filtro (in start o dopo il filtraggio):");
+  setTimeout(() => {
+    store.searchLoading = true;
+    const baseURL = "http://127.0.0.1:8000/api/apartments/";
+    const params = store.apartmentFilter;
+    const url = new URL(baseURL);
+    url.search = new URLSearchParams(params).toString();
+    console.log(url.search);
 
+    axios.get("http://127.0.0.1:8000/api/apartments/", {params: store.apartmentFilter})
+    .then((response) => {
+      console.log("Elenco di tutti gli appartamenti presi dal filtro (in start o dopo il filtraggio):");
       store.apartments = [...response.data.apartmentsSponsorizzati,...response.data.NotSponsorizzati]
-
-    
-      //store.apartments = response.data.funzione
-      
-
-      // store.apartmentFilter.latitude =''
-      // store.apartmentFilter.longitude=''
-    console.log(response)
-    console.log(store.apartments)
-    }
-  )
+      console.log(response)
+      console.log(store.apartments)
+      store.searchLoading = false;
+      }
+    )
+  }, 1500);
 }
 
 export function searchBar() {
