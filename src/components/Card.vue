@@ -20,13 +20,16 @@ export default {
 
 <template>
   
-  <a href="#" class="text-decoration-none">
+  <a href="#" class="text-decoration-none card-link ">
     <router-link :to="{ name: 'show', params: { slug: singleApartment.slug } }" class="text-decoration-none"
       @click.native="saveSelectedApartmentSlug(singleApartment.slug)">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100 shadow-sm position-relative">
         <div class="image-cover">
           <img :src="`http://127.0.0.1:8000/storage/${singleApartment.images[0]}`" class="card-img-top" alt="..."
             loading="lazy">
+        </div>
+        <div class="position-absolute badge-container d-flex align-items-center justify-content-center" v-if=" singleApartment.name ">
+          <span class="badge rounded-1">Featured</span>
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ singleApartment.title }}</h5>
@@ -59,7 +62,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+@use "../scss/partials/variables" as *;
 .image-cover{
   height: 250px;
   .card-img-top{
@@ -80,6 +83,14 @@ export default {
 }
 .card:hover{
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06)
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+.badge-container{
+  right: 10px;
+  top: 10px;
+  .badge{
+    background-color: $palette-primary;
+  }
 }
 </style>
