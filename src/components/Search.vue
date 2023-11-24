@@ -199,10 +199,10 @@ export default {
             </div>
           </div>
           <div class="d-flex justify-content-center py-3 mt-3">
-            <button class="btn btn-info" type="submit">Filtra</button>
+            <button class="btn btn-info" type="submit">Search</button>
           </div>
-          <div class="d-flex justify-content-center py-3 mt-3">
-            <button class="btn btn-info" @click="reset()">Resetta</button>
+          <div class="d-flex justify-content-center mt-1">
+            <button class="btn btn-info" @click="reset()">Reset</button>
           </div>
         </form>
       </div>
